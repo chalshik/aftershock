@@ -1,0 +1,19 @@
+# REG-8
+
+*Registered 2026-11-06 · GPU runs · result 2026-11-07*
+
+| | |
+|---|---|
+| **Question** | REG-7's question, at a 350 W GPU power limit: is there a load in setup L1 with c_b(λ) < λ ≤ c_warm(λ) (`docs/model.md` M2)? A `pass` would support 'a stuck state is possible at 350 W' only. |
+| **Runs** | 13 valid runs at 350 W, no rerun: G2′ cache off, λ = 1 (part a, the heat test) and 1.5–4 (part b), seed 0, 900 s; G1′ part a cache on, λ = 2, 3, 3.5, 4, 4.5, 5. G1′ part b (5.5, 6, 7) and G3′ were not run. |
+| **Outcome rule** | REG-7's analysis, unchanged, on the 350 W sweeps: `gate.reg8_zone` = `gate.zone(gate.REG8)`. Part a by `gate.reg8_part_a`: `heat` (the limit held, and SW-thermal share > 0.05 or a HW-thermal sample), `rerun` (any other failure), `valid`. G1′ starts only if `gate.reg8_g1_may_start()` has status `ok`; G1′ part b only if `gate.reg8_g1b_may_start()`. G3′ by `gate.reg8_gate_verdict` (both runs 350 W at the same λ), then REG-7's labels. 'No λ_test' is reported with its cause: floor status, the capacity chain's end, or `slo_feasible`. |
+| **Prediction** | Part a valid p ≈ 0.75, peak ≈ 74 °C; clock ≈ 5 % lower than at 420 W. μ_sat,off ∈ [1.3, 2.1] (point 1.6), floor `ok` p ≈ 0.7; μ_warm ∈ [3, 5.5] (point 4.5); λ_test exists p ≈ 0.6 (point 3.5). Given G3′: `pass` ≈ 0.3, `drains` ≈ 0.45, `control_not_healthy` ≈ 0.1, `inconclusive` ≈ 0.15. Overall `pass` ≈ 0.75 × 0.6 × 0.3 ≈ 0.14. |
+| **Decision under each outcome** | Part a `heat`: one rerun; a second `heat` stops L1 ('gate not completed: GPU heat at 420 and 350 W'). G2′ floor not `ok`: stop before G1′. Otherwise REG-7's table at 350 W: no λ_test with floor `ok` means no shock matrix at L1 and the author picks the next factor; `pass` registers the shock matrix at 350 W; `drains`, `control_not_healthy`, `inconclusive` as REG-7. |
+| **Adversarial review** | One round of adversarial review (traces T1–T11, ten recommendations). Adopted before approval and any run: a three-way part-a rule separating heat from other failures, one heat rerun, G1′ gated on the floor status and split in two parts, the 420 W capacity readout dropped as heat-censored, `gate.reg8_gate_verdict` guards, the worst-case cost stated, a sample without a value failing `power_limit`, and launch temperatures logged. Not adopted: a per-rate G1′ split and changes to `gpu_steady`'s denominators. |
+| **Result** | No λ_test at 350 W: μ_warm 3.0, μ_off 1.0, μ_sat,off 1.681 (λ_sat 2.0, n = 5, `ok`). Cause: the capacity chain; λ_test ≤ 0.8 × 3.0 = 2.4, at most 2.0 on the grid, below 1.3 × 1.681 = 2.185. λ = 3.5 passed throughput (3.485 against 3.439) but failed the queue slope (0.0145 against 0.01 req/s); λ = 4 failed both. Pooled percent fast at TTFT ≤ 1.0 s: 1.000, 0.990, 0.716, 0.406, 0.155, 0.000 at λ = 2, 3, 3.5, 4, 4.5, 5. Capacity loss 1 − 1.681 / 4.047 = 0.585. |
+| **Prediction held** | no (λ_test exists had p ≈ 0.6; it did not occur); the floor prediction hit (1.681) and μ_warm hit at the bottom edge (3.0). Ambiguous on the calibration cross-check, where among the terminal labels 'no λ_test' ranks first. |
+| **Not separated** | μ_warm comes from one arrival pattern (seed 0); the 350 W cap may lower the warm side; the margins 0.8 μ_warm and 1.3 μ_sat,off are registered choices; latency rather than throughput limits the warm side (λ = 3.5 kept up at 3.485 while percent fast was 0.716). |
+| **In the paper** | §4.1 (P1, the margins against the open-loop floor; P5, the open-loop capacities, also Appendix C.6); §6 (P50, the power limit). |
+| **Notes** | The outcome rests on one marginal failure: had λ = 3.5 passed its slope test, μ_warm would be 3.5 and λ_test 2.5; the 0.01 threshold was not reopened. A load inside the raw M2 window was allowed only as a new, exploratory registration (REG-10). |
+
+[All registrations](README.md)

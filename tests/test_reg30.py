@@ -211,3 +211,13 @@ def test_z2_reference_is_e1s_four_saturated_runs():
     ids = reg30.Z2["ref_runs"]
     assert len(ids) == 4 and all("_sweep_l1pl350cl_pc_off_r" in i for i in ids)
     assert [float(i.rsplit("_r", 1)[1]) for i in ids] == [2.5, 3.0, 3.5, 4.0]
+
+
+def test_platforms_reads_env_per_seed_and_lists_missing(monkeypatch):
+    p = {"runs": {1: "b1", 2: "b2"}, "controls": {1: "c1", 2: "c2"}}
+    env = {"b1": "K149", "c1": "K147", "b2": "K149"}        # c2 does not load
+    monkeypatch.setattr(reg30, "REG30", p)
+    monkeypatch.setattr(reg30, "find_runs", lambda rid: [{"env": {"platform": env[rid]}}] if rid in env else [])
+    out = reg30.platforms()
+    assert out["by_seed"] == {1: {"run": "K149", "control": "K147"}, 2: {"run": "K149"}}
+    assert out["missing"] == ["c2"] and out["distinct"] == ["K147", "K149"]

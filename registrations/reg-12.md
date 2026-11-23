@@ -1,0 +1,19 @@
+# REG-12
+
+*Registered 2026-11-09 · GPU runs · claim C1 · result 2026-11-09*
+
+| | |
+|---|---|
+| **Question** | Confirmatory for C1's matrix condition at one load: in REG-11's cell (closed-loop turns, L1, 350 W, λ = 2.4), does the burst run end `stuck` while its same-seed control ends `recovered`, in most seeds? |
+| **Runs** | 10 runs: burst seeds 2–6, each with a same-seed control; REG-11's configs with only name and seed changed (2580 s, burst at 900 s for 180 s at 2.4 req/s with 2944-token prompts). All 10 valid after one rerun (the seed-6 control, invalid on `accounting` when the recorder stopped at t = 213 s). |
+| **Outcome rule** | `gate.reg12_table`, per seed `gate.reg12_pair` (exactly one valid run of each kind). A seed is stuck if the burst run's `load.verdict` is `stuck` and the control's is `recovered`; `k_pass` counts stuck seeds whose span test gives `pass`. k of n with the one-sided 95 % Clopper–Pearson upper bound. `gate.reg12_outcome`, in order: `controls_not_healthy` if 2 or more controls are not `recovered`; else `supports` if k ≥ 3; `some` if k = 1–2; `none` if k = 0. |
+| **Prediction** | Per seed P(stuck by C1's test) ≈ 0.65, with P(burst `stuck`) ≈ 0.72 and P(control `recovered`) ≈ 0.9. k ≥ 3 of 5 ≈ 0.77. Each control `recovered` p ≈ 0.9; each run valid p ≈ 0.9; each burst fills the pool p ≈ 0.95. P(k = 0) ≈ 0.35⁵ ≈ 0.005. |
+| **Decision under each outcome** | `controls_not_healthy`: λ = 2.4 is not reliably warm-healthy with closed-loop turns and the matrix cannot speak to C1; the author decides (a closed-loop cache-on sweep to measure μ_warm first). `supports` with k_pass ≥ 3: draft C1's confirmation run (4500 s watch, then the drop to λ = 1) and C2's controls. `supports` with k_pass < 3: only the confirmation run. `some`: the author chooses between more seeds, a larger trigger, or reporting the cell as seed-dependent. `none`: REG-11's `pass` did not reproduce. A queue stop: no table, seeds reported from `checks.json`. |
+| **Adversarial review** | One round of adversarial review (a first attempt ended on a network error before reporting and was rerun with the same inputs). Three blocking recommendations (mutually exclusive outcomes with `controls_not_healthy` first, `k_pass` fixed before any run, run ids pinned with no rerun on a verdict) and five others; all eight adopted before approval and the runs. The seed count (five seeds, 2–6) was the author's choice before the review. |
+| **Result** | `controls_not_healthy`. k = 2 of n = 5, one-sided 95 % upper bound 0.811 (lower bound 0.076); k_pass = 2; `n_control_recovered` = 2. Controls: seeds 2 and 3 `recovered`; seed 4 `stuck` (partly degraded: hit 0.653, KV 0.48); seed 5 `stuck` in the cold, full, backlogged state with no burst (pf 0.000, hit 0.000, waiting 100.2, KV 0.95); seed 6 `unclear`. Burst runs: `stuck` in seeds 2, 3, 4, 6, seed 5 `bad_baseline` (baseline pf 0.970); every post-burst span cold and full, c 1.70–1.84 req/s. |
+| **Prediction held** | no (`controls_not_healthy` had no stated prior; k ≥ 3 ≈ 0.77 did not happen, and only 2 of 5 controls recovered against p ≈ 0.9 each) |
+| **Not separated** | Seed 5's no-burst collapse: plain overload (λ = 2.4 at or above the closed-loop warm capacity) against a self-triggered metastable transition (a load fluctuation tipping a warm state that held ≥ 1080 s). |
+| **In the paper** | §4.1 (P12, the λ = 2.4 matrix; text also in Appendix C.7); Appendix C.14 (P35, the four links at λ = 2.4; its controls); §4.6 (P42, its controls among the no-burst departures; the seed-4 control a counterexample). |
+| **Notes** | The burst is not shown to cause the stuck state in this cell. A later correction (2026-11-10, on REG-16 and REG-13's reading) attributes the no-burst collapses on record, including this matrix's seed-4 and seed-5 controls, to a 120 s surge of planned arrivals rather than a sustained load. Single control per seed. |
+
+[All registrations](README.md)

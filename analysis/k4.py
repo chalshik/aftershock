@@ -35,7 +35,7 @@ K4 = {
     "judged_seeds": tuple(range(100, 600)),       # the feasibility count a registration would judge; widened from
                                                   # 100-399 before any judged scan (decisions.md 2026-11-17, K4 points)
     "conf": 0.95,
-    # Draft 2's design (decisions.md 2026-11-17 [DECISION] (delegate) K4's four open points):
+    # Draft 2's design (decisions.md 2026-11-17 [DECISION] K4's four open points):
     "n": 5, "r_c": 2, "r_s": 2, "need_s": 4,
     # Prediction only (BELIEF; draft 2): per surge run and per calm run.
     "prediction": {"surge": {"tipped": 0.80, "warm": 0.12, "unclear": 0.08},

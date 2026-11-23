@@ -1,0 +1,19 @@
+# REG-2
+
+*Registered 2026-11-04 · a reading of runs already made · result 2026-11-04*
+
+| | |
+|---|---|
+| **Question** | Two no-trigger controls came out `bad_baseline`, dipping with no shock. Is the pattern a regular preemption cycle of the Ao et al. kind (a competing mechanism to C2's loop), or arrival excesses of the seed-1 schedule at a load on the capacity edge? |
+| **Runs** | 0 GPU h. Two valid controls, one seed each: `20261101-202808_stage2_control_cap_r4` (default pool, λ = 4) and `20261102-225146_stage2_control_kv72k_r3.5` (72k pool, λ = 3.5). Not blind: their verdict levels, percent fast per 300 s and preemption totals were already published; the time series had not been looked at. |
+| **Outcome rule** | `mechanisms.reg2_table` (`mechanisms.classify_dips`), 60 s bins over 240–2400 s. Episode: a run of bins with percent fast < 0.98, runs separated by ≤ 2 healthy bins merged. High lead: the planned rate over [a − 180 s, a + 60 s) ≥ 1.05 λ; arrival_share is the share of episodes with a high lead in any of their bins, base_share the share of all bins with one; cv_chance from 20,000 seeded random placements. Labels in order: `too_few_episodes` (fewer than 2 episodes); `ao_like_cycle` (≥ 4 episodes, cv_chance ≤ 0.05, preemptions in or in the bin before ≥ 2/3 of episodes, and arrival_share − base_share < 0.3); `arrival_driven` (arrival_share ≥ 2/3 and arrival_share − base_share ≥ 0.3); `unclassified`. |
+| **Prediction** | λ = 4: `arrival_driven` ≈ 0.5, `unclassified` ≈ 0.35, `too_few_episodes` ≈ 0.1, `ao_like_cycle` ≈ 0.05. 72k λ = 3.5: `too_few_episodes` ≈ 0.6, `arrival_driven` ≈ 0.25. |
+| **Decision under each outcome** | `ao_like_cycle` in either run: a new open question, the cycle added to `docs/claims.md` as a C2 alternative, and a registered test that varies output length proposed. No `ao_like_cycle` and `arrival_driven` in at least one run: the dips are attributed to the schedule at the capacity edge, for that run only, as support for an upper edge for future cells (the highest λ with a `recovered` 2400 s control); no run. Neither label: the question closes as not resolved by existing data; no run. The λ = 4 exclusion stands either way. |
+| **Adversarial review** | One round of adversarial review, before any computation. It built traces where arrival-driven dips and one flickering slump came out `ao_like_cycle`, and found the decision table had no row for a mixed result. Changes made before computation: the arrival window includes the bin, with a 1.05 λ threshold, merging of episodes, ≥ 4 episodes and a seeded chance test, preemptions in the bin before counted, per-bin prompt and unfinished counts reported, every label pair given a decision; predictions revised. n = 1 per setup not changed. |
+| **Result** | Both runs `arrival_driven`; no `ao_like_cycle`. λ = 4: 3 episodes, arrival_share 0.667 against base_share 0.306 (excess 0.36), CV 0.85, cv_chance 0.67, all 32 preemptions inside episodes; arrival_share sits exactly on the 2/3 threshold. 72k λ = 3.5: 2 episodes, arrival_share 1.0 against base 0.278, all 13 preemptions inside them. |
+| **Prediction held** | λ = 4: yes (likeliest outcome). 72k λ = 3.5: no (`arrival_driven` had prior ≈ 0.25 against ≈ 0.6 for `too_few_episodes`). |
+| **Not separated** | `arrival_driven` names the trigger (KV-full episodes started by arrival excesses); it does not rule out preemptions amplifying a dip, and there is one run per setup. |
+| **In the paper** | Not named in the text (Appendix A: a reading of two earlier control runs; both control dips arrival-driven). Its two priors are among those counted in Appendix D.2's calibration (P33). |
+| **Notes** | Decision taken as registered: the two `bad_baseline` controls are attributed to arrival excesses of the seed-1 schedule at the capacity edge; no run proposed; the question closed. |
+
+[All registrations](README.md)

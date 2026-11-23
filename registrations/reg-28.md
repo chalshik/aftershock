@@ -1,0 +1,19 @@
+# REG-28: the session-share test
+
+*Registered 2026-11-18 · a reading of runs already made · claim K3, C2 · result 2026-11-20*
+
+| | |
+|---|---|
+| **Question** | Two blind readings of REG-27's stuck burst runs. Q1 (K3): does the share of completed work that finishes sessions follow model F's replay or the quasi-static reading (share 1)? Q2 (C2's churn alternative): how much of the stuck engine's prompt work can be re-prefill after preemption? |
+| **Runs** | No new runs (0 GPU h). REG-27's burst runs labelled stuck through the watch (`confirms`, `no_return`, `drop_inconclusive`), over W = [burst end + 600 s, watch end). Registered while REG-27's runs were sealed, before REG-27's result was computed. |
+| **Outcome rule** | `reg28.table`. Q1: obs = 8 × last session turns / session turns ended ok in W; model F = the mean of three FIFO all-miss replays of the run's own schedule at μ_X fitted to the run's session-turn rate; quasi-static = 1. Means over counted runs of dev_F = obs − pred and dev_Q = obs − 1, against ±0.03: `law_holds` (\|dev_F\| ≤ 0.03 and \|dev_Q\| > 0.03), `quasi_static` (the reverse), `neither` (both > 0.03), `not_separated` (both ≤ 0.03), `too_few` (< 3 runs). A run whose replays spread by more than half its gap 1 − pred is `replay_sensitive`, left out. Q2: Δ preemptions in W × 4096 tokens / uncached prompt tokens in W; `churn_bounded` (every counted run ≤ 0.05), `not_bounded`, `too_few`. |
+| **Prediction** | Q1: `law_holds` 0.42, `neither` 0.27, `quasi_static` 0.17, `not_separated` 0.03, `too_few` 0.11. Q2: `churn_bounded` 0.82, `not_bounded` 0.07, `too_few` 0.11. |
+| **Decision under each outcome** | Q1 `law_holds`: K3 may say that a FIFO all-miss replay of model F at the fitted capacity reproduced the share, blind (not a test of the all-miss assumption itself); `quasi_static` or `neither`: K3 stays 'token work consistent with an all-miss engine', the miss reported; `not_separated`, `too_few`: no change. Q2 `churn_bounded`: §5.7 and §6 may state that at most 5 % of the stuck engine's prompt work is re-prefill after preemption; `not_bounded`: no bound stated, nothing named. It cannot change REG-27's count, C1's order clause, C2's loop or the owed-backlog alternative. |
+| **Adversarial review** | Two rounds before registration: round 1 four blocking items (a long-run value on a short window; the completion rate is not μ; a label from an upper bound; blindness), all applied; round 2 no blocking item, advisories applied (three replays instead of one; narrower wording). No third round. |
+| **Result** | Q1 `law_holds`: mean dev_F +0.0023, mean dev_Q −0.1115; model F nearer in 4 of 4 (seeds 61, 68, 72, 79: observed share 0.910 / 0.914 / 0.839 / 0.890 against model F 0.906 / 0.908 / 0.853 / 0.877); none `replay_sensitive`. Q2 `churn_bounded`: shares 0.0387 / 0.0361 / 0.0366 / 0.0388 (max 0.0388). |
+| **Prediction held** | yes (likeliest outcome for both: `law_holds` at 0.42, `churn_bounded` at 0.82) |
+| **Not separated** | Q1 does not separate FIFO with a growing wait from the all-miss assumption: the label confirms the replay's queue dynamics at the fitted μ. Q2 bounds direct re-prefill of preempted requests only; preemption that evicts other sessions' prefixes lands in the denominator, so Ao et al.'s preemption cycle is not ruled out. |
+| **In the paper** | Appendix A, 'the session-share test'; §4.3 and §5 (P55); the session-share and re-prefill rows of the Appendix D table (P32). |
+| **Notes** | Computed after `[RESULT] REG-27` with no other REG-27 value read first. Retrospective readouts, never judged: REG-24's seed 43 (dev_F −0.005, dev_Q −0.115, Q2 0.037); REG-19's five burst runs (model F nearer in 5 of 5, seeds 16 and 18 `replay_sensitive`, Q2 0.034–0.041). The K3 claim card keeps one judged quantity; the session share is read as a second blind test of the served mix. |
+
+[All registrations](README.md)

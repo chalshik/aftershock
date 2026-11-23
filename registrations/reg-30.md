@@ -1,0 +1,19 @@
+# REG-30: the re-warming reading
+
+*Registered 2026-11-21 · a reading of runs already made · claim C2 · result 2026-11-21*
+
+| | |
+|---|---|
+| **Question** | In the drop to λ = 1 of the five long-watch burst runs, does later-turn reuse return as the sessions in service fall to about what the pool holds (the population link, N* = 24.4–31.5), or stay low after the population is already that small (hysteresis)? |
+| **Runs** | No new runs (0 GPU h); retrospective. The burst runs of REG-24's seed 43 and REG-27's seeds 61, 68, 72, 79, with their controls for readouts. Partly blind: the drain times and the after-drain `warmed` 5 of 5 were already known; no drop bin of reuse or sessions in service had been computed. |
+| **Outcome rule** | `reg30.table`. onset: the first t on a 60 s grid from the drop's start at which `k1.reuse`, pooled over [t, t + 300) and [t + 300, t + 600), reaches base − 0.06 in both windows; drained = `confirm.drained_at`; gap = drained − onset; n_onset = sessions in service at the onset. Per run, in order: `bad_base`, `no_onset`, `no_drain`, `held_low` (onset − t_low ≥ 300 s and reuse below level), `before_drain` (gap ≥ 300 s and n_onset in [20, 40]), `early_other` (gap ≥ 300 s, n_onset outside [20, 40]), `near_drain` (\|gap\| < 300 s), `after_drain` (gap ≤ −300 s); `hold_sensitive` if a 60 s onset gives another label. Outcome: `population_link` (before_drain ≥ 4), `hysteresis` (held_low ≥ 4), `drain_bound` (near_drain ≥ 4), `early_population` (early_other ≥ 4), `mixed` otherwise, `too_few` (fewer than 3 runs load). |
+| **Prediction** | A blind prediction from the review of the preprint that proposed the reading: `population_link`, P ≈ 0.6. A second prediction, not blind and not counted in calibration: `population_link` 0.30, `drain_bound` 0.25, `mixed` 0.30, `hysteresis` 0.10, `early_population` 0.05. |
+| **Decision under each outcome** | Text only, at most one sentence in the preprint's C2 results and discussion: `population_link`, reuse returned with n sessions in service s seconds before the drain (the 'owed backlog' sentences not replaced); `hysteresis`, reuse stayed below its recovered level for ≥ 300 s with at most 24.4 sessions in service; `drain_bound`, re-warming coincided with the drain, so the two are not separated; `early_population`, `mixed`, `too_few`, the per-run table only. No verdict or claim strength changes. |
+| **Adversarial review** | One round (the limit for a reading of runs already seen), before computation: four blocking items (the held_low bound, a sustained stay with low reuse, a pooled two-window onset with a 60 s stability check, a narrower question), all applied; some of twelve advisories applied. |
+| **Result** | `drain_bound`: near_drain 5 of 5 (one-sided 95 % lower bound 0.549); before_drain, held_low and early_other 0 of 5 each (upper bound 0.451). Drained minus onset +40, −20, 0, +10, +10 s (seeds 43, 61, 68, 72, 79), with 16.2, 9.5, 6.7, 7.2, 7.0 sessions in service at the onset; none `hold_sensitive`; the same label at low bounds 20, 31.5 and 40. |
+| **Prediction held** | no (the blind prediction gave `population_link` at P ≈ 0.6; the non-blind prior gave `drain_bound` 0.25, behind `population_link` and `mixed` at 0.30) |
+| **Not separated** | The population link and hysteresis: on these runs the population passed through N* within minutes of the drain, so the two predict nearly the same time. |
+| **In the paper** | Appendix A, 'the re-warming reading'; §4.5 (P59); its onset and drain are marked in Figure 1, §4.3 (P61). |
+| **Notes** | The thresholds of 20–40 sessions, 300 s and 4 of 5 came from the review that proposed the reading; the other rules were fixed before any drop bin was computed. A separating test needs a drop in which the population falls below N* well before the line drains; none is registered. The 'owed backlog' wording stays. |
+
+[All registrations](README.md)

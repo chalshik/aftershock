@@ -239,8 +239,24 @@ def z2() -> dict:
             "max_abs_dev_closed": float(np.abs(rc - 1).max()), "max_abs_dev_open": float(np.abs(ro - 1).max())}
 
 
+def platforms() -> dict:
+    """E16 (workshop panel 2026-11-22b): the `platform` string (env.json; kernel and libc) of each long-watch burst run
+    and its control pinned in REG30, by seed. A readout, never judged; a pinned run that does not load is listed under
+    `missing`. Kernel 6.8.0-149 loaded at the 2026-11-15 reboot (docs/status.md, Environment)."""
+    out, missing = {}, []
+    for arm in ("runs", "controls"):
+        for seed, rid in REG30[arm].items():
+            found = find_runs(rid)
+            if len(found) != 1:
+                missing.append(rid)
+                continue
+            out.setdefault(seed, {})[arm[:-1]] = (found[0].get("env") or {}).get("platform")
+    return {"by_seed": out, "missing": missing,
+            "distinct": sorted({v for d in out.values() for v in d.values() if v is not None})}
+
+
 if __name__ == "__main__":
     import json
     import sys
-    fns = {"reg30": table, "z2": z2}
+    fns = {"reg30": table, "z2": z2, "platforms": platforms}
     print(json.dumps(fns[sys.argv[1] if len(sys.argv) > 1 else "reg30"](), indent=1, default=str))

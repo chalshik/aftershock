@@ -1,0 +1,20 @@
+# REG-1
+
+*Registered 2026-11-04 · a reading of runs already made · result 2026-11-04*
+
+| | |
+|---|---|
+| **Question** | After each trigger ends, when the server is backlogged and the sessions' cache is cold, does it still complete at least as fast as the deepest valid cache-on overload? It tests assumption A of `docs/model.md` M2: no post-trigger state completes less than the λ = 10 overload state, c_ref = 4.185 req/s. |
+| **Runs** | 0 GPU h. One pass over the 30 valid shock runs: the default pool with 20 s gaps (6 wipes and 6 bursts at λ = 3 and 3.5, where A is defined), and, reported only, 6 runs at the 72k pool and 12 with 5 s gaps. Spans [0, 60) s and [60, 180) s after each trigger's end. |
+| **Outcome rule** | `margin.reg1_table` (`margin.post_trigger_margin`). A span qualifies if it is capacity-limited (Q > 0 at every scrape), burst-free (no burst request completes in it) and cold (the sessions' cached share ≤ share_base − 0.06, share_base over the 600 s before the trigger). `A contradicted`: some qualifying span has c_upper < 4.185, c_upper being the one-sided 99 % exact Poisson upper bound of its completion rate (split at c_min < 3.5 and c_min ≥ 3.5). `A supported`: no qualifying span contradicts A, and there are ≥ 3 qualifying spans from ≥ 3 distinct runs. `inconclusive`: fewer than 3 qualifying spans, or fewer than 3 runs. |
+| **Prediction** | At most 2 of the 12 default-pool burst spans qualify and 0 of the 12 wipe spans; every qualifying span has c between 4.3 and 4.7, none with c_upper < 4.185; most likely outcome `inconclusive`, at a stated probability of about 0.6. |
+| **Decision under each outcome** | `A contradicted` with c_min < 3.5: a registered follow-up at that λ is proposed; with c_min ≥ 3.5: A is false but no tested load is affected, and M2's window becomes (c_min, c_warm). `A supported`: the default-pool negative is restated as forced by capacity for the contributing triggers only, no further shock matrix at λ ≤ 3.5 for them, and any new setup must pass gate G with a measured cold rate. `inconclusive`: A stays a belief and a deliberate cold-overload run (GPU) is proposed. 72k-pool and 5 s-gap runs: reported as margins only. |
+| **Adversarial review** | One round of adversarial review, before any computation. It showed that judging 'cold' by the server counters let burst-dominated spans qualify, and that the minimum of noisy spans against a point reference would most likely report 'A fails'. Changes made before computation: cold judged by the sessions' own cached share, burst-free spans, the 99 % upper bound, ≥ 3 spans from ≥ 3 runs, a separate reading for wipes with no backlog, a baseline-clamp error and new tests; predictions revised to the new rule. The spans were not changed. |
+| **Result** | `inconclusive`: 0 of 60 spans qualify (default pool 0 of 24), so A stays a belief. Every wipe span had q_min = 0 (30 of 30: 'the wipe built no backlog'). Default-pool burst spans at [0, 60) were capacity-limited and cold in 6 of 6 runs but none was burst-free (96–132 burst requests completed in each); at [60, 180) none was cold. |
+| **Prediction held** | yes (likeliest outcome) |
+| **Not separated** | A is true and no tested trigger makes a lasting cold backlog at these loads, against A is false but these triggers cannot reach the cold, backlogged state where it would fail. Separating them needs a run that holds both backlog and cold cache for minutes. |
+| **Corrections** | 2026-11-04: `stats.poisson_rate_upper` underflowed for large counts, so c_upper was wrong for four spans with n = 714–861 (e.g. 7.175 against a correct 7.765 at n = 861); the outcome does not depend on it, since qualification does not use c_upper, and REG-1 was not recomputed. |
+| **In the paper** | Not named in the text (Appendix A: a reading of earlier runs; inconclusive). Its prior is among those counted in Appendix D.2's calibration (P33). |
+| **Notes** | Not judged but reported: default-pool burst spans at [60, 180) completed up to 5.950 req/s, above the best steady value 4.735, so post-burst spans are a best case. |
+
+[All registrations](README.md)

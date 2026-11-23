@@ -66,6 +66,9 @@ FIG = {
     "waiting_col": "vllm:num_requests_waiting",
     # Presentation only (no quantity depends on these).
     "figsize": (11.0, 8.5), "dpi": 150,
+    # The workshop's two-column render sets each figure at column width (about 3.3 in): a variant drawn at that size,
+    # so the labels print at "column_font" points (panel 2026-11-23, B9 and the reader). Presentation only.
+    "column_figsize": (3.4, 4.3), "column_font": 7,
     # One colour per role across the three figures (panel 2026-11-22, R8.4): the arm that stays cold is red in every
     # figure, the arm that stays or returns warm blue, the looser cap orange. Arms not listed take the default cycle.
     "arm_color": {"closed": "tab:red", "burst": "tab:red", "uncapped": "tab:red",
@@ -331,22 +334,27 @@ def run_label(arm: str, run: dict) -> str:
 
 def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, note: str | None = None,
           paper_names: dict | None = None, spans: list | None = None, vlines: list | None = None,
-          xlabel: str | None = None) -> list[Path]:
+          xlabel: str | None = None, figsize: tuple | None = None, font: float | None = None) -> list[Path]:
     """The provenance figure; with `paper_names` ({arm: legend name}), the preprint's version of the same data: no
     title, run ids, analysis labels, note or commit footer (those stay in the provenance figure and the caption's
     source mark). Presentation only: the series are the same.
     `spans` [(a, b, grey)] replaces the default shading (the burst and K1's end window); `vlines` [(t, style, label)]
-    marks times on every panel; `xlabel` replaces the default x label. With none of them the figure is unchanged."""
+    marks times on every panel; `xlabel` replaces the default x label; `figsize` and `font` (points) redraw it at
+    another size. With none of them the figure is unchanged."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    if font is not None:
+        with plt.rc_context({"font.size": font, "axes.labelsize": font, "xtick.labelsize": font - 1,
+                             "ytick.labelsize": font - 1, "lines.linewidth": 0.8}):
+            return _plot(panels, runs, labels, title, path_stem, note, paper_names, spans, vlines, xlabel, figsize)
     any_run = next(iter(runs.values()))
     if spans is None:
         trig = any_run["cfg"]["trigger"]
         win = k1.windows(any_run["cfg"])
         t0 = burst_start(any_run)
         spans = [(0, float(trig["duration_s"]), "0.85"), (win["end"][0] - t0, win["end"][1] - t0, "0.93")]
-    fig, ax = plt.subplots(3, 1, sharex=True, figsize=FIG["figsize"])
+    fig, ax = plt.subplots(3, 1, sharex=True, figsize=figsize or FIG["figsize"])
     colors = plt.rcParams["axes.prop_cycle"].by_key()["color"]
     cq_ax = None
     for i, (arm, df) in enumerate(panels.items()):
@@ -379,7 +387,8 @@ def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, n
     all_ax = list(ax) + ([cq_ax] if cq_ax is not None else [])
     handles = [h for a in all_ax for h in a.get_legend_handles_labels()[0]]
     names = [n for a in all_ax for n in a.get_legend_handles_labels()[1]]
-    fig.legend(handles, names, fontsize=7, loc="lower left", bbox_to_anchor=(0.01, 0.02), frameon=False)
+    fig.legend(handles, names, fontsize=plt.rcParams["font.size"] if figsize else 7, loc="lower left",
+               bbox_to_anchor=(0.01, 0.02), frameon=False)
     if not paper_names:
         ax[0].set_title(title, fontsize=10)
     if note and not paper_names:
@@ -387,7 +396,10 @@ def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, n
                    bbox={"facecolor": "white", "edgecolor": "0.5"})
     if not paper_names:
         fig.text(0.01, 0.005, footer([r["dir"].name for r in runs.values()]), fontsize=6, va="bottom")
-    fig.tight_layout(rect=(0, (0.0 if paper_names else 0.03) + 0.017 * len(names), 1, 1))
+    # One legend line is about 1.6 font sizes high; at the column size the legend gets that much room per line, as a
+    # share of the figure's height, plus its 0.02 offset, so it sits below the x label.
+    per_name = plt.rcParams["font.size"] * 1.6 / 72 / figsize[1] if figsize else 0.017
+    fig.tight_layout(rect=(0, (0.0 if paper_names else 0.03) + (0.02 if figsize else 0) + per_name * len(names), 1, 1))
     path_stem.parent.mkdir(parents=True, exist_ok=True)
     out = [path_stem.with_suffix(".png"), path_stem.with_suffix(".pdf")]
     for p in out:
@@ -410,6 +422,9 @@ def matched_arms(seed: int | None = None, out: Path | None = None, draw: bool = 
                    f"(REG-20 arm A) against closed-loop turns (REG-19)", (out or OUT) / f"matched_arms_s{sd}")
              + _plot(panels, runs, labels, "", (out or OUT) / f"matched_arms_s{sd}_paper",
                      paper_names={"open": "open-loop turns", "closed": "closed-loop turns"})
+             + _plot(panels, runs, labels, "", (out or OUT) / f"matched_arms_s{sd}_column",
+                     paper_names={"open": "open-loop turns", "closed": "closed-loop turns"},
+                     xlabel="seconds from the burst's start", figsize=FIG["column_figsize"], font=FIG["column_font"])
              if draw else [])
     return {"seed": sd, "runs": {a: r["dir"].name for a, r in runs.items()}, "later_valid": later,
             "labels": labels, "series": panels, "files": [str(p) for p in files]}
@@ -442,10 +457,17 @@ def rewarm_fig(seed: int | None = None, out: Path | None = None, draw: bool = Tr
                    xlabel=xl)
              + _plot(panels, runs, labels, "", (out or OUT) / f"rewarm_s{sd}_paper", spans=spans, vlines=vlines,
                      xlabel=xl, paper_names={"burst": "burst run", "control": "same-seed control, no burst"})
+             + _plot(panels, runs, labels, "", (out or OUT) / f"rewarm_s{sd}_column", spans=spans, vlines=vlines,
+                     xlabel=XL_COLUMN, paper_names={"burst": "burst run", "control": "same-seed control, no burst"},
+                     figsize=FIG["column_figsize"], font=FIG["column_font"])
              if draw else [])
     return {"seed": sd, "runs": {a: r["dir"].name for a, r in runs.items()}, "later_valid": later,
             "labels": labels, "rewarm": {k: rw[k] for k in ("onset_s", "drained_s", "lead_s", "n_onset", "label")},
             "series": panels, "files": [str(p) for p in files]}
+
+
+# The column variant's x label: the long one does not fit 3.4 in; the caption names the shading.
+XL_COLUMN = "seconds from the drop to λ = 1"
 
 
 # ---------------------------------------------------------------- 3. the loop-cut figure

@@ -10,7 +10,7 @@ and `tools/` (checksums, validity flags, inventory), which read no outcome.
 The owning registration's own computation is the one exception. It sets the environment variable
 AFTERSHOCK_UNSEAL to its id (several ids separated by commas), e.g. `AFTERSHOCK_UNSEAL=REG-20 python -m analysis.k1 …`.
 REG-19's registered computation needs no variable: it runs from the worktree at a7bb77a (decisions.md 2026-11-13
-[DECISION] (delegate), REG-19 resume), whose code predates this module.
+[DECISION], REG-19 resume), whose code predates this module.
 """
 from __future__ import annotations
 

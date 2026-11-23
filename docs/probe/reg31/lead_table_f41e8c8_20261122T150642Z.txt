@@ -1,0 +1,263 @@
+{
+ "events": [
+  {
+   "source": "k5",
+   "run": "20261109-102614_stage2_control_l1pl350cl_r2.4_s4",
+   "t_batch": 2457.101747648994,
+   "t_first": 1336.101712881995,
+   "exceeds": true,
+   "n_max_after_ref": 34.0,
+   "l_onset": 2465.0,
+   "a_onset": NaN,
+   "lead": 7.8982523510057945,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k5",
+   "run": "20261109-120308_stage2_control_l1pl350cl_r2.4_s5",
+   "t_batch": 1319.0999492819974,
+   "t_first": 1278.0999620350049,
+   "exceeds": true,
+   "n_max_after_ref": 35.0,
+   "l_onset": 1320.0,
+   "a_onset": NaN,
+   "lead": 0.9000507180026034,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k5",
+   "run": "20261109-193526_sweep_l1pl350cl_pc_on_r2.6",
+   "t_batch": 837.1005270900059,
+   "t_first": 802.1005482370092,
+   "exceeds": true,
+   "n_max_after_ref": 33.0,
+   "l_onset": 855.0,
+   "a_onset": NaN,
+   "lead": 17.899472909994074,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k5",
+   "run": "20261109-195349_sweep_l1pl350cl_pc_on_r2.8",
+   "t_batch": 794.0990912919951,
+   "t_first": 540.0990945199883,
+   "exceeds": true,
+   "n_max_after_ref": 34.0,
+   "l_onset": 820.0,
+   "a_onset": NaN,
+   "lead": 25.900908708004863,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k5",
+   "run": "20261109-201246_sweep_l1pl350cl_pc_on_r3",
+   "t_batch": 581.1001542400045,
+   "t_first": 531.1001346520061,
+   "exceeds": true,
+   "n_max_after_ref": 35.0,
+   "l_onset": 595.0,
+   "a_onset": NaN,
+   "lead": 13.899845759995515,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k5",
+   "run": "20261110-122001_stage2_control_l1pl350cl_r2.2_long_s14",
+   "t_batch": NaN,
+   "t_first": 4284.100402586977,
+   "exceeds": true,
+   "n_max_after_ref": 34.0,
+   "l_onset": 4330.0,
+   "a_onset": NaN,
+   "lead": NaN,
+   "lead_over_A": NaN,
+   "why": null
+  },
+  {
+   "source": "k4_surge_tipped",
+   "run": "20261117-053015_k4_l1pl350cl_r2.2_s133",
+   "t_batch": 1810.0992583369953,
+   "t_first": 1716.0993384989852,
+   "exceeds": true,
+   "n_max_after_ref": 33.0,
+   "l_onset": 1825.0,
+   "a_onset": NaN,
+   "lead": 14.900741663004737,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k4_surge_tipped",
+   "run": "20261117-070951_k4_l1pl350cl_r2.2_s137",
+   "t_batch": 1396.100127614016,
+   "t_first": 1335.1001206490037,
+   "exceeds": true,
+   "n_max_after_ref": 35.0,
+   "l_onset": 1410.0,
+   "a_onset": NaN,
+   "lead": 13.899872385984054,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k4_surge_tipped",
+   "run": "20261117-084905_k4_l1pl350cl_r2.2_s175",
+   "t_batch": 1660.1000520180096,
+   "t_first": 1454.100000514998,
+   "exceeds": true,
+   "n_max_after_ref": 33.0,
+   "l_onset": 1685.0,
+   "a_onset": NaN,
+   "lead": 24.899947981990408,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k4_surge_tipped",
+   "run": "20261117-102749_k4_l1pl350cl_r2.2_s196",
+   "t_batch": 1683.099857351015,
+   "t_first": 240.09983455200563,
+   "exceeds": true,
+   "n_max_after_ref": 34.0,
+   "l_onset": 1700.0,
+   "a_onset": NaN,
+   "lead": 16.90014264898491,
+   "lead_over_A": Infinity,
+   "why": null
+  },
+  {
+   "source": "k4e_late",
+   "run": "20261120-180402_k4e_l1pl350cl_r2.2_s914",
+   "t_batch": 1747.1007714689913,
+   "t_first": 1659.1007819579972,
+   "exceeds": true,
+   "n_max_after_ref": 34.0,
+   "l_onset": 1755.0,
+   "a_onset": NaN,
+   "lead": 7.899228531008703,
+   "lead_over_A": Infinity,
+   "why": null
+  }
+ ],
+ "alarms": [
+  {
+   "source": "reg27_control",
+   "run": "20261117-211937_stage2_control_l1pl350cl_r2.0_long_s61",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": NaN,
+   "exceeds": false,
+   "n_max_after_ref": 19.0
+  },
+  {
+   "source": "reg27_control",
+   "run": "20261118-062104_stage2_control_l1pl350cl_r2.0_long_s68",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": NaN,
+   "exceeds": false,
+   "n_max_after_ref": 19.0
+  },
+  {
+   "source": "reg27_control",
+   "run": "20261119-151949_stage2_control_l1pl350cl_r2.0_long_s72",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": 3006.1010190080015,
+   "exceeds": true,
+   "n_max_after_ref": 23.0
+  },
+  {
+   "source": "reg27_control",
+   "run": "20261120-002152_stage2_control_l1pl350cl_r2.0_long_s79",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": NaN,
+   "exceeds": false,
+   "n_max_after_ref": 19.0
+  },
+  {
+   "source": "k4_calm",
+   "run": "20261117-062210_k4_l1pl350cl_r2.2_s102",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": NaN,
+   "exceeds": false,
+   "n_max_after_ref": 22.0
+  },
+  {
+   "source": "k4_calm",
+   "run": "20261117-080145_k4_l1pl350cl_r2.2_s103",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": 486.10600172399427,
+   "exceeds": true,
+   "n_max_after_ref": 23.0
+  },
+  {
+   "source": "k4_calm",
+   "run": "20261117-094058_k4_l1pl350cl_r2.2_s105",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": NaN,
+   "exceeds": false,
+   "n_max_after_ref": 19.0
+  },
+  {
+   "source": "k4_calm",
+   "run": "20261117-111949_k4_l1pl350cl_r2.2_s106",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": NaN,
+   "exceeds": false,
+   "n_max_after_ref": 20.0
+  },
+  {
+   "source": "k4_calm",
+   "run": "20261117-125335_k4_l1pl350cl_r2.2_s107",
+   "kv_onset": NaN,
+   "t_batch": NaN,
+   "t_first": 1524.109501955012,
+   "exceeds": true,
+   "n_max_after_ref": 26.0
+  }
+ ],
+ "leads": {
+  "n_events": 11,
+  "n_with_lead": 10,
+  "lead_above": {
+   "k": 0,
+   "n": 10,
+   "share": 0.0,
+   "cp_upper": 0.2588655508930523
+  }
+ },
+ "alarm": {
+  "n_alarm": 9,
+  "n_tipped": 0,
+  "warm_exceeding": {
+   "k": 3,
+   "n": 9,
+   "share": 0.3333333333333333,
+   "cp_upper": 0.6550586340562968
+  }
+ },
+ "k5_events": [
+  "20261109-102614_stage2_control_l1pl350cl_r2.4_s4",
+  "20261109-120308_stage2_control_l1pl350cl_r2.4_s5",
+  "20261109-193526_sweep_l1pl350cl_pc_on_r2.6",
+  "20261109-195349_sweep_l1pl350cl_pc_on_r2.8",
+  "20261109-201246_sweep_l1pl350cl_pc_on_r3",
+  "20261110-122001_stage2_control_l1pl350cl_r2.2_long_s14"
+ ],
+ "k5_events_are_reg23s": true,
+ "params": {
+  "batch_level": 22,
+  "lead_s": 30.0
+ }
+}

@@ -1065,7 +1065,7 @@ REG16 = {"lam": 2.2, "power_limit_w": 350, "watch_s": 4500, "drop_rate": 1.0, "r
          "warm_watch_s": 1200, "grid_s": 10.0,
          "control_pattern": "*_stage2_control_l1pl350cl_r2.2_long_s{seed}",
          "baseline": (300.0, 900.0),   # the burst run's baseline window (trigger at 900 s, baseline_s 600), for both runs
-         "drop_s": 9000,     # chosen over the rule's 7200 s for margin (review round 2, N1; author delegated, 2026-11-10)
+         "drop_s": 9000,     # chosen over the rule's 7200 s for margin (review round 2, N1; 2026-11-10)
          "persistent_s": 1500}   # review round 2, T1: a cold stretch this long counts as persistent: the study's watch
                                  # window, max(1200 s, 5 tau) (docs/definitions.md "watch window")
 

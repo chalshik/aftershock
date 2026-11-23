@@ -1,0 +1,20 @@
+# probe: Qwen/Qwen3-4B snapshot on the VM (read-only), 20261117T073647Z
+# cmd: ssh VM 'ls ~/.cache/huggingface/hub | grep -i qwen; cat models--Qwen--Qwen3-4B/refs/main; ls snapshots; stat -c %y snapshots/*/*'
+models--Qwen--Qwen3-1.7B
+models--Qwen--Qwen3-4B
+refs/main: 1cfa9a7208912126459214e8b04321603b3df60c
+snapshots: 1cfa9a7208912126459214e8b04321603b3df60c
+2026-10-23 14:34:56.526367289 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/config.json
+2026-10-23 14:34:56.534367280 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/generation_config.json
+2026-10-23 14:34:56.546367267 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/tokenizer.json
+2026-10-23 14:34:56.557367255 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/LICENSE
+2026-10-23 14:34:56.560367252 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/README.md
+2026-10-23 14:34:56.918366863 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/model.safetensors.index.json
+2026-10-23 14:34:56.923366858 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/tokenizer_config.json
+2026-10-23 14:34:56.981366795 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/merges.txt
+2026-10-23 14:34:57.431366335 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/vocab.json
+2026-10-23 14:35:43.447592430 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/model-00003-of-00003.safetensors
+2026-10-23 14:36:32.808575793 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/model-00002-of-00003.safetensors
+2026-10-23 14:36:46.045727780 +0000 models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c/model-00001-of-00003.safetensors
+HF_HUB_OFFLINE=unset
+# Mac side: grep -l 1cfa9a7 in the last unsealed run folder (runs/20261117-013309_burst_l1pl350cl_r2.0_w3000_s17_cap40/): no match; configs/base.yaml:5 model: Qwen/Qwen3-4B, no revision key

@@ -1,6 +1,6 @@
 # Registrations and results
 
-Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 96 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
+Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 103 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
 
 ## 2026-11-04 · [RESULT] Sweep schedules share one rising-load pattern (audit, descriptive)
 ## 2026-11-04 · [REG] REG-1: post-trigger completion margin (tests assumption A of M2)
@@ -98,3 +98,4 @@ Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in 
 ## 2026-11-22 · [RESULT] REG-31 (R31a): how much the calm-schedule screen excludes
 ## 2026-11-23 · [RESULT] T1's gate, computed once: passes at from_s 1980 with 3 of 5 seeds; the prediction drops
 ## 2026-11-23 · [REG] T1 (rescue, two arms): a pause cap of 22 engaged at 1980 s inside REG-19's established stuck state at λ = 2.0, arm P on seeds 15, 17, 19, the uncapped twin U on seeds 15–19. Does the engine re-warm promptly once the cap holds and the in-slot working set fits the pool, with the line still owed? (GPU, 10 h, ≤ 30 h)
+## 2026-11-23 · [RESULT] E16: the long-watch runs' kernel (a readout, 0 GPU h, never judged)

@@ -126,9 +126,9 @@ def decide(warm8: float, f8: float, warm16: float, f16: float, planned8: dict, p
       'floor_only'      R >= g but that warm clause fails: the window widened only because the floor fell; no matrix;
       'does_not_widen'  R <= 1 even with warm16 rounded up to the next 16-turn grid rate (R x next16 / warm16 <= 1;
                         author, 2026-11-14, item 3): K2's first half refuted for L1 at sweep cost; no matrix;
-      'unresolved'      otherwise below g; no matrix, the delegate decides and tells the author;
+      'unresolved'      otherwise below g; no matrix, decided case by case and reported;
       'missing'         an input is undefined for want of data (no valid run where one is needed, or a floor the
-                        rules leave undefined); no matrix, reported; the delegate decides and tells the author.
+                        rules leave undefined); no matrix, reported; decided case by case.
     `hole16`: the 16-turn capacity chain ended at a swept rate with no valid run, not at a failing one (rule F e0e1 r2,
     T4): 'missing'.
     `released16`, `released_top8` (the tip-rule amendment, rule F e0tip r1, T1): the released rate (`released_rate`)

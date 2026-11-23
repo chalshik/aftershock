@@ -189,3 +189,17 @@ def test_plot_draws_with_default_and_explicit_shading(tmp_path):
     spans = F._plot(panels, runs, labels, "", tmp_path / "s", spans=[(0.0, 100.0, "0.85")],
                     vlines=[(50.0, ":", "mark")], xlabel="x", paper_names={"a": "arm"})
     assert all(Path(p).exists() for p in default + spans)
+
+
+def test_plot_column_variant_sets_size_and_font_and_leaves_defaults(tmp_path):
+    import matplotlib
+    run = make_run(name="x")
+    panels, runs, labels = {"a": F.series(run)}, {"a": run}, {"a": "lab"}
+    before = matplotlib.rcParams["font.size"]
+    out = F._plot(panels, runs, labels, "", tmp_path / "c", paper_names={"a": "arm"},
+                  figsize=F.FIG["column_figsize"], font=F.FIG["column_font"])
+    assert all(Path(p).exists() for p in out)
+    from PIL import Image
+    w, h = Image.open(out[0]).size                           # the PNG is drawn at the column size
+    assert (w, h) == tuple(round(v * F.FIG["dpi"]) for v in F.FIG["column_figsize"])
+    assert matplotlib.rcParams["font.size"] == before         # the font change does not leak to later figures

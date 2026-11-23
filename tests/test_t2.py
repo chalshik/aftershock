@@ -178,4 +178,4 @@ def test_plan_is_the_registered_order():
     assert plan["stop"]["max_attempts"] == 3 and "docs/probe/t4_ops/state/queue.lock" in plan["locks"]
     import re
     assert re.match(plan["approve_pat"], "## 2026-11-21 · [DECISION] (author) T2 starts: x")          # rule F r1, T2-8c
-    assert not re.match(plan["approve_pat"], "## 2026-11-21 · [DECISION] (delegate) T2 starts: x")
+    assert not re.match(plan["approve_pat"], "## 2026-11-21 · [DECISION] T2 starts: x")

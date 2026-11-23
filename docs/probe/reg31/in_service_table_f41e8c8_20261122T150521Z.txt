@@ -1,0 +1,129 @@
+{
+ "rows": [
+  {
+   "loop": "closed",
+   "seed": 15,
+   "run": "20261112-061951_burst_l1pl350cl_r2.0_w3000_s15",
+   "burst_end_s": 1080.0,
+   "at_end": 66,
+   "peak_before_end": 66,
+   "outstanding": 64
+  },
+  {
+   "loop": "closed",
+   "seed": 16,
+   "run": "20261112-084533_burst_l1pl350cl_r2.0_w3000_s16",
+   "burst_end_s": 1080.0,
+   "at_end": 44,
+   "peak_before_end": 44,
+   "outstanding": 43
+  },
+  {
+   "loop": "closed",
+   "seed": 17,
+   "run": "20261112-135538_burst_l1pl350cl_r2.0_w3000_s17",
+   "burst_end_s": 1080.0,
+   "at_end": 53,
+   "peak_before_end": 53,
+   "outstanding": 52
+  },
+  {
+   "loop": "closed",
+   "seed": 18,
+   "run": "20261113-180511_burst_l1pl350cl_r2.0_w3000_s18",
+   "burst_end_s": 1080.0,
+   "at_end": 55,
+   "peak_before_end": 55,
+   "outstanding": 52
+  },
+  {
+   "loop": "closed",
+   "seed": 19,
+   "run": "20261113-203108_burst_l1pl350cl_r2.0_w3000_s19",
+   "burst_end_s": 1080.0,
+   "at_end": 47,
+   "peak_before_end": 47,
+   "outstanding": 45
+  },
+  {
+   "loop": "open",
+   "seed": 15,
+   "run": "20261115-064753_burst_l1pl350ol_r2.0_w3000_s15",
+   "burst_end_s": 1080.0,
+   "at_end": 38,
+   "peak_before_end": 38,
+   "outstanding": 238
+  },
+  {
+   "loop": "open",
+   "seed": 16,
+   "run": "20261115-075808_burst_l1pl350ol_r2.0_w3000_s16",
+   "burst_end_s": 1080.0,
+   "at_end": 25,
+   "peak_before_end": 26,
+   "outstanding": 152
+  },
+  {
+   "loop": "open",
+   "seed": 17,
+   "run": "20261115-090827_burst_l1pl350ol_r2.0_w3000_s17",
+   "burst_end_s": 1080.0,
+   "at_end": 33,
+   "peak_before_end": 33,
+   "outstanding": 182
+  },
+  {
+   "loop": "open",
+   "seed": 18,
+   "run": "20261115-113416_burst_l1pl350ol_r2.0_w3000_s18",
+   "burst_end_s": 1080.0,
+   "at_end": 32,
+   "peak_before_end": 33,
+   "outstanding": 199
+  },
+  {
+   "loop": "open",
+   "seed": 19,
+   "run": "20261115-124444_burst_l1pl350ol_r2.0_w3000_s19",
+   "burst_end_s": 1080.0,
+   "at_end": 25,
+   "peak_before_end": 25,
+   "outstanding": 131
+  }
+ ],
+ "arms": {
+  "closed": {
+   "at_or_below_lo": {
+    "k": 0,
+    "n": 5,
+    "share": 0.0,
+    "cp_upper": 0.450719728346941
+   },
+   "above_hi": {
+    "k": 5,
+    "n": 5,
+    "share": 1.0,
+    "cp_upper": 1.0
+   }
+  },
+  "open": {
+   "at_or_below_lo": {
+    "k": 0,
+    "n": 5,
+    "share": 0.0,
+    "cp_upper": 0.450719728346941
+   },
+   "above_hi": {
+    "k": 3,
+    "n": 5,
+    "share": 0.6,
+    "cp_upper": 0.9235596085876712
+   }
+  }
+ },
+ "band": {
+  "label": "pool / longest prompt to pool / mean prompt",
+  "lo": 24.4,
+  "hi": 31.5
+ }
+}
