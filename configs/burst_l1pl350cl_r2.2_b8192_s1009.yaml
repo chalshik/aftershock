@@ -1,0 +1,16 @@
+# P8192 (draft, docs/drafts/p8192_draft1.md; to be registered): REG-19's burst (REG-17's seed-2 burst with a 3000 s
+# watch and arrivals to 4080 s) at an 8192-token step budget, T4's pinned pool of 6041 blocks, lambda = 2.2 and seed 1009
+# (the seed rule, analysis/p8192.py `choose_seeds`). Only name, seed, rate, duration, watch and the two server args
+# differ from REG-19's burst (tests/test_p8192.py). Needs the author's approval to run.
+extends: burst_l1pl350cl_r2.0_s2.yaml
+name: burst_l1pl350cl_r2.2_b8192_s1009
+seed: 1009
+workload:
+  rate: 2.2
+  duration_s: 4080
+verdict:
+  watch_s: 3000
+server:
+  args:
+    --num-gpu-blocks-override: 6041
+    --max-num-batched-tokens: 8192

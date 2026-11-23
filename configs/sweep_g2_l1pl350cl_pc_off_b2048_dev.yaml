@@ -1,0 +1,11 @@
+# G2 (draft, not registered; to be registered after T4's [RESULT]): T4's 2048-token cache-off sweep at two
+# saturated rates (above E1's lam_sat 2.5), seed 0, with vLLM's development mode on (VLLM_SERVER_DEV_MODE=1, as every
+# Stage 2 trigger run and control has it: stage2_base.yaml). Each run pairs with the mode-off twin at the same rate
+# (sweep_g2_l1pl350cl_pc_off_b2048_nodev.yaml), run interleaved in G2's queue; T4's same-rate runs are a readout. A6 answered from the source that no code path of a request
+# that succeeds depends on the mode; G2 measures it. Needs the author's approval to run.
+extends: sweep_t4_l1pl350cl_pc_off_b2048.yaml
+name: sweep_g2_l1pl350cl_pc_off_b2048_dev
+server:
+  env: {VLLM_SERVER_DEV_MODE: "1"}
+sweep:
+  rates: [3, 4]

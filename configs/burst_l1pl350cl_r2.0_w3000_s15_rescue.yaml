@@ -1,0 +1,8 @@
+# D1r (docs/decisions.md [REG] D1r (C2, cap as a rescue)): D1's capped run at seed 15 with the cap
+# switched on at 1680 s (cap_from_s), the only change; REG-19's run of this seed differs only in the cap.
+# Written by `python -m analysis.d1r configs`. Runs only after `[DECISION] ... D1r starts`.
+extends: burst_l1pl350cl_r2.0_w3000_s15_cap.yaml
+name: burst_l1pl350cl_r2.0_w3000_s15_rescue
+workload:
+  sessions:
+    cap_from_s: 1680

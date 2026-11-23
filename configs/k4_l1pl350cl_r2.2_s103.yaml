@@ -1,0 +1,8 @@
+# K4 (docs/decisions.md [REG] K4 (the warm state ends at a surge)): REG-14's control workload at
+# λ = 2.2, seed 103 (calm arm, picked by `k4.pick` from the schedule alone), 2700 s, no trigger.
+# Written by `python -m analysis.k4 configs`. Runs only after `[DECISION] ... K4 starts`.
+extends: stage2_control_l1pl350cl_r2.2_s2.yaml
+name: k4_l1pl350cl_r2.2_s103
+seed: 103
+workload:
+  duration_s: 2700

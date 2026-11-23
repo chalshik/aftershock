@@ -1,0 +1,8 @@
+# K4e (docs/decisions.md [REG] K4e (K4's edge)): K4's workload (REG-14's control) at λ = 2.2,
+# seed 914 (hi stratum, highest 120 s planned peak 3.367, picked by `k4e.pick`
+# from the schedule alone), 2700 s, no trigger. Runs only after `[DECISION] ... K4e starts`.
+extends: stage2_control_l1pl350cl_r2.2_s2.yaml
+name: k4e_l1pl350cl_r2.2_s914
+seed: 914
+workload:
+  duration_s: 2700

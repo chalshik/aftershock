@@ -1,0 +1,20 @@
+# Sustained-wipe arm (decisions.md 2026-11-14 [DECISION] (author), the wipe arm is a sustained wipe; rule G passed at a
+# 300 s span, decisions.md 2026-11-14 [RESULT]). DRAFT: needs its [REG] and the author's approval before any run.
+# Same chain as REG-17's L1 closed-loop runs at λ = 2.0 (L1, 350 W, closed-loop turns, a new connection per request);
+# seed 44 is used by no other run. One preempt wipe every 2.5 s from 900 s for 300 s: 120 calls (author, decisions.md
+# 2026-11-14 [DECISION] (author), every 2.5 s, threshold 0.25; 5 s left up to 0.31 of prompt tokens hitting).
+extends: stage2_control_l1pl350cl_r2.0_s2.yaml
+name: swipe_l1pl350cl_r2.0_s44
+seed: 44
+workload:
+  duration_s: 2700        # 900 s before + 300 s of wipes + the 1500 s watch from the last call
+trigger:
+  kind: cache_wipe
+  at_s: 900
+  mode: preempt
+  request_timeout_s: 60
+  repeat: {every_s: 2.5, span_s: 300}
+checks:
+  manipulation:
+    wipe_window_s: 300    # the counter hit rate from the first call's end over the wiping span
+    wipe_max_hit: 0.25    # author 2026-11-14: above every λ = 2.0 control's uniform-phase figure H(2.5) (max 0.182; not a bound, decisions.md 2026-11-14 [CORR])

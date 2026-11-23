@@ -1,0 +1,109 @@
+"""The Stage 2 shock: at trigger.at_s, wipe vLLM's prefix cache. One record per attempt -> trigger.jsonl.
+
+Modes (docs/decisions.md):
+  preempt: one call with reset_running_requests=true; every running request starts over. With `repeat:
+           {every_s, span_s}` (sustained wipe, decisions.md 2026-11-14), one such call at at_s + k x every_s for
+           every k with k x every_s < span_s, each recorded.
+  idle:    calls without it, retrying until one lands while no blocks are held, or max_wait_s runs out.
+
+Usage (started by run.py): python -m harness.trigger <run_dir> <t0_monotonic>
+"""
+import json
+import sys
+import time
+import urllib.error
+import urllib.request
+from pathlib import Path
+
+import yaml
+
+DEV_MODE_ENV = "VLLM_SERVER_DEV_MODE"  # vLLM serves /reset_prefix_cache only with this set to 1
+
+
+def validate(cfg: dict):
+    """Stop before the server starts, not an hour into a run."""
+    trig, wl = cfg["trigger"], cfg["workload"]
+    if trig.get("kind") == "burst":
+        missing = [k for k in ("at_s", "duration_s", "rate", "prompt_tokens") if k not in trig]
+        if missing:
+            raise SystemExit(f"{cfg['name']}: burst trigger is missing {missing}")
+        end = trig["at_s"] + trig["duration_s"]
+        if trig["rate"] <= 0 or trig["duration_s"] <= 0 or trig["prompt_tokens"] <= 0:
+            raise SystemExit(f"{cfg['name']}: burst rate, duration_s and prompt_tokens must be positive")
+        watch = (cfg.get("verdict") or {}).get("watch_s", 0)
+        if not wl["warmup_s"] <= trig["at_s"] or end + watch > wl["duration_s"]:
+            raise SystemExit(f"{cfg['name']}: the burst and its watch must fit between warm-up and the end of arrivals")
+        return
+    if trig.get("kind") != "cache_wipe":
+        raise SystemExit(f"{cfg['name']}: unknown trigger kind {trig.get('kind')!r}; built: cache_wipe, burst")
+    if trig.get("mode") not in ("preempt", "idle"):
+        raise SystemExit(f"{cfg['name']}: trigger.mode must be preempt or idle")
+    if (cfg["server"].get("env") or {}).get(DEV_MODE_ENV) != "1":
+        raise SystemExit(f"{cfg['name']}: a cache wipe needs server.env.{DEV_MODE_ENV}: '1'")
+    rep = trig.get("repeat")
+    if rep is not None:
+        if trig["mode"] != "preempt":
+            raise SystemExit(f"{cfg['name']}: a repeated wipe is built for mode preempt only")
+        if not (rep.get("every_s", 0) > 0 and rep.get("span_s", 0) >= rep["every_s"]):
+            raise SystemExit(f"{cfg['name']}: trigger.repeat needs every_s > 0 and span_s >= every_s")
+        watch = (cfg.get("verdict") or {}).get("watch_s", 0)
+        if trig["at_s"] + rep["span_s"] + watch > wl["duration_s"]:
+            raise SystemExit(f"{cfg['name']}: the repeated wipe and its watch must fit before the end of arrivals")
+    last = schedule(trig)[-1] + (trig["max_wait_s"] if trig["mode"] == "idle" else 0)
+    if not wl["warmup_s"] <= trig["at_s"] or last >= wl["duration_s"]:
+        raise SystemExit(f"{cfg['name']}: the trigger must fall after warm-up and before the end of arrivals")
+
+
+def schedule(trig: dict) -> list[float]:
+    """Planned start times (s from t0) of the wipe calls: at_s alone, or at_s + k x every_s while k x every_s < span_s."""
+    rep = trig.get("repeat")
+    if rep is None:
+        return [float(trig["at_s"])]
+    n = int(rep["span_s"] // rep["every_s"]) + (0 if rep["span_s"] % rep["every_s"] == 0 else 1)
+    return [float(trig["at_s"] + k * rep["every_s"]) for k in range(n)]
+
+
+def _post(url: str, timeout_s: float) -> dict:
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, data=b"", method="POST"), timeout=timeout_s) as r:
+            return {"status": r.status, "success": json.loads(r.read())["success"] is True}
+    except urllib.error.HTTPError as e:
+        return {"status": e.code, "success": False, "error": e.read().decode(errors="replace")[:500]}
+    except Exception as e:
+        return {"status": None, "success": False, "error": f"{type(e).__name__}: {e}"[:500]}
+
+
+def fire(trig: dict, base: str, t0: float, write):
+    if trig.get("repeat") is not None:          # sustained wipe: one preempt call per planned time, no retries
+        url = f"{base}/reset_prefix_cache?reset_running_requests=true"
+        for k, at in enumerate(schedule(trig)):
+            time.sleep(max(0.0, t0 + at - time.monotonic()))
+            start = time.monotonic()
+            res = _post(url, trig["request_timeout_s"])
+            write({"t_start": start - t0, "t_end": time.monotonic() - t0, "mode": trig["mode"], "attempt": k, **res})
+        return
+    idle = trig["mode"] == "idle"
+    url = f"{base}/reset_prefix_cache" + ("" if idle else "?reset_running_requests=true")
+    time.sleep(max(0.0, t0 + trig["at_s"] - time.monotonic()))
+    give_up = time.monotonic() + (trig["max_wait_s"] if idle else 0)
+    while True:
+        start = time.monotonic()
+        res = _post(url, trig["request_timeout_s"])
+        write({"t_start": start - t0, "t_end": time.monotonic() - t0, "mode": trig["mode"], **res})
+        if not idle or res["success"] or res["status"] != 200 or time.monotonic() >= give_up:
+            return
+        time.sleep(trig["retry_interval_s"])
+
+
+def main(run_dir: Path, t0: float):
+    cfg = yaml.safe_load((run_dir / "config.yaml").read_text())
+    srv = cfg["server"]
+    with open(run_dir / "trigger.jsonl", "a") as f:
+        def write(rec):
+            f.write(json.dumps(rec) + "\n")
+            f.flush()
+        fire(cfg["trigger"], f"http://{srv['host']}:{srv['port']}", t0, write)
+
+
+if __name__ == "__main__":
+    main(Path(sys.argv[1]), float(sys.argv[2]))

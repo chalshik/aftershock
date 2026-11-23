@@ -1,0 +1,11 @@
+# T1 (docs/decisions.md [REG] T1 (rescue, two arms)), seed 15, arm P.
+# Pause cap: D1's capped config of the seed (D1r's parent) with cap 22 for every seed, switched
+# on at 1980 s (the earliest candidate passing t1.separation_gate; [REG] T1), in pause mode.
+# Written by `python -m analysis.t1 configs P 1980`. Runs only after `[DECISION] ... T1 starts`.
+extends: burst_l1pl350cl_r2.0_w3000_s15_cap.yaml
+name: burst_l1pl350cl_r2.0_w3000_s15_t1p
+workload:
+  sessions:
+    cap: 22
+    cap_from_s: 1980
+    cap_mode: pause

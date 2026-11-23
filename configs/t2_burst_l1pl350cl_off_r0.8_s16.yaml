@@ -1,0 +1,15 @@
+# T2 (registered: decisions.md [REG] T2 (cache-off burst control)): REG-19's burst config of seed 16
+# with caching off at D2's matched load (0.80 req/s; decisions.md 2026-11-14 [DECISION] (author) D2 is matched
+# on the open-loop mu_off = 1.0) and the protocol's 1500 s watch: 900 s before the burst, its 180 s, 1500 s after.
+# The burst (trigger) is REG-19's, unchanged in absolute size. Needs the author's approval to run.
+extends: burst_l1pl350cl_r2.0_w3000_s16.yaml
+name: t2_burst_l1pl350cl_off_r0.8_s16
+server:
+  args:
+    --enable-prefix-caching: null
+    --no-enable-prefix-caching: true
+workload:
+  rate: 0.8
+  duration_s: 2580
+verdict:
+  watch_s: 1500

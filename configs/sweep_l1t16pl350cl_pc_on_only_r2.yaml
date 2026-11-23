@@ -1,0 +1,9 @@
+# E2 (registered with E0, decisions.md 2026-11-14 [REG] E0 and E2): one rate of the 16-turn closed-loop cache-on sweep,
+# λ = 2 alone. Used only when E1's stopping rule (applied to E2) asks for it: a rate the first invocation never
+# started, or the rerun of an invalid rate (unchanged, at most twice; the same file serves both reruns). Same settings
+# as sweep_l1t16pl350cl_pc_on.yaml; only the list of rates differs. `name` keeps the sweep parent, so the run is
+# named and sealed as the sweep's own run at this rate.
+extends: sweep_l1t16pl350cl_pc_on.yaml
+name: sweep_l1t16pl350cl_pc_on
+sweep:
+  rates: [2]

@@ -1,0 +1,10 @@
+The run data, configurations and documentation in this repository are
+licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0). The code (harness/, analysis/, tests/, tools/, env/) is licensed
+under the MIT License in LICENSE.
+
+You may share and adapt this material for any purpose, provided you give
+appropriate credit, provide a link to the license, and indicate if changes
+were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode

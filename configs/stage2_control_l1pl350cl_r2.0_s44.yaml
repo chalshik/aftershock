@@ -1,0 +1,11 @@
+# The sustained-wipe run's same-seed control (no trigger). DRAFT: needs the wipe arm's [REG] and the author's approval.
+# Judged on the wipe run's windows (REG-25 rule F round 1, R4): baseline [300, 900) as the wipe run's (which ends at
+# its first call, ≈ 900 s), and the end window [2100, 2700), ≈ the wipe run's [≈ 2097.7, 2697.7).
+extends: stage2_control_l1pl350cl_r2.0_s2.yaml
+name: stage2_control_l1pl350cl_r2.0_s44
+seed: 44
+workload:
+  duration_s: 2700
+verdict:
+  control_t_s: 900
+  watch_s: 1800
