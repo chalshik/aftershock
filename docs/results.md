@@ -1,6 +1,6 @@
 # Registrations and results
 
-Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 111 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
+Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 113 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
 
 ## 2026-11-04 · [RESULT] Sweep schedules share one rising-load pattern (audit, descriptive)
 ## 2026-11-04 · [REG] REG-1: post-trigger completion margin (tests assumption A of M2)
