@@ -21,7 +21,7 @@ The findings are reported in the paper *Turn Release Decides Whether a Load Test
 | `docs/PROVENANCE.md` | the paper's numbers: for each, the run folders and the analysis function that produced it |
 | `docs/EXPERIMENTS.md` | the paper's experiment names and their ids in the log |
 | `docs/PREDICTIONS.md` | the probability each pre-specification gave its outcome, and each outcome beside what the paper reports |
-| `docs/ARTIFACT.md` | what a run folder holds, the manifest, the entry point, the pre-specification process and the seals; the paper's Table 3 in full |
+| `docs/ARTIFACT.md` | what a run folder holds, the manifest, the entry point, the pre-specification process and the seals; the paper's Table 4 in full |
 | `docs/probe/` | the inputs the code reads (seed picks fixed before their runs), and the saved outputs the paper cites by path and checksum |
 | `manifests/runs.sha256` | the sha256 of every file of every run folder |
 
