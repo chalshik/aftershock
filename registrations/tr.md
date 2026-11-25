@@ -14,7 +14,7 @@
 | **Prediction held** | O yes (`replicates` 0.860); H no (`headroom_excluded` 0.301, second to `mixed` 0.493; 0 of 5 controls out of n against a 0.32 prior); D no (`default_sees` 0.440, second to `mixed` 0.533) |
 | **Not separated** | Registered as separable by no outcome: turn release against the bounded open population (9–13 sessions in service against 218–320); for H, warm headroom against the position between the cold floor and the warm capacity (the matched λ is 2.14–2.73 depending on the closed warm capacity used). |
 | **Corrections** | The `headroom_excluded` rule was miscoded from a misread review option and fixed before any run. |
-| **In the paper** | not yet in the paper |
+| **In the paper** | abstract, §1, §3, §4.4, §5, §6, Appendices A and F of the full paper; abstract, §1, §3, §4.2 (Table 1), §5 and §6 of the workshop version (applied 2026-11-25) |
 | **Notes** | 30 of 30 runs valid on the first attempt. Arm A's runs of the same seeds also recovered, with end reuse equal to O's (same schedule and prompts by seed). H's shock (197–340 outstanding) was at least REG-19's (131–238). In D, 0.87–0.88 of later turns went out the moment their previous reply ended, and reuse stayed at 0.000, so zero-gap reuse did not rescue it. D bears on the population alternative but does not separate early release from the bounded population. |
 
 [All registrations](README.md)

@@ -33,7 +33,7 @@ Run folders are not in git. They are published as a separate dataset, every fold
 
 ## Notes on this release
 
-- It is built from one commit of the study's working repository (980c56d, 463 files). That repository also holds the study's log (`docs/decisions.md`) and its drafts; comments and docs here that cite `decisions.md` refer to that log. `registrations/` gives each registration's registered facts and result, compiled from it, and `docs/results.md` its registration and result headings verbatim. The full log is available from the author on request. A `FILE(...)` or `PROBE(...)` tag that names a path not present here refers to that commit.
+- It is built from one commit of the study's working repository (2753a3f, 463 files). That repository also holds the study's log (`docs/decisions.md`) and its drafts; comments and docs here that cite `decisions.md` refer to that log. `registrations/` gives each registration's registered facts and result, compiled from it, and `docs/results.md` its registration and result headings verbatim. The full log is available from the author on request. A `FILE(...)` or `PROBE(...)` tag that names a path not present here refers to that commit.
 - Wording in comments, docstrings, docs and some messages was edited for this release. No name, number or operator in the code changed (the build compares each file's tokens), and no config's resolved form changed (`tests/test_release_configs.py` checks every config against the working repository's).
 - Left out of the code:
 

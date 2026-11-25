@@ -13,7 +13,7 @@
 | **Result** | `separated`: 21,695 closed later turns, all at x ≥ 8 (23 in [8, 16), 21,672 at ≥ 16), reuse 0.000 (5 of 5 runs, lower bound 0.549). No bucket matched: the open arm had 24 and 35 turns at x ≥ 8. Open profile (never judged): reuse 1.000 at x < 0.5 (13,267 turns), 0.934 in [.5, 1) (82), 0.467 in [1, 2) (18), 0.053 in [2, 4) (37), 0.022 in [4, 8) (41), 0.000 beyond. No-burst controls: 0.999–1.000 at x < 0.5, 0.54–0.63 in [.5, 1). |
 | **Prediction held** | yes (likeliest outcome, 0.46) |
 | **Not separated** | Idle age against the turnover time, against the working set exceeding the pool: not separated, as registered. |
-| **In the paper** | not yet in the paper |
+| **In the paper** | §4.4 of the full paper; §5 of the workshop version (applied 2026-11-25) |
 | **Notes** | The open profile's fall across x ≈ 1 rests on 18–82 turns per bucket, below the registered 100, so no crossing is claimed. |
 
 [All registrations](README.md)
