@@ -378,9 +378,9 @@ def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, n
         for i, a in enumerate(ax):
             a.axvline(t, color="0.2", lw=0.9, ls=style, label=lab if i == 0 else None)
     ax[1].axhline(FIG["kv_onset"], color="0.4", lw=0.8, ls=":")
-    ax[0].set_ylabel("later-turn reuse")
+    ax[0].set_ylabel("follow-up hit rate")
     ax[1].set_ylabel("KV usage")
-    ax[2].set_ylabel("waiting (requests)")
+    ax[2].set_ylabel("server queue (requests)")
     ax[2].set_xlabel(xlabel or ("seconds from the burst's start (grey: burst; light grey: "
                      + ("the judged end window)" if paper_names else "verdict end window)")))
     # Legends sit below the panels, so no data is hidden behind them (presentation only).

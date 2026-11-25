@@ -1,6 +1,6 @@
 # Registrations and results
 
-Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 106 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
+Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 109 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
 
 ## 2026-11-04 · [RESULT] Sweep schedules share one rising-load pattern (audit, descriptive)
 ## 2026-11-04 · [REG] REG-1: post-trigger completion margin (tests assumption A of M2)
@@ -104,3 +104,5 @@ Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in 
 ## 2026-11-23 · [REG] M (idle age against the turnover time): later-turn prefix reuse against the idle age in units of the free queue's turnover, in REG-19's five closed-loop and REG-20 arm A's five open-loop burst runs, after the burst
 ## 2026-11-23 · [RESULT] M (idle age against the turnover time): `separated`. Every closed-loop later turn after the burst sat at x ≥ 8 turnover times with reuse 0.000; open-loop turns reached x ≥ 1 too rarely for any bucket to match
 ## 2026-11-25 · [RESULT] TR (three turn-release arms): O `replicates` (5 of 5 recovered on the current stack), H `headroom_excluded` (5 of 5 recovered at λ = 2.73), D `default_sees` (5 of 5 stuck under AIPerf's default release); joint summary `lead_holds`
+## 2026-11-25 · [REG] PW (REG-19's whole-window rule on the ten post-rule seeds)
+## 2026-11-25 · [RESULT] PW (REG-19's whole-window rule on the ten post-rule seeds)

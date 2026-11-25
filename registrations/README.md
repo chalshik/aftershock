@@ -52,3 +52,4 @@ One card per registration of the study, in the order they were registered. Each 
 | [T1](t1.md) |  |  | 2026-11-23 | 2026-11-23 | `mixed` | yes |
 | [TR](tr.md) |  | K1 | 2026-11-23 | 2026-11-25 | O `replicates`, H `headroom_excluded`, D `default_sees` | split |
 | [M](m.md) |  | K1 | 2026-11-23 | 2026-11-23 | `separated` | yes |
+| [PW](pw.md) |  | P0 | 2026-11-25 | 2026-11-25 | 0 of 10 counted (all `cut_sensitive`) | no |
