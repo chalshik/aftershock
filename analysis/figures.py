@@ -337,7 +337,7 @@ def run_label(arm: str, run: dict) -> str:
 def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, note: str | None = None,
           paper_names: dict | None = None, spans: list | None = None, vlines: list | None = None,
           xlabel: str | None = None, figsize: tuple | None = None, font: float | None = None,
-          legend_top: bool = False) -> list[Path]:
+          legend_top: bool | dict = False) -> list[Path]:
     """The provenance figure; with `paper_names` ({arm: legend name}), the preprint's version of the same data: no
     title, run ids, analysis labels, note or commit footer (those stay in the provenance figure and the caption's
     source mark). Presentation only: the series are the same.
@@ -392,8 +392,9 @@ def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, n
     all_ax = list(ax) + ([cq_ax] if cq_ax is not None else [])
     handles = [h for a in all_ax for h in a.get_legend_handles_labels()[0]]
     names = [n for a in all_ax for n in a.get_legend_handles_labels()[1]]
-    if legend_top:
-        ax[0].legend(handles, names, loc="center right", frameon=False)
+    if legend_top:   # True: centre right; a dict: the legend's placement, e.g. {"loc": ..., "bbox_to_anchor": ...}
+        place = legend_top if isinstance(legend_top, dict) else {"loc": "center right"}
+        ax[0].legend(handles, names, frameon=False, **place)
     else:
         fig.legend(handles, names, fontsize=plt.rcParams["font.size"] if figsize else 7, loc="lower left",
                    bbox_to_anchor=(0.01, 0.02), frameon=False)
@@ -458,15 +459,16 @@ def rewarm_fig(seed: int | None = None, out: Path | None = None, draw: bool = Tr
     tr = runs["burst"]["cfg"]["trigger"]
     we = b["drop"][0]
     spans = [(float(tr["at_s"]) - we, b["burst_end"] - we, "0.85"), (0.0, b["drop"][1] - we, "0.93")]
-    vlines = [(rw["onset_s"], ":", "reuse back at its recovered level (re-warm onset)"),
-              (rw["drained_s"], "--", "total line (the owed backlog) drained")]
+    vlines = [(rw["onset_s"], ":", "follow-up hit rate back"),   # the paper's words (review 2026-11-26)
+              (rw["drained_s"], "--", "backlog drained")]
     labels = {"burst": f"{rw['label']}, lead {rw['lead_s']:+.0f} s", "control": "control"}
     xl = "seconds from the drop to λ = 1 (grey: burst; light grey: the drop; then the return to λ = 2.0)"
     files = (_plot(panels, runs, labels, f"Return to warm, L1 closed-loop λ = 2.0, seed {sd}: burst run (REG-27) and "
                    f"control; REG-30 onset and drain", (out or OUT) / f"rewarm_s{sd}", spans=spans, vlines=vlines,
                    xlabel=xl)
              + _plot(panels, runs, labels, "", (out or OUT) / f"rewarm_s{sd}_paper", spans=spans, vlines=vlines,
-                     xlabel=xl, paper_names={"burst": "burst run", "control": "same-seed control, no burst"})
+                     xlabel=xl, paper_names={"burst": "burst run", "control": "same-seed control, no burst"},
+                     font=FIG["paper_font"], legend_top={"loc": "center left", "bbox_to_anchor": (0.12, 0.5)})
              + _plot(panels, runs, labels, "", (out or OUT) / f"rewarm_s{sd}_column", spans=spans, vlines=vlines,
                      xlabel=XL_COLUMN, paper_names={"burst": "burst run", "control": "same-seed control, no burst"},
                      figsize=FIG["column_figsize"], font=FIG["column_font"])

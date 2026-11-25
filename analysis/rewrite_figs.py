@@ -198,11 +198,11 @@ def draw_capacity(res: dict, out: Path) -> Path:
     fig, ax = plt.subplots(figsize=FIGS["figsize"])
     a, b = FIGS["window"]
     ax.axvspan(a, b, color="#eeeeee", lw=0)
-    ax.text(a + 0.02, 0.15, "closed-loop\nwindow", fontsize=8, color="#555555")
+    ax.text(a + 0.02, 0.15, "closed-loop\nvulnerable range", fontsize=8, color="#555555")   # the caption's term (review 2026-11-26)
     ax.axvline(FIGS["lam"], color="#888888", lw=1)
     top = max(x["rate"] for v in res.values() for x in v)
     ax.plot([0, top], [0, top], color="#bbbbbb", lw=1)
-    ax.text(top * 0.80, top * 0.86, "completions = offered", fontsize=7, color="#888888", rotation=0)
+    ax.text(top * 0.80, top * 0.86, "completions = planned", fontsize=7, color="#888888", rotation=0)
     style = {"open, cache on": ("--s", "open", "none"), "open, cache off": ("--s", "open", None),
              "closed, cache on": ("-o", "closed", "none"), "closed, cache off": ("-o", "closed", None)}
     for name, rows in res.items():
@@ -213,7 +213,7 @@ def draw_capacity(res: dict, out: Path) -> Path:
         y = [r["throughput"] for r in rows]
         ax.plot(x, y, mk, color=FIGS["color"][arm], lw=1.6, ms=5, mfc=face or FIGS["color"][arm], label=name)
         ax.annotate(name, (x[-1], y[-1]), xytext=(4, -3), textcoords="offset points", fontsize=7, color="#333333")
-    ax.set_xlabel("offered load λ (requests/s)")
+    ax.set_xlabel("planned rate λ (requests/s)")   # the caption's term (review 2026-11-26)
     ax.set_ylabel("completions/s")
     ax.set_xlim(0.8, top + 0.9)
     ax.set_ylim(0, None)
