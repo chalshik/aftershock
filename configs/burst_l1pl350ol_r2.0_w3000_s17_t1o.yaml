@@ -1,0 +1,5 @@
+# TR arm O (docs/drafts/tr_draft2.md; not registered), seed 17: REG-20 arm A's open-loop
+# burst run, renamed `_t1o`; nothing else changes. Written by `python -m analysis.armo configs`.
+# Runs only after the author approves TR's [REG].
+extends: burst_l1pl350ol_r2.0_w3000_s17.yaml
+name: burst_l1pl350ol_r2.0_w3000_s17_t1o

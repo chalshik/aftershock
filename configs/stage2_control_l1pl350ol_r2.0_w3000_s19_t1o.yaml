@@ -1,0 +1,6 @@
+# TR arm O (docs/drafts/tr_draft2.md; not registered), seed 19: REG-20 arm A's open-loop
+# control, renamed `_t1o`; nothing else changes. Written by `python -m analysis.armo configs`.
+# Always run (TR): it decides the seed only if its burst partner reads cold-backlogged (analysis/k1.py).
+# Runs only after the author approves TR's [REG].
+extends: stage2_control_l1pl350ol_r2.0_w3000_s19.yaml
+name: stage2_control_l1pl350ol_r2.0_w3000_s19_t1o

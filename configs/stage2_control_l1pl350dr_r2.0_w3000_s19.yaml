@@ -1,0 +1,9 @@
+# TR arm D, AIPerf default release (docs/drafts/tr_draft2.md; not registered), seed 19, control (always run: TR, the author's choice).
+# REG-19's config of the seed with one change: each later turn is released at max(planned time, previous
+# turn's end), AIPerf's default trace replay (harness/loadgen.py release_mode). Written by
+# `python -m analysis.aiperf_arm configs`. Runs only after the author's [DECISION] that starts TR.
+extends: stage2_control_l1pl350cl_r2.0_w3000_s19.yaml
+name: stage2_control_l1pl350dr_r2.0_w3000_s19
+workload:
+  sessions:
+    release: max_planned

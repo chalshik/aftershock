@@ -1,6 +1,6 @@
 # Registrations and results
 
-Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 103 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
+Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 105 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
 
 ## 2026-11-04 · [RESULT] Sweep schedules share one rising-load pattern (audit, descriptive)
 ## 2026-11-04 · [REG] REG-1: post-trigger completion margin (tests assumption A of M2)
@@ -99,3 +99,8 @@ Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in 
 ## 2026-11-23 · [RESULT] T1's gate, computed once: passes at from_s 1980 with 3 of 5 seeds; the prediction drops
 ## 2026-11-23 · [REG] T1 (rescue, two arms): a pause cap of 22 engaged at 1980 s inside REG-19's established stuck state at λ = 2.0, arm P on seeds 15, 17, 19, the uncapped twin U on seeds 15–19. Does the engine re-warm promptly once the cap holds and the in-slot working set fits the pool, with the line still owed? (GPU, 10 h, ≤ 30 h)
 ## 2026-11-23 · [RESULT] E16: the long-watch runs' kernel (a readout, 0 GPU h, never judged)
+## 2026-11-23 · [RESULT] T1 (rescue, two arms): `mixed`. With the pause cap of 22 engaged at 1980 s inside the stuck state, the slot holders re-warmed in 3 of 3 seeds before the owed line drained: seed 19 `prompt_warm` (183 s after the cap held), seeds 15 and 17 `delayed` (283 s and 271 s against the 240 s bar). The uncapped twin U was cold and backlogged in 5 of 5 on kernel 149. The band `band_miss` (3 of 3 late)
+## 2026-11-23 · [REG] TR (three turn-release arms): arm O (REG-20 arm A rerun at λ = 2.0), arm H (open loop at λ = 2.73) and arm D (AIPerf's default release), seeds 15–19, every burst run with its own no-burst control, one queue after T1's
+## 2026-11-23 · [REG] M (idle age against the turnover time): later-turn prefix reuse against the idle age in units of the free queue's turnover, in REG-19's five closed-loop and REG-20 arm A's five open-loop burst runs, after the burst
+## 2026-11-23 · [RESULT] M (idle age against the turnover time): `separated`. Every closed-loop later turn after the burst sat at x ≥ 8 turnover times with reuse 0.000; open-loop turns reached x ≥ 1 too rarely for any bucket to match
+## 2026-11-25 · [RESULT] TR (three turn-release arms): O `replicates` (5 of 5 recovered on the current stack), H `headroom_excluded` (5 of 5 recovered at λ = 2.73), D `default_sees` (5 of 5 stuck under AIPerf's default release); joint summary `lead_holds`

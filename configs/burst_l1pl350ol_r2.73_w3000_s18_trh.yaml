@@ -1,0 +1,7 @@
+# TR arm H (docs/drafts/tr_draft2.md; not registered), seed 18, burst run: REG-20 arm A's open-loop
+# burst at λ = 2.73 (2.0 x 3.0 / 2.2), the only change; the burst itself is unchanged.
+# Written by `python -m analysis.tr configs`. Runs only after the author's [DECISION] that starts TR.
+extends: burst_l1pl350ol_r2.0_w3000_s18.yaml
+name: burst_l1pl350ol_r2.73_w3000_s18_trh
+workload:
+  rate: 2.73

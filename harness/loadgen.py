@@ -8,6 +8,9 @@ its turn 0 records `t_arrived` and `t_admitted`, and its `t_released` is the adm
 Cap mode (`workload.sessions.cap_mode`, T1 draft): "admission" (or absent) is the cap above, unchanged. "pause" adds a
 resume queue: from `cap_from_s` on, a session whose turn ends while more than `cap` sessions hold a slot gives its slot
 up until a slot is handed back to it (see SessionCap). Its later turns stay owed; only their release times move.
+Release (`workload.sessions.release`, AIPerf arm draft; see release_mode): absent = the two modes above, unchanged.
+"max_planned" (closed-loop turns, no cap) releases turn k at max(t_planned[k], end of turn k-1): AIPerf's default trace
+replay. A turn is still never sent while its previous turn runs; a late turn goes at once, with no think gap.
 
 Usage (started by run.py): python -m harness.loadgen <run_dir> <t0_monotonic>
 Writes one line per request to requests.jsonl. No timeouts, no retries.
@@ -142,6 +145,29 @@ def session_cap(cfg: dict) -> SessionCap | None:
                       "admission" if mode is None else mode)
 
 
+RELEASE_MODES = ("open", "closed", "max_planned")
+
+
+def release_mode(cfg: dict) -> str:
+    """How a session's later turns are released: "open" (each at its planned time), "closed" (at the previous turn's
+    end plus the planned gap) or "max_planned" (at max(planned time, previous turn's end), AIPerf's default trace
+    replay; AIPerf arm draft). `workload.sessions.release` was added after defaults.yaml was used, so it is read with
+    .get; absent or null gives exactly the earlier behaviour: "closed" iff `closed_loop` is truthy, else "open". The
+    key's one value is "max_planned"; it is refused unless `closed_loop` is true (the chain path releases the later
+    turns) and refused with a `cap` (the pause and admission paths are not defined for it)."""
+    sessions = (cfg["workload"].get("sessions") or {})
+    rel = sessions.get("release")
+    if rel is None:
+        return "closed" if sessions.get("closed_loop") else "open"
+    if not isinstance(rel, str) or rel != "max_planned":
+        raise ValueError(f"workload.sessions.release must be 'max_planned' (or absent), got {rel!r}")
+    if sessions.get("closed_loop") is not True:
+        raise ValueError("workload.sessions.release needs closed-loop turns (workload.sessions.closed_loop: true)")
+    if sessions.get("cap") is not None:
+        raise ValueError("workload.sessions.release is refused with a session cap (workload.sessions.cap)")
+    return rel
+
+
 PAUSE_FIELDS = ("t_paused", "t_resumed", "slots_at_pause", "resume_queue_at_pause", "slots_at_resume",
                 "resume_queue_at_resume")  # request fields of a pause-mode chain (session_chain)
 
@@ -198,10 +224,11 @@ async def send(session, url, model, row, prompt, gateway, t0, out, inflight, t_r
     return rec
 
 
-async def session_chain(rows, prompts, session, url, model, gateway, t0, out, inflight, cap=None):
+async def session_chain(rows, prompts, session, url, model, gateway, t0, out, inflight, cap=None, mode="closed"):
     """Closed-loop turns of one session. Turn 0 is released at its planned time; turn k at the end of turn k-1 (or the
-    time it failed) plus the planned gap t_planned[k] - t_planned[k-1]. Turns not yet sent stay in `inflight` as
-    unfinished placeholders, so a turn never released before the drain deadline is still recorded (as a miss).
+    time it failed) plus the planned gap t_planned[k] - t_planned[k-1]. With `mode` "max_planned" (release_mode; never
+    with a cap) turn k is released at max(t_planned[k], end of turn k-1) instead. Turns not yet sent stay in `inflight`
+    as unfinished placeholders, so a turn never released before the drain deadline is still recorded (as a miss).
     With a session cap the session first waits for a slot (it is called at turn 0's planned time); turn 0 is released
     at admission, and the slot is held until the chain ends (last turn ended, failed, or cancelled at the deadline).
     In pause mode (SessionCap) the chain checks, after each turn but the last has ended, whether to pause; a paused
@@ -213,6 +240,8 @@ async def session_chain(rows, prompts, session, url, model, gateway, t0, out, in
     `pause_s` (this turn's pause; None while still paused) and `pause_s_cum` (the session's pauses up to this turn).
     The next turn's unfinished placeholder gets the pause fields at the pause and the resume fields at the resume,
     before the release sleep, so a turn cut off at the deadline shows how far its session got."""
+    if mode not in ("closed", "max_planned") or (mode == "max_planned" and cap is not None):
+        raise ValueError(f"session_chain: release mode {mode!r} with cap {cap!r}")  # release_mode refuses both first
     pausing = cap is not None and cap.mode == "pause"
     blank = {**dict.fromkeys(PAUSE_FIELDS), "pause_s": 0.0, "pause_s_cum": 0.0} if pausing else {}
     for row in rows:
@@ -235,7 +264,10 @@ async def session_chain(rows, prompts, session, url, model, gateway, t0, out, in
                     done = pend.pop("done")
                 else:
                     done = prev["t_end"] if prev["t_end"] is not None else time.monotonic() - t0
-                release = done + float(row.t_planned) - prev["t_planned"]
+                if mode == "max_planned":  # the planned time, or the previous end if that is later
+                    release = max(float(row.t_planned), done)
+                else:
+                    release = done + float(row.t_planned) - prev["t_planned"]
                 if pend is not None:
                     release = max(release, pend["t_resumed"])
             delay = t0 + release - time.monotonic()
@@ -313,7 +345,8 @@ async def main(run_dir: Path, t0: float):
     cap = session_cap(cfg)
     deadline = t0 + (float(sched.t_planned.max()) if len(sched) else 0.0) + cfg["drain_s"]
     inflight, tasks = {}, []
-    closed = bool((cfg["workload"].get("sessions") or {}).get("closed_loop"))  # absent = open loop (older configs)
+    mode = release_mode(cfg)  # absent keys = open loop (older configs); `release` absent = today's closed loop
+    closed = mode != "open"
     chains = {}
     if closed:
         for row in sched[~sched.burst].sort_values(["session_id", "turn"]).itertuples(index=False):
@@ -331,7 +364,7 @@ async def main(run_dir: Path, t0: float):
                             await asyncio.sleep(delay)
                         tasks.append(asyncio.create_task(session_chain(
                             chains[int(row.session_id)], prompts, session, url, cfg["model"], gateway, t0, out,
-                            inflight, cap)))
+                            inflight, cap, mode)))
                     continue
                 prompt = prompt_tokens(prompts, int(row.session_id), int(row.prompt_len))  # built before the wait
                 delay = t0 + row.t_planned - time.monotonic()

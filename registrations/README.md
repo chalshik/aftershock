@@ -49,4 +49,6 @@ One card per registration of the study, in the order they were registered. Each 
 | [G2](g2.md) | the development-mode twin |  | 2026-11-21 | 2026-11-22 | `dev_neutral` | yes |
 | [P8192](p8192.md) | the 8192 burst test | P0 | 2026-11-21 | 2026-11-22 | no label claimed (3 of 5 stuck) | not scored |
 | [REG-31](reg-31.md) | the four post-review readouts |  | 2026-11-22 | 2026-11-22 | four readouts | mixed |
-| [T1](t1.md) |  |  | 2026-11-23 | pending | pending | pending |
+| [T1](t1.md) |  |  | 2026-11-23 | 2026-11-23 | `mixed` | yes |
+| [TR](tr.md) |  | K1 | 2026-11-23 | 2026-11-25 | O `replicates`, H `headroom_excluded`, D `default_sees` | split |
+| [M](m.md) |  | K1 | 2026-11-23 | 2026-11-23 | `separated` | yes |

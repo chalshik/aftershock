@@ -37,7 +37,17 @@ SEALS: tuple[tuple[str, str, str], ...] = (
     ("D1b", "*_burst_l1pl350cl_r2.0_w3000_s1[5-7]_cap40", "[RESULT] D1b (C2, cap above the cold batch)"),
     ("T1", "*_burst_l1pl350cl_r2.0_w3000_s1[5-9]_t1p", "[RESULT] T1 (rescue, two arms)"),           # arm P
     ("T1", "*_burst_l1pl350cl_r2.0_w3000_s1[5-9]_t1u",          "[RESULT] T1 (rescue, two arms)"),  # arm U
+    # TR (docs/drafts/tr_draft2.md; not registered), three turn-release arms in one queue after T1's, one [RESULT]:
+    # arm O (analysis/armo.py): REG-20 arm A's open-loop runs renamed `_t1o`, bursts and their conditional controls
+    ("TR", "*_burst_l1pl350ol_r2.0_w3000_s1[5-9]_t1o", "[RESULT] TR (three turn-release arms)"),
+    ("TR", "*_stage2_control_l1pl350ol_r2.0_w3000_s1[5-9]_t1o", "[RESULT] TR (three turn-release arms)"),
+    # arm H (analysis/tr.py): open-loop turns at λ = 2.73, bursts and their always-run controls, `_trh`
+    ("TR", "*_burst_l1pl350ol_r2.73_w3000_s1[5-9]_trh", "[RESULT] TR (three turn-release arms)"),
+    ("TR", "*_stage2_control_l1pl350ol_r2.73_w3000_s1[5-9]_trh", "[RESULT] TR (three turn-release arms)"),
     ("D1r", "*_burst_l1pl350cl_r2.0_w3000_s1[5-9]_rescue", "[RESULT] D1r (C2, cap as a rescue)"),  # cap from 1680 s
+    # TR arm D, the AIPerf default-release arm (analysis/aiperf_arm.py): burst runs and always-run controls, "dr" for
+    # `workload.sessions.release: max_planned`; no suffix, so neither REG-19's nor T1's patterns (`_l1pl350cl_`) match
+    ("TR", "*_l1pl350dr_r2.0_w3000_s1[5-9]", "[RESULT] TR (three turn-release arms)"),
     ("K4", "*_k4_l1pl350cl_r2.2_s[1-5][0-9][0-9]", "[RESULT] K4 (the warm state ends at a surge)"),  # both arms
     ("K4e", "*_k4e_l1pl350cl_r2.2_s[6-9][0-9][0-9]", "[RESULT] K4e (K4's edge)"),   # both strata
     ("K4e", "*_k4e_l1pl350cl_r2.2_s137", "[RESULT] K4e (K4's edge)"),               # its positive control

@@ -123,6 +123,7 @@ def run_one(cfg: dict, runs_dir: Path, allow_dirty: bool) -> Path:
         trigger.validate(cfg)
     try:
         loadgen_mod.session_cap(cfg)  # a bad session cap stops here, before the server starts
+        loadgen_mod.release_mode(cfg)  # and so does a bad `workload.sessions.release` (AIPerf arm draft)
     except ValueError as e:
         raise SystemExit(f"{cfg['name']}: {e}")
 

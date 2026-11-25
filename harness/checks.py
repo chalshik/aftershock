@@ -12,6 +12,7 @@ import yaml
 from harness import trigger
 
 from harness.config import with_defaults
+from harness.loadgen import release_mode
 from harness.workload import burst_requests, expected_requests
 
 # NVML clock-throttle bits. A software power cap (0x4) is normal boost behaviour and is ignored.
@@ -170,8 +171,15 @@ def run_checks(run_dir: Path) -> dict:
         deadline = float(sched.t_planned.max()) + cfg["drain_s"]
         unsent = q.t_sent.isna() & (q.turn > 0)
         due = prev_end + q.t_planned - prev_planned
-        blocked = prev_end.isna() | (due > deadline - 1.0)
         extra = {}
+        if release_mode(cfg) == "max_planned":
+            # AIPerf's default release (`workload.sessions.release: max_planned`, AIPerf arm draft; harness/loadgen.py
+            # session_chain): a later turn is due at max(planned time, previous end), so it is blocked by its own
+            # session iff the previous turn never ended or that time is past the deadline (same 1 s slack). Only
+            # configs with the key take this branch, so the check of every other run is unchanged.
+            due = np.maximum(q.t_planned.astype(float), prev_end.astype(float))
+            extra = {"release": "max_planned"}
+        blocked = prev_end.isna() | (due > deadline - 1.0)
         if "t_paused" in q:
             # Pause mode of the session cap (`workload.sessions.cap_mode: pause`, T1 draft; harness/loadgen.py
             # session_chain): a turn is also blocked by its own session when the session paused before it and was
