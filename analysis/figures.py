@@ -69,6 +69,8 @@ FIG = {
     # The workshop's two-column render sets each figure at column width (about 3.3 in): a variant drawn at that size,
     # so the labels print at "column_font" points (panel 2026-11-23, B9 and the reader). Presentation only.
     "column_figsize": (3.4, 4.3), "column_font": 7,
+    # The full-width paper figure (11 in) prints at about half size, so 16 pt labels print near 8 pt (review 2026-11-26).
+    "paper_font": 16,
     # One colour per role across the three figures (panel 2026-11-22, R8.4): the arm that stays cold is red in every
     # figure, the arm that stays or returns warm blue, the looser cap orange. Arms not listed take the default cycle.
     "arm_color": {"closed": "tab:red", "burst": "tab:red", "uncapped": "tab:red",
@@ -334,20 +336,23 @@ def run_label(arm: str, run: dict) -> str:
 
 def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, note: str | None = None,
           paper_names: dict | None = None, spans: list | None = None, vlines: list | None = None,
-          xlabel: str | None = None, figsize: tuple | None = None, font: float | None = None) -> list[Path]:
+          xlabel: str | None = None, figsize: tuple | None = None, font: float | None = None,
+          legend_top: bool = False) -> list[Path]:
     """The provenance figure; with `paper_names` ({arm: legend name}), the preprint's version of the same data: no
     title, run ids, analysis labels, note or commit footer (those stay in the provenance figure and the caption's
     source mark). Presentation only: the series are the same.
     `spans` [(a, b, grey)] replaces the default shading (the burst and K1's end window); `vlines` [(t, style, label)]
     marks times on every panel; `xlabel` replaces the default x label; `figsize` and `font` (points) redraw it at
-    another size. With none of them the figure is unchanged."""
+    another size. With none of them the figure is unchanged. `legend_top` puts the legend inside the top panel
+    (review 2026-11-26: legible at print size)."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     if font is not None:
         with plt.rc_context({"font.size": font, "axes.labelsize": font, "xtick.labelsize": font - 1,
                              "ytick.labelsize": font - 1, "lines.linewidth": 0.8}):
-            return _plot(panels, runs, labels, title, path_stem, note, paper_names, spans, vlines, xlabel, figsize)
+            return _plot(panels, runs, labels, title, path_stem, note, paper_names, spans, vlines, xlabel, figsize,
+                         legend_top=legend_top)
     any_run = next(iter(runs.values()))
     if spans is None:
         trig = any_run["cfg"]["trigger"]
@@ -382,13 +387,16 @@ def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, n
     ax[1].set_ylabel("KV usage")
     ax[2].set_ylabel("server queue (requests)")
     ax[2].set_xlabel(xlabel or ("seconds from the burst's start (grey: burst; light grey: "
-                     + ("the judged end window)" if paper_names else "verdict end window)")))
+                     + ("the end window tested)" if paper_names else "verdict end window)")))
     # Legends sit below the panels, so no data is hidden behind them (presentation only).
     all_ax = list(ax) + ([cq_ax] if cq_ax is not None else [])
     handles = [h for a in all_ax for h in a.get_legend_handles_labels()[0]]
     names = [n for a in all_ax for n in a.get_legend_handles_labels()[1]]
-    fig.legend(handles, names, fontsize=plt.rcParams["font.size"] if figsize else 7, loc="lower left",
-               bbox_to_anchor=(0.01, 0.02), frameon=False)
+    if legend_top:
+        ax[0].legend(handles, names, loc="center right", frameon=False)
+    else:
+        fig.legend(handles, names, fontsize=plt.rcParams["font.size"] if figsize else 7, loc="lower left",
+                   bbox_to_anchor=(0.01, 0.02), frameon=False)
     if not paper_names:
         ax[0].set_title(title, fontsize=10)
     if note and not paper_names:
@@ -399,7 +407,8 @@ def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, n
     # One legend line is about 1.6 font sizes high; at the column size the legend gets that much room per line, as a
     # share of the figure's height, plus its 0.02 offset, so it sits below the x label.
     per_name = plt.rcParams["font.size"] * 1.6 / 72 / figsize[1] if figsize else 0.017
-    fig.tight_layout(rect=(0, (0.0 if paper_names else 0.03) + (0.02 if figsize else 0) + per_name * len(names), 1, 1))
+    below = 0 if legend_top else per_name * len(names)
+    fig.tight_layout(rect=(0, (0.0 if paper_names else 0.03) + (0.02 if figsize else 0) + below, 1, 1))
     path_stem.parent.mkdir(parents=True, exist_ok=True)
     out = [path_stem.with_suffix(".png"), path_stem.with_suffix(".pdf")]
     for p in out:
@@ -421,7 +430,8 @@ def matched_arms(seed: int | None = None, out: Path | None = None, draw: bool = 
     files = (_plot(panels, runs, labels, f"Matched arms, L1 λ = {FIG['matched_lam']}, seed {sd}: open-loop turns "
                    f"(REG-20 arm A) against closed-loop turns (REG-19)", (out or OUT) / f"matched_arms_s{sd}")
              + _plot(panels, runs, labels, "", (out or OUT) / f"matched_arms_s{sd}_paper",
-                     paper_names={"open": "open-loop turns", "closed": "closed-loop turns"})
+                     paper_names={"open": "open-loop turns", "closed": "closed-loop turns"},
+                     font=FIG["paper_font"], legend_top=True)
              + _plot(panels, runs, labels, "", (out or OUT) / f"matched_arms_s{sd}_column",
                      paper_names={"open": "open-loop turns", "closed": "closed-loop turns"},
                      xlabel="seconds from the burst's start", figsize=FIG["column_figsize"], font=FIG["column_font"])

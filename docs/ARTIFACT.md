@@ -1,6 +1,6 @@
 # The run folders, the entry point and the analysis
 
-The procedures behind the paper's Appendix A. Section numbers refer to the paper at release tag v1.0.
+The procedures behind the paper's Appendix A. Section numbers refer to the paper at release tag v1.1.
 
 **What is kept.** Every run has a folder with its resolved configuration, the schedule written before the run, the per-request client log, the server metrics scraped each second, GPU samples, events, the server log, the environment (versions, kernel, driver, git commit, dirty flag) and the automatic validity checks. 314 run folders existed on 2026-11-22, 283 valid, 24 invalid and 7 without checks; invalid runs are kept and never counted. A checksum manifest (`manifests/runs.sha256`, append-only) lists the files of the run folders copied from the VM, and `python3 tools/manifest.py verify <copy>` checks any copy against it. The one folder that had existed only on the VM (the first attempt at the replication's seed-18 control, 2026-11-12) was copied and added to the manifest on 2026-11-22.
 
@@ -12,7 +12,7 @@ The procedures behind the paper's Appendix A. Section numbers refer to the paper
 
 ## The baseline before the burst, with clock, power and temperature
 
-**The paper's Table 3, in full.** The 600 s before the burst (300 to 900 s), control / burst run, per pair; the control always ran first. SLO attainment and hit rate over the window, median TTFT in seconds, SM clock (MHz) and power (W) over busy GPU samples, mean temperature (°C) (P60).
+**The paper's Table 4, in full.** The 600 s before the burst (300 to 900 s), control / burst run, per pair; the control always ran first. SLO attainment and hit rate over the window, median TTFT in seconds, SM clock (MHz) and power (W) over busy GPU samples, mean temperature (°C) (P60).
 
 | Pair | Seed | Gap (h) | SLO attainment | Hit rate | TTFT p50 | SM clock | Power | Temp. |
 |---|---|---|---|---|---|---|---|---|

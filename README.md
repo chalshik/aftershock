@@ -31,14 +31,14 @@ Run folders are not in git. They are published as a separate dataset, every fold
 
 ## Reproducing
 
-- **A number in the paper:** `docs/PROVENANCE.md` gives its runs and function. The paper cites release tag `v1.0` of this repository.
+- **A number in the paper:** `docs/PROVENANCE.md` gives its runs and function. The paper cites release tag `v1.1` of this repository (`v1.0` was the first release; v1.1 renumbers the docs' table and figure pointers to match the paper).
 - **A registration's number:** find its registration in `registrations/` (or its heading in `docs/results.md`). Its computation is in `analysis/`, in the module named after it where there is one (`t4.py`, `k4e.py`, `reg27.py`, …; REG-19's is in `gate.py`, REG-20's in `k1.py`, REG-24's in `confirm.py`), and that module's tests in `tests/` show how it is called. Put the runs it reads under `runs/` and call it.
 - **A run:** on a Linux host with an RTX 3090, `bash env/setup_vm.sh`, set the GPU power limit to 350 W, commit, then `uv run python -m harness.run configs/<x>.yaml`. A run from a dirty tree is refused.
 - **Tests:** `uv sync --extra analysis && uv run pytest`.
 
 ## Notes on this release
 
-- It is built from one commit of the study's working repository (87a836e, 466 files). That repository also holds the study's log (`docs/decisions.md`) and its drafts; comments and docs here that cite `decisions.md` refer to that log. `registrations/` gives each registration's registered facts and result, compiled from it, and `docs/results.md` its registration and result headings verbatim. The full log is available from the author on request. A `FILE(...)` or `PROBE(...)` tag that names a path not present here refers to that commit.
+- It is built from one commit of the study's working repository (b84bd24, 466 files). That repository also holds the study's log (`docs/decisions.md`) and its drafts; comments and docs here that cite `decisions.md` refer to that log. `registrations/` gives each registration's registered facts and result, compiled from it, and `docs/results.md` its registration and result headings verbatim. The full log is available from the author on request. A `FILE(...)` or `PROBE(...)` tag that names a path not present here refers to that commit.
 - Wording in comments, docstrings, docs and some messages was edited for this release. No name, number or operator in the code changed (the build compares each file's tokens), and no config's resolved form changed (`tests/test_release_configs.py` checks every config against the working repository's).
 - Left out of the code:
 
