@@ -48,6 +48,7 @@ FIGS = {
     # the orange is below 3:1 contrast, so every series is also direct-labelled and has its own line style).
     "color": {"closed": "#d62728", "open": "#1f77b4", "cap40": "#e08214", "cap": "#6a3d9a"},
     "figsize": (6.5, 4.0), "dpi": 200,
+    "column_figsize": (3.4, 2.6), "column_font": 7,   # the workshop's one-column variant (review 2026-11-26): drawn at print size
     "sessions_ymax": 90,                   # presentation: the uncapped run is clipped and its peak annotated
 }
 ARM_LABEL = {"closed": "closed-loop turns", "open": "open-loop turns",   # REG-19, REG-20 arm A, D1b, D1 (no ids in the paper)
@@ -125,9 +126,14 @@ def _plt():
     return plt
 
 
-def draw_reuse(res: dict, out: Path) -> Path:
+def draw_reuse(res: dict, out: Path, column: bool = False) -> Path:
+    """The paper's figure, or with `column` the one-column variant KEY_column.png: same data, drawn at 3.4 in with
+    7 pt type and the legend alone (no direct labels, which do not fit), for the workshop paper."""
     plt = _plt()
-    fig, ax = plt.subplots(figsize=FIGS["figsize"])
+    if column:
+        plt.rcParams.update({"font.size": FIGS["column_font"]})
+    fig, ax = plt.subplots(figsize=FIGS["column_figsize"] if column else FIGS["figsize"])
+    fs = FIGS["column_font"] if column else 8
     styles = {"closed": "-o", "open": "--s", "cap40": ":^"}
     # direct labels: (bucket index, dx, dy points) placed by hand away from the other lines (presentation only)
     where = {"open": (2, 8, 4), "cap40": (2, 8, -2), "closed": (6, -150, 14)}
@@ -138,19 +144,32 @@ def draw_reuse(res: dict, out: Path) -> Path:
         if not pts:
             continue
         x, y, n = zip(*pts)
-        ax.plot(x, y, styles[arm], color=FIGS["color"][arm], lw=2, ms=7 if arm == "closed" else 6,
+        ax.plot(x, y, styles[arm], color=FIGS["color"][arm], lw=1.5 if column else 2,
+                ms=(5 if column else 7) if arm == "closed" else (4 if column else 6),
                 label=ARM_LABEL[arm], zorder=3 if arm == "closed" else 2)
+        if column:
+            continue
         i, dx, dy = where[arm]
         bx = _x_mid(m.X_BUCKETS[i])
         by = p[m.X_BUCKETS[i]]["reuse"] if np.isfinite(p[m.X_BUCKETS[i]]["reuse"]) else 0.0
         ax.annotate(ARM_LABEL[arm].split(" (")[0], (bx, by), xytext=(dx, dy), textcoords="offset points",
                     fontsize=8, color="#333333")
     ax.axvline(1.0, color="#888888", lw=1, ls="-")
-    ax.text(1.03, 1.02, "one turnover time", fontsize=8, color="#555555", va="bottom")
+    ax.text(1.03, 1.02, "one turnover time", fontsize=fs, color="#555555", va="bottom")
     ax.set_xscale("log")
     ax.set_xticks([0.35, 0.7, 1.4, 2.8, 5.7, 11.3, 24])
     ax.set_xticklabels(["<0.5", "0.5–1", "1–2", "2–4", "4–8", "8–16", "≥16"])
     ax.set_ylim(-0.03, 1.08)
+    if column:
+        ax.set_xlabel("idle time, in turnover times of the free pool")
+        ax.set_ylabel("follow-up hit rate")
+        ax.legend(loc="center right", fontsize=fs, frameon=False)
+        fig.tight_layout()
+        path = out / "reuse_by_x_column.png"
+        fig.savefig(path, dpi=300)
+        plt.close(fig)
+        plt.rcParams.update({"font.size": 9})
+        return path
     ax.set_xlabel("idle time before the turn, in turnover times of the free pool (x = A / F)")
     ax.set_ylabel("follow-up hit rate (share of previous prompt cached)")
     ax.legend(loc="center right", fontsize=8, frameon=False)
@@ -233,6 +252,7 @@ def main(argv: list[str]) -> int:
     if what in ("all", "reuse"):
         r = reuse_by_x()
         draw_reuse(r, OUT)
+        draw_reuse(r, OUT, column=True)
         res["reuse"] = {a: {"runs": v["runs"], "pooled": v["pooled"]} for a, v in r.items()}
     if what in ("all", "sessions"):
         r = sessions()

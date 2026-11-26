@@ -36,6 +36,6 @@ The second table sets each pre-specified outcome beside what the text reports, f
 | The cache-off burst control (the paper's Appendix B.3) | "drains", 2 of 2 counted | the same; it says nothing about whether the cache is necessary |
 | The surge test and the band test (the paper's Appendix B.4) | "supports"; "band warm" | the same |
 | The early-warning reading (the paper's Appendix B.5) | "no usable cache lead" | the same |
-| The four post-review readouts (§3, §4.3, §6; the paper's Appendix B.4) | readouts, no outcome | one pre-specified sentence was replaced because it did not describe the data, and one was made exact (P68, P70) |
+| The four post-review readouts (§3, §4.3, §7; the paper's Appendix B.4) | readouts, no outcome | one pre-specified sentence was replaced because it did not describe the data, and one was made exact (P68, P70) |
 
 Of the 30 outcome predictions pre-specified with a written prior, the outcome that occurred was the likeliest one in 21. It was the second or lower in 8, among them the turn-release test at λ = 2.0 (`supports` ≈ 0.40 against `inconclusive` ≈ 0.49), the long-window replication (`replicates` ≈ 0.26 against `mixed` ≈ 0.62) and the band test of the paper's Appendix B.4 (`band_warm` ≈ 0.29 against `mixed` ≈ 0.55). It was tied in one. The mean prior of the outcomes that occurred was 0.49 (P33). The replication's 5 of 5 had been given ≈ 0.033, so the pre-specified per-seed model (about 0.55 a seed) was miscalibrated; how often the whole-window test would fail a run that drains slowly was not measured.
