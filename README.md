@@ -2,7 +2,7 @@
 
 Code, configurations and analysis for a study, with pre-specified tests, of a cache-driven cold state in vLLM's prefix caching: a single vLLM 0.32.0 server on one RTX 3090 (350 W limit), serving multi-turn chat sessions. The study asks whether a short burst of new sessions can leave the server cold (no prefix-cache hits), full and backlogged after the load returns to its earlier level, where the same schedule without the burst stays healthy. Every test's question, thresholds and outcome rule were written into an append-only log, with the code committed, before its runs were read. The log's timestamps are the author's own commits, not a third-party registry, so the tests are called pre-specified.
 
-The findings are reported in the paper *Open-Loop Load Tests Can Miss Prefix-Cache Collapse: A vLLM Case Study* (preprint link to follow). The run data are on Zenodo: https://doi.org/10.5281/zenodo.24478010.
+The findings are reported in the paper *Open-Loop Turn Release Can Miss Prefix-Cache Collapse: A vLLM Case Study* (preprint link to follow). The run data are on Zenodo: https://doi.org/10.5281/zenodo.24478010.
 
 ## Layout
 
@@ -38,7 +38,7 @@ Run folders are not in git. They are published as a separate dataset, every fold
 
 ## Notes on this release
 
-- It is built from one commit of the study's working repository (19e1d38, 475 files). That repository also holds the study's log (`docs/decisions.md`) and its drafts; comments and docs here that cite `decisions.md` refer to that log. `registrations/` gives each registration's registered facts and result, compiled from it, and `docs/results.md` its registration and result headings verbatim. The full log is available from the author on request. A `FILE(...)` or `PROBE(...)` tag that names a path not present here refers to that commit.
+- It is built from one commit of the study's working repository (cd2880b, 479 files). That repository also holds the study's log (`docs/decisions.md`) and its drafts; comments and docs here that cite `decisions.md` refer to that log. `registrations/` gives each registration's registered facts and result, compiled from it, and `docs/results.md` its registration and result headings verbatim. The full log is available from the author on request. A `FILE(...)` or `PROBE(...)` tag that names a path not present here refers to that commit.
 - Wording in comments, docstrings, docs and some messages was edited for this release. No name, number or operator in the code changed (the build compares each file's tokens), and no config's resolved form changed (`tests/test_release_configs.py` checks every config against the working repository's).
 - Left out of the code:
 

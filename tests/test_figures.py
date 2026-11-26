@@ -203,3 +203,28 @@ def test_plot_column_variant_sets_size_and_font_and_leaves_defaults(tmp_path):
     w, h = Image.open(out[0]).size                           # the PNG is drawn at the column size
     assert (w, h) == tuple(round(v * F.FIG["dpi"]) for v in F.FIG["column_figsize"])
     assert matplotlib.rcParams["font.size"] == before         # the font change does not leak to later figures
+
+
+def test_last_planned_ignores_burst_requests():
+    """Figure 1's dashed line (review 2026-11-26): the last planned session request, burst rows excluded, from the
+    burst's start."""
+    import pandas as pd
+    from analysis import figures
+    run = {"cfg": {"trigger": {"kind": "burst", "at_s": 900, "prompt_tokens": 2944}},
+           "requests": pd.DataFrame({"turn": [0, 1, 0, 0], "prompt_tokens_planned": [2176, 2432, 2944, 2176],
+                                     "t_planned": [100.0, 3000.0, 4000.0, 2500.0]})}
+    assert figures.last_planned(run) == 2100.0
+
+
+def test_reuse_line_breaks_at_an_undrawn_bucket():
+    """LTB review 2026-11-26: Figure 3's open-loop line crossed the undrawn 1-2 bucket. gap_series puts NaN there."""
+    from analysis import m, rewrite_figs as R
+    n = {"[0,0.5)": 500, "[0.5,1)": 82, "[1,2)": 18, "[2,4)": 37, "[4,8)": 41, "[8,16)": 5, "[16,inf)": 35}
+    pooled = {bk: {"n": n[bk], "reuse": 0.5} for bk in m.X_BUCKETS}
+    x, y = R.gap_series(pooled)
+    assert len(x) == len(y) == len(m.X_BUCKETS)        # first to last drawn bucket
+    assert math.isnan(y[2]) and math.isnan(y[5])        # 18 and 5 turns: not drawn, so the line breaks
+    assert all(np.isfinite(v) for i, v in enumerate(y) if i not in (2, 5))
+    pooled["[16,inf)"]["n"] = 0
+    x, y = R.gap_series(pooled)
+    assert len(y) == 5                                  # trailing undrawn buckets are not part of the line

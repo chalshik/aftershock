@@ -424,3 +424,22 @@ Used configs are never edited. Their known defects are recorded here instead.
 ### idle age a, turnover-scaled age x, turnover time t_C; M labels (reading M; draft, not registered)
 - **Text:** for a later turn k, *a* = t_first_token[k] − t_end[k−1] (s); a < 0 is `held`. *x* = A / F: A the newly allocated tokens (Δ(prompt_tokens_total − prefix_cache_hits_total + generation_tokens_total), interpolated between scrapes) over [t_end[k−1], t_first_token[k]], F = (1 − kv_cache_usage_perc at t_end[k−1]) × 96,656 tokens; A < 0 with a ≥ 0 is bucket `neg_A`; F ≤ 0 counts as x = ∞ (`f_zero`). A counter that goes down makes the run undefined. *t_C* (readout) = F / allocation rate per 60 s span. A bucket is *matched* with ≥ 100 turns in each arm and ≥ 3 of 5 open runs holding ≥ 20 of them. Labels, first match: `undefined` (< 4 defined runs per arm), `closed_not_outside` (< 0.9 of closed-arm later turns at x ≥ 1, or their reuse > 0.1), `arm_differs` (a matched bucket with |reuse difference| ≥ 0.3), `separated` (no matched bucket), `common_curve` (matched buckets within 0.3 and the open [1, 2) bucket, matched-size, reuses ≥ 0.5 less than open [0, 0.5)), `agree_outside` (matched buckets within 0.3, all at x ≥ 2), `mixed`.
 - **Code:** `m.allocated`, `m.ages`, `m.bucket`, `m.matched_buckets`, `m.label`; readouts `m.per_run`, `m.censored`, `m.turnover`, `m.drain_profile`.
+
+## Post-hoc load-test readouts (author 2026-11-26, the no-run route; decisions.md 2026-11-26 [DECISION] (author) Post-hoc load-test readouts …)
+Not pre-specified; nothing below judges a run. Cells, runs and windows are `uniform.CELLS`'s and `k1.windows`'s.
+
+### time to first token, two origins (post hoc)
+- **Text:** *from the scheduled time*: over requests planned in the window, t_first_token − t_planned. *From the release time*: over requests released in the window, t_first_token − the release time (`t_released` under a rule that records it; t_planned under open loop, which releases at the planned time; a turn never released is in no release window). No first token by the run's end = inf, a miss. p50, p95 and p99 by nearest rank.
+- **Code:** `ltb.latency`, `ltb.release_time`, `ltb.nearest_rank`. Differs from `load.load_run`'s `ttft`, which uses one origin per rule (`t_released`, else `t_planned`) and is summarized with pandas' interpolating quantile over finite values.
+
+### goodput (post hoc, this readout only) ⚠ the repo's earlier "goodput" is percent fast (above)
+- **Text:** requests of a latency population (above) that finished ok with TTFT ≤ `slo.ttft_s` (1.0 s), per second of the window. Named "goodput" in the papers for the load-testing audience, always with this definition beside it.
+- **Code:** `ltb.latency` `goodput` (and `fast_share`, the same count over the population).
+
+### send lag (post hoc)
+- **Text:** t_sent − the release time (as above; t_planned under open loop), over requests sent whose release time falls in the span. The harness's `client_lag` check (FILE(harness/checks.py:61)) bounds its p99 over the whole run at `checks.max_client_lag_p99_s` (0.05 s) in every valid run.
+- **Code:** `ltb.send_lag`.
+
+### planned backlog (post hoc; rule-independent)
+- **Text:** at time t, session requests (burst requests excluded) planned before t and not finished by t. It reads the schedule only, which is the same under every release rule on one seed. Exact split: `at_client` (planned, not yet sent) + `at_server` (sent, not finished). With burst requests included it is `gate.owed_backlog` (the "total line", above).
+- **Code:** `ltb.planned_backlog`, `ltb.backlog_mean`.

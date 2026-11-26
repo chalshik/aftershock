@@ -39,6 +39,7 @@ from analysis import load as L
 from analysis.c2 import reuse_in
 from analysis.gate import REG19, SURGE
 from analysis.k5 import K5
+from analysis.margin import is_burst_request
 from analysis.stats import cp_upper
 from analysis.tables import REPO, provenance
 
@@ -75,6 +76,9 @@ FIG = {
     # figure, the arm that stays or returns warm blue, the looser cap orange. Arms not listed take the default cycle.
     "arm_color": {"closed": "tab:red", "burst": "tab:red", "uncapped": "tab:red",
                   "open": "tab:blue", "control": "tab:blue", "d1": "tab:blue", "d1b": "tab:orange"},
+    # Line style per role, so the two series differ in grayscale too (LTB and SIGMETRICS reviews 2026-11-26): the arm
+    # that stays or returns warm is dashed (open) or dash-dot (control); the cold arm stays solid.
+    "arm_ls": {"open": "--", "control": "-."},
     "caching_off_note": "caching off: no burst run; answered by feasibility, decisions.md 2026-11-14",
     # decisions.md [RESULT] headings each boundary row belongs to (the text after "## <date> · "; matched as a prefix).
     "results": {"REG-19": "[RESULT] REG-19 (P0 at λ = 2.0",
@@ -365,9 +369,10 @@ def _plot(panels: dict, runs: dict, labels: dict, title: str, path_stem: Path, n
     for i, (arm, df) in enumerate(panels.items()):
         c = FIG["arm_color"].get(arm, colors[i % len(colors)])
         lab = paper_names[arm] if paper_names else f"{arm}: {runs[arm]['dir'].name} ({labels[arm]})"
-        ax[0].plot(df.t_rel, df.reuse, color=c, lw=1, label=lab)
-        ax[1].plot(df.t_rel, df.kv, color=c, lw=1)
-        ax[2].plot(df.t_rel, df.waiting, color=c, lw=1)
+        ls = FIG["arm_ls"].get(arm, "-")
+        ax[0].plot(df.t_rel, df.reuse, color=c, lw=1, ls=ls, label=lab)
+        ax[1].plot(df.t_rel, df.kv, color=c, lw=1, ls=ls)
+        ax[2].plot(df.t_rel, df.waiting, color=c, lw=1, ls=ls)
         if df.cap_queue.notna().any():
             # Sessions, not requests: on their own right-hand axis (panel 2026-11-22, R8.4), so the two units never
             # share a scale. Presentation only.
@@ -428,17 +433,28 @@ def matched_arms(seed: int | None = None, out: Path | None = None, draw: bool = 
     sd, runs, later = pick_seed(MATCHED_ARMS, FIG["matched_seeds"], seed)
     panels = {arm: series(r) for arm, r in runs.items()}
     labels = {arm: run_label(arm, r) for arm, r in runs.items()}
+    last = last_planned(runs["closed"])   # both arms share the seed's schedule
+    vl = [(last, "-.", "schedule's last planned arrival")]   # review 2026-11-26: mark where the arrivals stop; dash-dot,
+    #                                                          since the open-loop series is dashed (LTB review)
     files = (_plot(panels, runs, labels, f"Matched arms, L1 λ = {FIG['matched_lam']}, seed {sd}: open-loop turns "
-                   f"(REG-20 arm A) against closed-loop turns (REG-19)", (out or OUT) / f"matched_arms_s{sd}")
+                   f"(REG-20 arm A) against closed-loop turns (REG-19)", (out or OUT) / f"matched_arms_s{sd}",
+                   vlines=vl)
              + _plot(panels, runs, labels, "", (out or OUT) / f"matched_arms_s{sd}_paper",
                      paper_names={"open": "open-loop turns", "closed": "closed-loop turns"},
-                     font=FIG["paper_font"], legend_top=True)
+                     font=FIG["paper_font"], legend_top=True, vlines=vl)
              + _plot(panels, runs, labels, "", (out or OUT) / f"matched_arms_s{sd}_column",
                      paper_names={"open": "open-loop turns", "closed": "closed-loop turns"},
-                     xlabel="seconds from the burst's start", figsize=FIG["column_figsize"], font=FIG["column_font"])
+                     xlabel="seconds from the burst's start", figsize=FIG["column_figsize"], font=FIG["column_font"],
+                     vlines=vl)
              if draw else [])
     return {"seed": sd, "runs": {a: r["dir"].name for a, r in runs.items()}, "later_valid": later,
-            "labels": labels, "series": panels, "files": [str(p) for p in files]}
+            "labels": labels, "series": panels, "last_planned_s": last, "files": [str(p) for p in files]}
+
+
+def last_planned(run: dict) -> float:
+    """The schedule's last planned arrival of a non-burst request, in seconds from the burst's start."""
+    q = run["requests"]
+    return float(q[~is_burst_request(run)].t_planned.max() - burst_start(run))
 
 
 # ---------------------------------------------------------------- the return-to-warm figure (Figure 3)

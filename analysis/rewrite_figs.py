@@ -74,6 +74,20 @@ def _x_mid(bk: str) -> float:
     return math.sqrt(max(lo, 0.25) * hi) if math.isfinite(hi) else 24.0   # log-midpoint; [0, .5) at 0.35; [16, inf) at 24
 
 
+def gap_series(pooled: dict) -> tuple[list[float], list[float]]:
+    """(x, reuse) over every x bucket from the first drawn to the last, NaN at a bucket that is not drawn
+    (fewer than FIGS["min_turns"] turns), so a line drawn through it breaks there instead of crossing it."""
+    xs, ys = [], []
+    for bk in m.X_BUCKETS:
+        ok = pooled[bk]["n"] >= FIGS["min_turns"] and np.isfinite(pooled[bk]["reuse"])
+        xs.append(_x_mid(bk))
+        ys.append(float(pooled[bk]["reuse"]) if ok else math.nan)
+    drawn = [i for i, y in enumerate(ys) if np.isfinite(y)]
+    if not drawn:
+        return [], []
+    return xs[drawn[0]:drawn[-1] + 1], ys[drawn[0]:drawn[-1] + 1]
+
+
 def reuse_by_x() -> dict:
     """Per arm: pooled reuse and turns per bucket (`m.profile`), per-run profiles, and the runs read."""
     arms = {"closed": m.M["arms"]["closed"], "open": m.M["arms"]["open"], "cap40": b1.ARMS["cold"]}
@@ -144,10 +158,17 @@ def draw_reuse(res: dict, out: Path, column: bool = False) -> Path:
         if not pts:
             continue
         x, y, n = zip(*pts)
-        ax.plot(x, y, styles[arm], color=FIGS["color"][arm], lw=1.5 if column else 2,
+        # The line breaks at a bucket that is not drawn (LTB review 2026-11-26: the open-loop line crossed the
+        # undrawn 1-2 bucket): every bucket gets a slot, NaN where it is not drawn, so no segment spans a gap.
+        gx, gy = gap_series(p)
+        ax.plot(gx, gy, styles[arm], color=FIGS["color"][arm], lw=1.5 if column else 2,
                 ms=(5 if column else 7) if arm == "closed" else (4 if column else 6),
                 label=ARM_LABEL[arm], zorder=3 if arm == "closed" else 2)
-        if column:
+        if column:   # the bucket's turn count above (or, for the cap arm, below) each point (review 2026-11-26)
+            dy = {"open": 4, "cap40": -9, "closed": 12}[arm]   # three heights, so labels at reuse 0 do not overlap
+            for xi, yi, ni in zip(x, y, n):
+                ax.annotate(f"{ni:,}", (xi, yi), xytext=(0, dy), textcoords="offset points", ha="center",
+                            fontsize=fs - 1.5, color="#333333")
             continue
         i, dx, dy = where[arm]
         bx = _x_mid(m.X_BUCKETS[i])
@@ -161,12 +182,14 @@ def draw_reuse(res: dict, out: Path, column: bool = False) -> Path:
     ax.set_xticklabels(["<0.5", "0.5–1", "1–2", "2–4", "4–8", "8–16", "≥16"])
     ax.set_ylim(-0.03, 1.08)
     if column:
+        ax.set_ylim(-0.14, 1.15)   # room for the cap arm's counts below its points and the top count (LTB review)
         ax.set_xlabel("idle time, in turnover times of the free pool")
         ax.set_ylabel("follow-up hit rate")
         ax.legend(loc="center right", fontsize=fs, frameon=False)
         fig.tight_layout()
         path = out / "reuse_by_x_column.png"
         fig.savefig(path, dpi=300)
+        fig.savefig(path.with_suffix(".pdf"))   # vector, for the workshop build (review 2026-11-26)
         plt.close(fig)
         plt.rcParams.update({"font.size": 9})
         return path

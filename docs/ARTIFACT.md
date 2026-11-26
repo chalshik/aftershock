@@ -12,7 +12,7 @@ The procedures behind the paper's Appendix A. Section numbers refer to the paper
 
 ## The baseline before the burst, with clock, power and temperature
 
-**The paper's Table 5, in full.** The 600 s before the burst (300 to 900 s), control / burst run, per pair; the control always ran first. SLO attainment and hit rate over the window, median TTFT in seconds, SM clock (MHz) and power (W) over busy GPU samples, mean temperature (°C) (P60).
+**The paper's Table 6, in full.** The 600 s before the burst (300 to 900 s), control / burst run, per pair; the control always ran first. SLO attainment and hit rate over the window, median TTFT in seconds, SM clock (MHz) and power (W) over busy GPU samples, mean temperature (°C) (P60).
 
 | Pair | Seed | Gap (h) | SLO attainment | Hit rate | TTFT p50 | SM clock | Power | Temp. |
 |---|---|---|---|---|---|---|---|---|

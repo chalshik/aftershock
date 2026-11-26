@@ -1,6 +1,6 @@
 # Registrations and results
 
-Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 115 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
+Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 117 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
 
 ## 2026-11-04 · [RESULT] Sweep schedules share one rising-load pattern (audit, descriptive)
 ## 2026-11-04 · [REG] REG-1: post-trigger completion margin (tests assumption A of M2)
@@ -106,3 +106,5 @@ Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in 
 ## 2026-11-25 · [RESULT] TR (three turn-release arms): O `replicates` (5 of 5 recovered on the current stack), H `headroom_excluded` (5 of 5 recovered at λ = 2.73), D `default_sees` (5 of 5 stuck under AIPerf's default release); joint summary `lead_holds`
 ## 2026-11-25 · [REG] PW (REG-19's whole-window rule on the ten post-rule seeds)
 ## 2026-11-25 · [RESULT] PW (REG-19's whole-window rule on the ten post-rule seeds)
+## 2026-11-26 · [RESULT] The post-hoc one-criterion readout (`uniform.table2_readout`): every cell keeps its registered direction; the cap-40 seed 15 reads cold, not rewarming
+## 2026-11-26 · [RESULT] Post-hoc load-test readouts (`ltb.table`, `ltb.overlap_table`, `ltb.fig3_accounting`): latency and goodput follow the registered states; send lag is under 0.4 s everywhere; four in ten open-loop follow-up turns overlap their predecessor in the healthy state too
