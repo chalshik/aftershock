@@ -26563,3 +26563,344 @@ At 10:48 UTC, after the owner's "cut it, make it meet requirements, … check bo
 - **A.5.** "Seed 17's and seed 68's longer gaps followed a queue stop and a cut first attempt" now says what happened: seed 17's queue stopped on a false "TMUX GONE" (decisions.md 2026-11-12), and seed 68's first burst run was lost when the host was powered off and was rerun (decisions.md 2026-11-19).
 - **Checked and unchanged.** Workshop: every number in §4 against Tables 3–5 (Little's law 0.25 × 36.6–38.9 = 9.15–9.7; reply 2.6–2.9 s against P90; McNemar 0.031; the 0 of 10 clause). "Five screened schedules" in both abstracts: seed 43 came from the rule frozen before the scan (decisions.md, REG-24), so it stands.
 - **Zenodo.** The owner asked for the record's title to say "pre-specified"; the browser extension was not connected and no API token is available, so it is not done.
+
+## 2026-11-26 · [OPS] Public main rebuilt from c331298 and pushed as 602de6f, no tag; the papers cite it
+
+At 12:33 UTC, under the owner's "make it ready".
+
+- **Release.** `tools/build_public_release.py` from study commit `c331298` into a fresh directory: 480 files, scan clean. The full suite had passed on the same build from `ab9d9af` (1522 passed, 29 skipped, rc 0); the `c331298` build differs from it only in `docs/decisions.md` (one [CORR] entry added), `docs/results.md` (the correction count, 121 → 122) and `README.md` (the source commit's name), so the tests that read those files were rerun on it: 821 passed, 5 skipped, rc 0. No code, test or config differs.
+- **Push.** Synced into the public clone, scanned clean again, committed as the no-reply identity with no trailers, and pushed: `main` = `602de6f` (git ls-remote). No tag; only `v1.0` exists, and `v1.1` waits for publication (decisions.md 2026-11-25 [DECISION] (owner) One release at publication …).
+- **Papers.** `numbers.toml` `repo.commit` = `602de6f` (paper commit `7c5614b`). All three PDFs rebuilt: 0 overfull boxes, 0 undefined references, 0 errors; the preprint names 602de6f once, and neither anonymous build contains the hash, a name, the account, GitHub, Zenodo or an email, and both have an empty PDF Author. `docs/paper/final/` now holds `preprint_7c5614b.pdf`, `sigmetrics_format_7c5614b.pdf` (39 pages each) and `workshop_submission_7c5614b.pdf` (8 pages, body to page 7); the earlier set is in `final/superseded/20261126d/` (paper commit `78a0741`, backed up).
+- **The published log ends at c331298**, so it does not hold this entry; a log cannot contain the commit that publishes it.
+
+## 2026-11-26 · [DECISION] (owner) A new abstract and a second full-paper reviewer list: the abstract taken in a corrected form, all 18 points applied, the §3.7 share bounded rather than recomputed
+
+At 13:30 UTC. The owner pasted an 18-point reviewer list for the full paper and asked whether it is true, then a rewritten abstract to be judged against the old one, and answered "ok" to applying the corrected abstract and the points. Paper commit `a6a47fa`; `final/` holds the a6a47fa set (paper `8c945d7`, backed up). No run, threshold, verdict or test changed.
+
+- **The points, checked against the sources before any edit** (every one held; 4 and 5 in part):
+  1. §4.1 said 16 turns did not lower the warm capacity; it fell from 2.4 to 2.2 (decisions.md 2026-11-16 [RESULT] E0). Fixed.
+  2. B.1 stated E0's rule as "the lead widened". The registered rule (`k2.decide`, decisions.md, E0's [REG]) needs R ≥ g **and** the 16-turn sweep keeping up at 2.8 req/s; R = 1.151 ≥ 1.083 but the warm clause failed (`floor_only`). Now stated.
+  3. §3.6 said every run of the kernel repeat had its own control; T1's U arm had none ("It cannot answer: … a same-stack no-burst control", T1's [REG]). Table 5 was right; §3.6 fixed.
+  4. Huang and Liu (arXiv:2611.13412v1, §3): SGLang absorbed the 2×/2-minute burst that collapsed vLLM in 4 of 10, and +1.5λ for 5 or 10 minutes collapsed it in 6 of 6. Limitation 1 now gives both.
+  5. Finding 2's 5 of 5 is REG-30's registered set, so not a pooling of cells; its result also gives 4 of 4 without seed 43, now reported (lower bound `lw.lower_4of4` 0.473). C.1's conditions 5 and 6 did pool REG-24 and REG-27: now "4 of 4, and 1 of 1 on seed 43".
+  6. §1 said the surveyed defaults wait for the reply; Table 7 has open requests by default (`vllm bench serve`, inference-perf) and no default (GuideLLM). Now "most of the generators we surveyed that send sessions".
+  7. §5 "the 1.35 or more of two of them": all three (Lu et al. by a rough estimate). Fixed.
+  8. B.6's 16–49 % is Lu et al.'s (§4.1, two Alibaba Bailian traces thinned to one deployment), uncited. Cited.
+  9. §3.7's 0.30 is over 15,000 s at λ = 2.0 (P71); a long-window run spends 7,080 s at λ = 2.0 (5,580 s to the drop and 1,500 s after it, DERIVED) and 9,000 s at λ = 1. **Not recomputed** (that would be a new readout, to be fixed before it is computed): 0.30 is now stated as an upper bound, so the long-window share without such a peak is between 70 and 92 %.
+  10–17. Commas after "a cap of 40" (×3); backlog "counted against the planned schedule" (§3.3, both papers); 6.5 %, not 7 %; eviction "roughly least recently released first" in §2.2 (both papers; open-questions S9); turnover 0.87 s with decode tokens (0.05 × 96,656 / (1.75 × 3158), DERIVED; both papers); B.6 against the closed-loop all-miss capacity, 432 / 1.798 / 180 ≈ 1.3 (DERIVED); Limitation 6 reworded; libc6 `2.39-0ubuntu8.9` → `2.39-0ubuntu8.12` (PROBE(docs/probe/20261115_open_questions/vm_apt_20261115T073219Z.txt)).
+  18. Figure 3's open-loop cache-off point at 1.5 fails the keep-up rule (REG-8: μ_off = 1.0). To answer the owner, `load.summarize` was run in session on `20261107-082035_sweep_l1pl350_pc_off_r1.5`: throughput 1.442 against 0.95 × planned 1.606, queue slope 0.060 against 0.01, both failing. These numbers are not in the paper; the caption says only that the point fails the rule and that the arm keeps up to 1.0 req/s.
+- **The abstract.** The owner's version is shorter and states the question first, but it pooled the design seed ("5 of 5 schedules (4 of 4 pre-specified)", and seed 43's run was pre-specified too, REG-24), dropped "screened", merged the closed and held arms into one "5 of 5 runs", dropped the earlier per-span count, said AIPerf "does" what we only implemented from its documentation, and gave the ≈ 40 % overlap without "before the burst". The adopted text keeps its structure with those six points restored, and keeps the cap sentence. Both papers; the workshop body still ends on page 7.
+- **Not affected:** the release's companion files are unchanged by these edits (compared after the build), so public `main` `602de6f` stays as cited.
+
+## 2026-11-26 · [DECISION] (owner) The reviewer's four follow-up points on the abstract, all taken
+
+At 13:38 UTC; the owner passed the reviewer's reply to the abstract adopted at 13:30 UTC. Paper commit `bfc9bed`; `final/` holds the bfc9bed set (paper `2bd2513`, backed up). Both papers carry the same abstract.
+
+- **"(3 of 5 under an earlier, stricter test)" cut.** Checked first: in that sentence the 5 of 5 is the turn-release comparison, judged by the criterion fixed before the open-loop runs (Table 5, closed-loop row); the per-span count belongs to the replication question and stays in §4.2. The screening clause stays: it qualifies the long-window result and the reviewer did not ask to cut it.
+- **The 1.11 ratio** now reads "1.11 times the most the engine completes without cache reuse, so it keeps up only while reuse works". "The most" matches the saturated cache-off rate (`margin.closed`, 2.0 / 1.798); the clause holds since 2.0 exceeds that rate and lies below the closed-loop warm capacity (2.2 to 2.4, §4.1).
+- **"NVIDIA's AIPerf load generator"** where AIPerf was undefined.
+- **The cap sentence dropped.** Its confound (24 to 29 requests outstanding at the burst's end under the cap, against 43 to 64; §4.4) did not fit in the abstract.
+- **Not changed elsewhere:** body text, numbers and the release are unchanged; rebuild clean (0 overfull, 0 undefined, 0 errors; workshop body to page 7; anonymous builds without name, account, links or hash).
+
+## 2026-11-26 · [DECISION] (owner) The reviewer's nine points on §1, all taken in both papers
+
+At 13:44 UTC; the owner passed the reviewer's list for the introduction. Paper commit `01abb73`; `final/` holds the 01abb73 set (paper `da722d3`, backed up). Every point was checked against the text first, and every one held; the workshop introduction had each of them too.
+
+- **Order and terms:** the preprints now come before the loop they propose; *cold* is defined where first used ("without reuse, slow and backlogged"); NVIDIA's AIPerf load generator and *trace replay* are defined at first use. A first wording of mine labelled strict replay as "trace replay", which contradicted the held rule's "default trace replay" a few lines later; caught in the rendered text before commit and rewritten (trace replay = re-sending a recorded trace's requests; `--open-loop-strict` sends each at its recorded time).
+- **The so-what and the question:** one sentence says why the release rule matters (a test with open release can pass an engine that waiting agents would leave cold, if the failure needs the wait); "our answer is an experimental check" is replaced by the question alone.
+- **Why λ = 2.0:** "the most the engine completes with caching off … so the engine keeps up only while reuse works: the narrow band in which a cold state can persist" (§4.1's own conclusion).
+- **The three rules** are a list.
+- **The 30 earlier trigger runs** with no cold run (A.2, P9) are disclosed in §1, as the configuration's selection.
+- **Contribution 3** now carries its confound (24 to 29 requests outstanding at the burst's end under the cap, against 43 to 64; §4.4).
+- **Workshop length:** the new text pushed the body about five lines onto page 8; the roadmap sentence and the introduction's Figure 1 pointer (the results cite the figure twice) were cut and two sentences merged, so the body ends on page 7 again. Rebuild clean: 0 overfull, 0 undefined, 0 errors; anonymous builds without name, account, links or hash; the release's companion files unchanged.
+
+## 2026-11-26 · [DECISION] (owner) The reviewer's layout and wording points on §1: \raggedbottom, one merge, three tense fixes
+
+At 13:50 UTC. Paper commit `ef27820`; `final/` holds the ef27820 set (backed up). Checked first: page 2 of both full-paper builds rendered with about a third of the page blank above and below the rule list (stretched vertical glue, Figure 1 having floated to page 3); the workshop's two-column pages had no such gaps.
+
+- **Layout:** `\raggedbottom` added to the acmsmall preamble (`build/pdf/build_acmsmall.py`) only; the gaps are gone and the free space sits at the page's foot. The workshop preamble is unchanged, so its page breaks stay as they were (body to page 7).
+- **Wording:** the two consecutive "chosen" sentences merged; "sustains" → "sustained" (both papers); paragraph 5 and contribution 1 put in the past tense (both papers' contribution 1), so no sentence reads as a general law.
+- Rebuild clean: 0 overfull, 0 undefined, 0 errors, 39 / 39 / 8 pages; anonymous builds without name, account, links or hash; the release's companion files unchanged.
+
+## 2026-11-26 · [DECISION] (owner) The reviewer's nine points on §2 (background), all taken
+
+At 13:53 UTC. Paper commit `2ae38fd`; `final/` holds the 2ae38fd set (backed up). Each point was checked first; all held.
+
+1–2. §2.1 now states the vulnerable load in §3.5's operational terms (above the all-miss capacity, at or below the warm capacity), defining both capacities before §2.3 and Table 1 use them, and names *bistable* only as the case §5 rules out (the backlog grows); Alvaro et al. formalize "the bistable case". The reviewer's replacement text, unchanged.
+3. Schroeder et al.: eight requests per session lies between about 5 and about 10, "so neither approximation can be assumed" (both papers).
+4. §1 attributed the pool version of the loop to the preprints; their own wording (Appendix D, workshop §2) is the sessions version. §1 now gives theirs and then "In vLLM the loop would run through the pool" (both papers). This matters because §4.3 shows sessions in service do not predict the outcome across release rules.
+5. "Two things are untested" against D.1's four: now "Four things … (Appendix D.1); two are central here", and the closing sentence names the other two as tested at fitted or same-setup parameters.
+6. §2.3's first paragraph keeps only what §1 lacks (none removes the wait; growing, not a second steady state; Table 1), with the reviewer's text.
+7. The overlap paragraph in §2.3 (and the workshop's background) is two sentences and a pointer to §4.3 / §4.2 and §7 / §5; the 0.39 to 0.42 and the two kinds of overlap stay in the results.
+8. Table 1: "closed, open and held, by arm".
+9. AIPerf's held default for timestamped trace replay is now cited to its code, not only the Baseten page: our reading at v0.14.0 (commit d3ffc40, FILE(docs/probe/tools_20261125/aiperf.md)) finds it in the generic fixed-schedule strategy (`src/aiperf/timing/strategies/fixed_schedule.py`, `handle_credit_return`), which every timestamped trace loader uses; the documentation states it for the Baseten loader. So the claim stays general, with the citation that supports it (both papers).
+
+Rebuild clean: 0 overfull, 0 undefined, 0 errors, 39 / 39 / 8 pages, workshop body to page 7; anonymous builds without name, account, links or hash; the release's companion files unchanged.
+
+## 2026-11-26 · [DECISION] (owner) The reviewer's rewrite of §1, taken with two corrections
+
+At 14:00 UTC; the owner passed the reviewer's full text of §1 with a list of what changed. Paper commit `00f2365`; `final/` holds the 00f2365 set (backed up).
+
+- **Taken as written:** ¶1 (the pool defined, the coupling stated, the 6.2× sentence split); ¶2 (the vLLM version of the loop closed with "the misses keep requests in flight longer"; "premise of the loop"; *cold* defined in parentheses); ¶4's first sentence split; contribution 2 with its counts (open 5 of 5 recovered; closed and held 5 of 5 cold, Table 5).
+- **Two corrections:** "The cache therefore shrinks as load grows" would contradict the finding, which is a cache lost at an unchanged load through more requests in flight; it reads "shrinks when more requests run, leaving less room for idle prefixes". "The engine therefore keeps up only while reuse works, which is the narrow band …" made the engine's keeping up the band; the load is now the subject ("this load lies in the narrow band …"), an error the earlier wording had too.
+- **Workshop:** the same loop close, parentheses and "premise of the loop" (§1 and §2). Rebuild clean: 0 overfull, 0 undefined, 0 errors, 39 / 39 / 8 pages, workshop body to page 7; anonymous builds without name, account, links or hash; the release's companion files unchanged.
+
+## 2026-11-26 · [DECISION] (owner) Figures float in the full-paper builds; §2.3's last sentence reworded; the SGLang item was already fixed
+
+At 14:04 UTC. Paper commit `b328d4e`; `final/` holds the b328d4e set (backed up).
+
+- **Layout (the owner's screenshot of page 2).** The full-paper builds placed each figure inline, so a figure too tall for the rest of a page forced a page break and left the space empty (after \raggedbottom, which had removed the stretched glue). `build/pdf/build_acmsmall.py` now wraps each image with its "Figure N." paragraph in a `figure` float, `[tbp]`; it reports any image without a caption paragraph right after it (none). Blank space at the foot of a page, measured on 18-dpi renders of the preprint, old against new: page 2 0.34 → 0.11, page 17 0.36 → 0.11; no other page above 0.2 except the last (0.29). Pages, appendix start (26) and references (37) unchanged. The workshop renderer already floats its figures and is unchanged.
+- **The reviewer's open item on SGLang** (Limitation 1 against Table 1 and Appendix D) was fixed in paper commit `a6a47fa` (decisions.md 2026-11-26 [DECISION] (owner) A new abstract and a second full-paper reviewer list …, point 4); the current text gives both of Huang and Liu's SGLang results, which agree with "reproduce the state on SGLang". The reviewer read an earlier PDF. Nothing changed.
+- **§2.3's last sentence** now scopes "not blind" to the model fit, in the reviewer's wording.
+- Rebuild clean: 0 overfull, 0 undefined, 0 errors, 39 / 39 / 8 pages, workshop body to page 7; anonymous builds without name, account, links or hash; the release's companion files unchanged.
+
+## 2026-11-26 · [DECISION] (owner) Tables 1, 3, 6 and 7 float whole; float captions justified
+
+At 14:12 UTC; the owner passed two layout points. Paper commit `7d002f3`; `final/` holds the 7d002f3 set (backed up).
+
+- **Table 1 split** (header and one row on page 4, the rest on page 5). Pandoc sets every table as a `longtable`, which breaks across pages and cannot float. `build/pdf/build_acmsmall.py` now turns the tables in `FLOAT_TABLES` into a `tabular` inside a `[tp]` `table` float, caption first; it stops the build if a listed table is not found. A check of every table's caption page against its header's page found two more cases, Table 3 (caption on page 11, table on 12) and Table 7 (caption on 21, table on 22), and Table 6's header possibly on two pages; all three are floated too. Each fits on one page (no "Float too large", no overfull box). Table 1 now sits whole at the top of page 5 in both full-paper builds. The longer tables (2, 4, 5, 8) were not split and stay as they were.
+- **Figure 1's caption centred.** acmart centres a float's contents, so the caption paragraph added when the figures were floated inherited it. Float captions now reset to justified (`\leftskip`, `\rightskip`, `\parfillskip`). The workshop uses acmart's `\caption`, already justified, and is unchanged.
+- Rebuild clean: 0 overfull, 0 undefined, 0 errors, 39 / 39 / 8 pages, workshop body to page 7; the preprint's appendix now starts on page 25 (README updated); no page except the last has more than a fifth of its height blank at the foot (18-dpi render); anonymous builds without name, account, links or hash; the release's companion files unchanged.
+
+## 2026-11-26 · [DECISION] (owner) The reviewer's §2.1 definition, Table 1 caption sentence and §2.3 rewrite, taken with four corrections
+
+At 14:17 UTC. Paper commit `1788edd`; `final/` holds the 1788edd set (paper `8f39c4d`, backed up). Full paper only; the workshop's background already carries the earlier fixes and is unchanged.
+
+- **Taken:** §2.1 defines both capacities with their values (1.80 req/s, §4.1; 2.2 to 2.8 req/s); Table 1's caption says what the load row means; §2.3 is the reviewer's structure (the loop in short sentences; the two central gaps as a list, gap 1 with its reason, as D.1 item 3 gives it; the other tests in their own paragraph; AIPerf's modes as a list, read from code at v0.14.0; the overlap paragraph).
+- **Corrections, each checked against the source:**
+  1. Lu et al. (arXiv:2611.02543v1, §5.1): N(t) counts active sessions, and "beyond N_u, departures remain below arrivals and the population grows"; the text names it ("the number of active sessions keeps growing once it passes an unstable equilibrium"), which the reviewer had left vague for lack of the source.
+  2. "which none of the preprints observed on hardware" is too broad: Valse and Jannesari's 3600 s stop cleared a trap by refusing sessions (Appendix D, Table 1, §5). Now "without refusing or pausing sessions".
+  3. "the preprints' model of the trapped engine" is Valse and Jannesari's (Appendix C.3).
+  4. "keeps getting worse" → "keeps growing": what grows is the backlog (Valse and Jannesari) and the active population (Lu et al.).
+- The reviewer's optional cut (the "open loop" naming line) is not taken; the full paper has room.
+- Rebuild clean: 0 overfull, 0 undefined, 0 errors; preprint 39 pages, SIGMETRICS format 40 (line-numbered), workshop 8 with its body to page 7; no page except the last more than a fifth blank at its foot; anonymous builds without name, account, links or hash; the release's companion files unchanged.
+- **Ops:** the first backup rsync failed while git maintenance repacked the paper repo's objects; rerun after it finished, rc 0, and `git fsck` on the copy reports nothing.
+
+## 2026-11-26 · [CORR] Four errors in the full paper's method and Appendix A, found while assessing the reviewer's restructure of §3
+
+At 14:33 UTC. Fixed in paper commit `6ed6138` (entry below).
+
+1. **Warm was overstated.** §3.4 said a warm run has "the hit rate at its warm level and the server queue near empty. Every baseline must be warm." The only warm check in the code is baseline SLO attainment ≥ 0.98 (`load.verdict`, `min_baseline_pf`; `docs/definitions.md` bad_baseline). Table 4 now states that check and says it is the only one. No threshold was added: the reviewer's draft left the hit-rate and queue thresholds as placeholders to fill in, which would have fixed thresholds after the data.
+2. **The latency paragraph called the backlog the turns "that have not been released".** The backlog counts planned turns not yet completed, released or not (§3.4's definition, P87). Now "which also counts the turns not yet released".
+3. **§3.7 said twice** that the warm control is shown only on schedules without such a peak. Once now.
+4. **A.4 said a lower bound "assumes exchangeable draws, which screened seeds are not"**, while the paper reports Clopper–Pearson bounds for the screened long-window seeds. The ten seeds pooled there mix the replication's unscreened seeds with the screened ones; A.4 now says so, and §3.6 says that a bound on screened seeds describes schedules that pass the screen.
+
+## 2026-11-26 · [DECISION] (owner) §3 restructured in the reviewer's order, from the current text, with thirteen of the reviewer's draft's errors avoided
+
+At 14:33 UTC; the owner passed a reviewer's restructure of §3 with a draft and asked for a sceptical assessment, then approved ("ok") the assessment's plan: the reviewer's order, written from the current text. Paper commit `6ed6138`; `final/` holds the 6ed6138 set (paper `78c8bf4`, backed up).
+
+- **New order:** 3.1 Setup; 3.2 Workload and turn release; 3.3 Experiments (pairs, seeds, baseline, cells and arms defined first; new Table 3 of the main-text experiments; controls; caps; lengths and stopping); 3.4 Measurements and outcomes (new Table 4 of the outcome labels); 3.5 Capacities (c_cold renamed c_miss, its only line); 3.6 Pre-specification, review and statistics.
+- **From the reviewer, checked:** Table 3's rows (earlier matrix seeds 2–6, 1500 s, B.2; the replication; the long window 43, 61, 68, 72, 79; seeds 15–17 at 2.5); the observation window of every turn-release and cap run is 3000 s (configs `*_w3000*`); the pausing cap's reason, 96,656 / (3,968 + 256) = 22.9 (decisions.md 2026-11-23 [REG] T1, "Cap 22"); the cap runs have no capped control (no such run folder); the per-span explanation is already in C.1; the surge shares (0.081, 0.30, the 7,080 s argument) and the send lag's maximum moved to A.3; the screened-seed sentence in §3.6.
+- **Not taken from the draft:** placeholder warm thresholds (above); dropping the definitions of cell, arm and keep-up rule (used 16, 19 and 5 times elsewhere); dropping "neither was stopped early" and "report every control, and treat a cell whose controls do not as untested"; "a control can go cold … after a large surge" (kept: "can leave the warm state …, in every case seen so far after"); "two exceptions" with three listed; "the author's own commits" (singular names a sole author in the anonymous build; kept "authors'"); the released log without "placeholders for personal details"; "send delays were negligible" (the 99th percentile stays in §3.2); literal numbers in place of numbers.toml keys, and dropped provenance tags; the claim-code comment the build check needs; "shift by one" (two tables were added: old Tables 3–8 are now 5–10); a table titled "The experiments" without the Appendix B runs (now "of the main text"). "Figure 2's centred caption" was fixed in 7d002f3.
+- **Renumbering:** §3.3 → §3.4, §3.6 → §3.3, §3.7 → §3.6 and Tables 3–8 → 5–10 in every section, except the preprints' own section and table numbers (Huang and Liu's "§6, Table 3"; Huang et al.'s §3.3; Alvaro et al.'s §3.4). `FLOAT_TABLES` is (1, 3, 4, 5, 8, 9).
+- **Release affected:** the companion's PREDICTIONS.md and PROVENANCE.md now give the new table numbers (only those lines differ from `tools/release/companion/`). Public `main` `602de6f`, which the papers cite, still has the old numbers. Not rebuilt or pushed: that is the owner's call (with the one-release rule, decisions.md 2026-11-25).
+- §3's prose is 1,951 words and its tables 548 (2,462 before, Table 2 included); the reviewer's 1,450 dropped content listed above.
+- Rebuild clean: 0 overfull, 0 undefined, 0 errors; preprint and SIGMETRICS format 40 pages each (appendix from page 26, references from 38), workshop 8 with its body to page 7 and unchanged; no page except the last more than a fifth blank at its foot; anonymous builds without name, account, links or hash.
+
+## 2026-11-26 · [CORR] The pausing cap's derivation was misdescribed in §3.3; a stash slipped into a build command
+
+At 14:54 UTC. Fixed in paper commit `0bc3aa6` (entry below).
+
+1. **The cap of 22.** The restructured §3.3 (paper `6ed6138`) called it "the most sessions whose longest prompt and next turn fit in the pool together", reading the 256 in 96,656 / (3,968 + 256) as a next turn. Turn 8 has none, as the reviewer noted. The 256 is T1's `ws_margin_per_slot`, "128 decode + up to 128 of block rounding" (FILE(analysis/t1.py:90)), and 22 was fixed before the runs in decisions.md 2026-11-23 [REG] T1 ("Cap 22 (DERIVED: 96,656 / (3,968 + 256) = 22.9)"). §3.3 now says that.
+2. **Process.** A rebuild command carried a stray `git stash`, which set the uncommitted §3 edits aside before the preprint build. Seen in the next status check; restored with `git stash pop` (both files verified), and the preprint rebuilt from the restored text before anything was filed. No filed PDF was built from the stashed state.
+
+## 2026-11-26 · [DECISION] (owner) The reviewer's second round on §3: four fixes and five cuts, taken
+
+At 14:54 UTC. Paper commit `0bc3aa6`; `final/` holds the 0bc3aa6 set (paper `11492d6`, backed up).
+
+- **Fixes:** Table 4's source moved after the paragraph that follows it, so the float no longer splits the metrics list (it now heads page 10 of the preprint, the list whole on pages 8–9); "Most experiments are built from pairs", since three groups were not run as pairs; the cap of 22 as its pre-specification derived it ([CORR] above; the reviewer asked whether it was derived afterwards: it was not); c_warm is "the highest swept rate at which a 900 s caching-on run keeps up".
+- **Cuts, each moved or pointed to, no number lost:** §3.2's sessions paragraph points to Table 2 and keeps the 6.2× and 0.84 sentence; the token-id range, the 128-token output check, the monotonic clock, the TTFT end point and the send lag moved to A.3 ("Workload and latency details"); the 300 s miss rule now sits once, in the SLO definition; the kernel repeat's sentence is cut (Table 3's row and the controls paragraph carry it); the per-span history is one sentence pointing to C.1; the replication's seed choice and the 5 % window screen moved to A.3. "Neither was stopped early" and "report every control …" stay.
+- §3's prose is 1,808 words (1,951 before this round). Rebuild clean: 0 overfull, 0 undefined, 0 errors; 40 / 40 / 8 pages, workshop body to page 7 and unchanged; no page but the last more than a fifth blank at its foot; anonymous builds without name, account, links or hash. The companion differs from the public release only in the table numbers already recorded.
+
+## 2026-11-26 · [CORR] Four stale section pointers in the companion's provenance file, one of them from the §3 restructure
+
+At 15:08 UTC. Found by a check, run for §4's restructure, that every section a provenance entry names still cites its code. Fixed in paper commit `430887c`.
+
+- **P71** named §3, which stopped citing it when the surge shares moved to A.3 in paper `6ed6138` (decisions.md 2026-11-26 [DECISION] (owner) §3 restructured …): my omission. Now A.3 and B.4.
+- **P17** named §4.2, which stops citing it in this round (seed 5 and the per-span failures moved to B.2). Now B.2 only.
+- **P25** named §7 and **P82** named §4.2; neither section cited them before today's rounds either (paper HEAD before this commit). P25 now names §4.1 and B.1; P82 names A.3 and A.4.
+
+## 2026-11-26 · [DECISION] (owner) §4 restructured: a results table first, each subsection result first, mechanism to §5, details to Appendix B
+
+At 15:08 UTC; the owner passed a reviewer's plan for §4 with a sample §4.3; the assessment checked every number in its glance table and sample, and the owner approved ("ok") doing it with the corrections. Paper commit `430887c`; `final/` holds the 430887c set (paper `2090951`, backed up).
+
+- **New Table 5**, the results at a glance, in place of §4's list of findings: seven rows (capacities, forms, lasts, ends, release rule, cap prevents, cap ends), with a "Fixed" column so post-hoc counts stay marked. Each subsection now leads with its result and ends with one caveat line pointing to §5 or §7.
+- **Corrections to the reviewer's table and sample, each against its source:** "cold in every burst run" → 5 of 5 under the whole-window test, 3 of 5 under the earlier per-span test (Table 6); "goodput 2.0 → 0" → 0 against the controls' {{ltb.long_ctrl_goodput}} (the paper has no baseline goodput for burst runs); the return "5/5" → 5 of 5 and 4 of 4 without seed 43; the pausing cap's 3 of 3 marked post hoc beside the pre-specified `mixed`; "all three rules rerun together on a later kernel" → open and closed loop were repeated there, where the held runs also ran (held never ran on the earlier kernel); the 0.91 match holds only against the lowest closed-loop warm capacity (2.2), against 2.4 to 2.8 it is 0.71 to 0.83 (DERIVED); kept the caveats the sample dropped (no single λ is the same share of both rules' capacities; the open-loop runs at 2.0 and 2.5 had no control; what the test does not separate); the pool's range from numbers.toml (24.4 to 31.5), not "24 to 31".
+- **The reviewer's sentence** "Waiting for the reply was enough to keep the engine cold, even with no think time", checked: held and open loop share the planned times, seeds, burst and kernel, and differ in the wait, so on these five seeds the wait was enough (held cold 5 of 5 beside warm controls, open recovered 5 of 5; P74, P76). Taken with two limits written in: waiting also removes the overlap, so the runs do not say which matters; and no think gap is not no idle time (the queue wait remains).
+- **Moved, labels kept:** to §5, ahead of "What holds it", §4.3's post-hoc account, Little's law, the overlap probability, N = ΛT(Z+R), the burst-end counts, the turnover-time model with its figure, and the cap-of-40 think-gap readout (still "post hoc, not a tested model"); to B.1, the rate at λ = 2.0 and its ratio {{margin.matched}}, the 512-token workload, the open-loop sweep's 3.5 and 4.0 detail and the 44 / 25 / 58 % comparison, the budget-8192 default; to B.2, seed 43's end state and planned tilt, the per-span failures, the backlog's breakdown; to a new B.7, Table 12, latency with its 95th and 99th percentiles (Table 7 keeps medians and goodput).
+- **Checked after the move:** every provenance code and number key still in the paper; the only literal number gone is "4.05", given as 4.047 in B.1. "End window" and "arm" left §4's prose; "re-warming" stays where it is a label.
+- **Renumbering:** Tables 5–10 → 6–11 outside §4 (other papers' tables left: Huang and Liu's "§6, Table 3", Valse and Jannesari's "App. E.9, Table 10"); the companion's table numbers and its provenance pointers for moved material updated by hand ([CORR] above). Figures 5 and 6 swap (sessions in service now 5, reuse against idle time 6). `FLOAT_TABLES` (1, 3, 4, 5, 6, 7, 8, 9, 10, 12): a check of every caption's page against its table's first row found Tables 8 and 12 split from their captions before they were floated.
+- §4's prose is 2,848 words (5,182 before, tables included then); §5 gained about 900.
+- Rebuild clean: 0 overfull, 0 undefined, 0 errors; preprint and SIGMETRICS format 41 pages (appendix from 26, references from 39), workshop 8 with its body to page 7, unchanged; every table on one page with its caption; no page but the last more than a fifth blank at its foot; anonymous builds without name, account, links or hash. The release's companion now differs from public `main` in table and figure numbers and the provenance pointers (open item, owner's call).
+
+## 2026-11-26 · [CORR] The pausing cap's 256-token margin: the pre-specification's reason for it is wrong, and my last fix repeated it as plain margin
+
+At 15:19 UTC; found by the reviewer, checked here. Paper commit `911d66a`.
+
+- **The value is unchanged and was fixed in advance:** `ws_margin_per_slot` 256, commented "128 decode + up to 128 of block rounding" (FILE(analysis/t1.py:90)), and cap 22 (decisions.md 2026-11-23 [REG] T1).
+- **The reason is wrong.** The engine's KV blocks hold 16 tokens, the default, not set by us (RUN(20261123-110144_burst_l1pl350cl_r2.0_w3000_s15_t1p, metrics.jsonl `vllm:cache_config_info` block_size="16", user_specified_block_size="False"); the 2026-10-23 probe agrees, PROBE(docs/probe/20261023_Qwen3-4B/metrics.txt)). All 1,463 prompts of that run are multiples of 16, 2,304 to 3,968 tokens (RUN(same, prompts.parquet), DERIVED: `len(tokens) % 16 == 0` for every row). So rounding takes at most 15 tokens, not 128.
+- **The paper now says both:** "128 that the pre-specification set aside for block rounding … rounding takes at most 15 tokens; the rest of those 128 is margin". The previous build's "128 more as margin" (paper `430887c`) dropped the pre-specification's stated reason; that was mine.
+- **Not in the paper (BELIEF to DERIVED):** with only the output and real rounding the pool would hold 96,656 / (3,968 + 128 + 15) = 23.5, so 23 sessions. The cap of 22 is one below that. No result changes: the cap and its test were fixed before the runs.
+
+## 2026-11-26 · [DECISION] (owner) Four review points on A.3, §3.3, §4.4 and the result tables
+
+At 15:19 UTC; the owner passed four reviewer points; all checked and applied. Paper commit `911d66a`; `final/` holds the 911d66a set (paper `389ee1c`, backed up).
+
+1. **A.3** "Hence the shares in §3.3" → §3.6, where the 92 % and 70 to 92 % now are.
+2. **§3.3, the cap of 22:** see the [CORR] above.
+3. **§4.4:** "… 1 of 3 seeds (bounds …), so the pre-specified outcome was `mixed`"; "The cap of 22 was engaged at 1980 s" dropped there (Table 3, §3.3 and Table 9 give it).
+4. **Tables 6, 8 and 9:** "Fixed" as codes. Table 6's caption gives the legend, "R: before the runs, with marked exceptions". The three exceptions are notes:
+   - R\*: the replication's test was fixed before its runs and after the earlier matrix's data;
+   - R†: Table 8's closed-loop row was fixed before the open-loop runs and after the closed-loop runs;
+   - R‡: the later-kernel open-loop row was fixed after the closed-loop repeat's.
+
+   The reviewer's A (before the analysis) and P (post hoc) codes are not used: no count in these tables was fixed at either time; post-hoc counts stay marked in their cells. Bounds for k = n and k = 0 are written "≥ x" or "≤ x", and ranges are kept for 0 < k < n. The Fixed and Bounds columns are narrowed, and the space goes to Cell and Counted.
+
+**Build:** 0 overfull, undefined or errors. The preprint and the SIGMETRICS format have 41 pages; the workshop has 8, with the body to page 7 and text identical (none of the four wordings occurs there). Every table is on one page with its caption, and the anonymous builds are clean.
+
+## 2026-11-26 · [CORR] Three errors found while restructuring §5–§7: an undercount in the forking-paths item, five provenance pointers, and a claim of mine in chat
+
+At 15:29 UTC. Paper commit `5a64723`.
+
+1. **§7, forking paths: "two analyses … and a third is post hoc by design" undercounted.** REG-21 and REG-22 each ended with batch 1 as the registration's first reading and batch 2 "labelled retrospective by design" (decisions.md 2026-11-13 [DECISION] (delegate) Round 3 on the freeze …, FILE(docs/decisions.md:4541)). Both second batches read REG-19's five runs (FILE(docs/decisions.md:16571), FILE(docs/decisions.md:16798)). So two readings are retrospective by design, not one. The pre-compression text (paper `43c8358^`) named only REG-21's. §7 item 8 now names both analyses and both batches (P29, P30, P34).
+2. **Provenance pointers that did not name a section citing the code,** found by checking both directions:
+   - P84 omitted §5;
+   - P9, P33 and P52 omitted §7.
+
+   They are fixed together with the pointers this restructure changes (P29, P30, P34, P41, P49, P70, P90).
+3. **In chat, not in a document:** my assessment said no run recorded when the burst's own requests had left. REG-22 did: its [RESULT]s judge "every 300 s span after the burst's requests had left" (FILE(docs/decisions.md:16322), FILE(docs/decisions.md:16571)). §5.1 now cites that (P34) and makes no claim about how an ordinary backlog would behave.
+
+## 2026-11-26 · [DECISION] (owner) §5 restructured, §6 and §7 tightened, each repeated caveat given one home
+
+At 15:29 UTC. The owner passed a reviewer's plan for §5–§7 with rewrites of 5.1, 5.2 and the §6 models paragraph. The reviewer asked the author to confirm the 5.1 framing. The assessment checked it against the runs, and the owner approved ("ok") the plan with the corrections. Paper commit `5a64723`; `final/` holds the 5a64723 set (paper `cd5c535`, backed up).
+
+- **§5 is now 5.1–5.5:** metastable; what keeps it cold; recovery against the preprints; what a load test sees, with Table 10; recommendations, unchanged. It is 1,170 words without Table 10 and 1,729 with it, against 2,733 before.
+- **5.1, the framing, as scoped.** Above c_miss the backlog growing is arithmetic, so the finding is that reuse did not return. The section states, each with its source:
+  - the load lay below the warm capacity;
+  - the controls stayed warm;
+  - all four links were present in every 300 s span after the burst's requests had left (P34);
+  - with no cap the engine completed {{lw.rate_lo}}–{{lw.rate_hi}} req/s for the 4500 s window;
+  - reuse returned only after the drain.
+
+  It adds the pausing cap's 3 of 3 (post hoc) as evidence that reuse can return while a backlog remains, so its absence without a cap is not arithmetic. The reviewer's "as an ordinary backlog would" is not used, since no run measured it.
+- **5.2 corrections to the reviewer's draft:** "in the open-loop and cap-40 runs" is kept on the half-turnover result, "the last 600 s" on the session counts, and the cap-40 think-gap contrast is kept.
+- **Moved to a new C.5 (`app-mechanism`):**
+  - Little's law;
+  - 1 − e^(−D/5) and the two overlap events;
+  - N = ΛT(Z+R);
+  - the outstanding requests at the burst's end;
+  - 0.87 s against 0.9 s;
+  - Valse and Jannesari's normalisation;
+  - the rule of thumb;
+  - the 211–320 count.
+
+  Figure 6's caption takes the bucket counts and the 47 %.
+- **Cut from §5:** "What the evidence supports" (its preprint comparison is kept as 5.3's first sentence) and the bullet list. Its untested-loads caveat moved to §4.2; its surge and early-warning facts stay in B.4 and B.5.
+- **§6:**
+  - the Courtois sentence is reworded;
+  - session arrivals are open "under every release rule";
+  - the models paragraph is in the reviewer's order, with the original attribution kept: the "add requests" claim cites Habibi, Isaacs and Alvaro §3.4, not Farahbakhsh et al. 2025;
+  - "All take that size as fixed" sits after the LRU-models sentence;
+  - Liu and Arya are given a question; Shi et al. is cut, and the rendered reference lists print only cited works;
+  - a new "Load testing of LLM serving" paragraph describes LLMRunner and AgentReplay as Table 10 does, not as trace replay;
+  - the warm-state paragraph moved to B.4.
+- **§7:**
+  - item 1's SGLang detail is shortened;
+  - item 5's batch-bound detail moved to B.3;
+  - item 6 is split into "Window" and "Run environment";
+  - the latency-origin sentences moved to §3.2, with "SLO attainment … not comparable between release rules" and the cap wait kept;
+  - the hit-counter definition moved to §3.4;
+  - item 8, forking paths, names its analyses ([CORR] above) and spells out the 0.007 req/s.
+- **The overlap caveat** is in full in §7 item 3, and one clause with a pointer in §2.3 and §8. The abstract (the owner's) and §1's one sentence are unchanged, and §4.3 keeps the measurement.
+- **Checked after the move:**
+  - every number key except `ltb.neg_a`, which Figure 6's caption gives as 786;
+  - every provenance code and claim comment;
+  - every cited work except Shi et al.;
+  - every literal number. 3,030 and 47 % were restored in C.5 and the caption.
+
+**Rebuild:** clean (0 overfull, undefined or errors). The preprint and SIGMETRICS format have 41 pages, with the appendix from page 25 instead of 26. The workshop is unchanged (identical text). Every table is on one page with its caption, and the anonymous builds are clean.
+
+## 2026-11-26 · [DECISION] (owner) Three closing points on §5 and §6, and the read of the abstract and §1 against the body
+
+At 15:35 UTC; the owner passed three reviewer points; all three checked and applied, one with different wording. Paper commit `8d2b234`; `final/` holds the 8d2b234 set (paper `e2f5710`, backed up).
+
+1. **§5.1's last sentence** is now "Its absence without a cap is therefore not forced by the load alone; §5.2 gives the account that fits best" (was "… not arithmetic"). The reviewer is right that the pausing cap's 3 of 3 is a total read afterwards and that the cap shortened the backlog as well as cutting the batch (§4.4), so it shows that reuse can return while a backlog exists, not what holds it without a cap.
+2. **§6:** "Models of metastable failures. Such models predict …", so the heading is not repeated.
+3. **§6, the load-testing paragraph:**
+   - **Not used:** the reviewer's closing sentence, "None of these varies the release rule against a burst, which is what §4.3 does". It is a novelty claim. Table 10's tools were read from their code, but Shewale et al.'s and the agent tools' experiments were not read for it.
+   - **Used instead:** "Several tools offer more than one release rule (Table 10), but a load test runs one, and §4.3 shows that the choice decided whether this failure was seen."
+- **The reviewer's "open fixes from the last round"** (A.3's §3.6, the block rounding, the `mixed` sentence, the Fixed and Bounds codes) were already in the `911d66a` set and are in this one. Checked in the PDF's text.
+- **Read of the abstract and §1 against the body.** Two mechanical fixes:
+  - contribution 4 pointed to "§5" for the survey, and now points to §5.4;
+  - contribution 2 repeated §1's overlap paragraph, and is now a clause pointing to §7 (the one-home rule of the previous entry).
+
+  Otherwise every number and claim matches the body:
+  - 1.11 and 2.2 to 2.8;
+  - 4 of 4 plus the design seed;
+  - {{ltb.long_p50}} against {{ltb.warm_p50}} s;
+  - 5 of 5 for each release rule;
+  - about four in ten overlapping;
+  - 0 of 5 and 2 of 3 under the caps, with 24 to 29 against 43 to 64;
+  - eleven tools and modes from nine projects (Table 10's rows).
+
+  The abstract (the owner's) is unchanged. It gives the closed loop's 5 of 5 without the earlier per-span test's 3 of 5, which Table 5 and Table 6 carry.
+
+**Build:** clean. The preprint and SIGMETRICS format have 41 pages (appendix from 25); the workshop text is unchanged. Every table is on one page with its caption, and the anonymous builds are clean.
+
+## 2026-11-26 · [CORR] The workshop body ran onto page 8 in ten filed sets, and three glosses of mine were wrong before filing
+
+At 15:58 UTC. Found while moving the references to BibTeX (the [DECISION] below).
+
+1. **The workshop's page claim.** From the set made at paper commit `2ae38fd` (`final/superseded/20261126j`) through the `8d2b234` set (now `superseded/20261126t`), the workshop body ran five lines onto page 8, ahead of the references. Every one of those READMEs, `final/README.txt` and status.md said "body ending on page 7". The filing check only confirmed that the REFERENCES heading was on page 8, not that page 8 had no body text above it. Cause: the §2 background round at `2ae38fd` lengthened the workshop's §1 and §2. It is now fixed. Four sentences of the workshop's §5 that repeat other text were cut, and the render reports "body ends on page 7". `final/README.txt` records the error for the superseded sets, whose README copies are left as filed. The filing check now reads the render's body-end page.
+2. **Caught before any PDF was filed:**
+   - Table 14's gloss for `control_unclear`. I first used REG-16's definition (low reuse with a queue, `gate.reg16_control_outcome`). The rule PW applied is `gate.reg18_seed_outcome`, where the control's watch verdict is `unclear`, meaning neither the recovered nor the cold rule holds at the window's end (`load.verdict`). The row now says that.
+   - C.3's definition of the token-cost model. I first gave only E0's fixed-part version (0.180 s + 0.135 ms per token). The 2.6–3.2 req/s range in Table 26 spans that version and the proportional one (decisions.md 2026-11-14 [REG] E0 and E2, the prediction table).
+   - C.3's definition of r. I first wrote "over the cache-off sweep's at the same load". r divides by U_off, the mean over REG-8's five saturated open-loop cache-off runs at λ 2–4 (docs/definitions.md, work-rate ratio r).
+
+## 2026-11-26 · [DECISION] (owner) The format and conventions list: appendix tables captioned, references in BibTeX before the appendices, the models defined, A.4 in plain terms, and a reproduce paragraph
+
+At 15:58 UTC. The owner passed a reviewer's format list (items 1–10, a missing reproduce section and an order of work). The assessment checked each point. The owner approved it with option (a) for the references ("ok, a"). Paper commits: `1a6ab1e`, `66c25bf`, `56374ba`. `final/` holds the 56374ba set (paper `a8b3312`, backed up). No new runs.
+
+- **Items 1, 3, 5 and 7 (`1a6ab1e`):**
+  - every appendix table is numbered and captioned, in order as Tables 11–26 (old 11 becomes 15, old 12 becomes 22) and set as `[htbp]` floats;
+  - the appendix subsections are `\subsection`s, so they appear in the bookmarks;
+  - Appendix C is retitled "The metastability conditions, the mechanism and the model checks";
+  - Table 22 now sits in B.7, not inside C.1's list.
+- **Item 2, option (a) (`66c25bf`):**
+  - the reference lists are printed from `literature/references.bib` with ACM-Reference-Format, author-year (`\citestyle{acmauthoryear}`), every cited work `\nocite`d. `references.toml` still decides which works the prose cites, and the in-text citations are unchanged;
+  - the list sits before `\appendix`: page 25 in both full builds, with the appendix from page 26 (preprint) or 27 (SIGMETRICS format);
+  - the seven "et al. (n authors)" entries now give full author lists from the arXiv API. The response is saved as `literature/arxiv_authors_20261126.xml`, and its counts match the old n;
+  - publishers and addresses are added only where the venue settles them (ACM: HotOS, HotNets, SOSP, AFIPS; USENIX: OSDI, NSDI; Curran: NeurIPS; IEEE: SRDS; PMLR). The other BibTeX warnings (missing pages, organization) are left, not guessed;
+  - the workshop uses the same file for its 17 works.
+- **Item 4 (AI disclosure):** no change (owner, earlier: "skip AI usage section").
+- **Item 6:** C.3 opens with one definition of each model and quantity that C.3 and C.4 test: memory fit (`docs/model.md` M1); token cost and working set (E0 and its amendment); Valse and Jannesari's all-miss model and its replay (M5, REG-28); r (definitions.md); and the served-mix test (K3b).
+- **Item 8:** A.4 follows the reviewer's prose, adding the seed list, the 1,021–1,554 late requests per burst run, the reproduction check and the 578–891 s derivation. It drops the 0.74 bound ("we give no bound"). Table 14 keeps four rows with plain labels: "Pass" for `pass_clear`, and the control row glossed ([CORR] above).
+- **Item 9:**
+  - cut: B.6's production-trace sentence and C.2's Huang and Liu preemption counts;
+  - kept: D.1's Meng and Li sentence (the assessment disagreed with the reviewer, and the owner kept it);
+  - the kernel story was already in the form asked for.
+- **Item 10:**
+  - B.2's "futility stop" is now "stopped after four seeds, when 3 of 5 was out of reach" (REG-18);
+  - C.4's row is now "Completion rate in the partly cold spans after the burst's requests had left (cap at the control's peak)" (decisions.md 2026-11-16 [RESULT] D1, the `formed_then_cleared` spans);
+  - the served-mix test is defined in C.3, and "clear pass" and "control unclear" are replaced in Table 14.
+- **Reproduce paragraph (A.6):**
+  - the command, with the replication's seed-15 pair as the example;
+  - the machine (Table 2's 24 GB RTX 3090 at 350 W, Table 11's host);
+  - run-hours: 271 h over all 352 folders, 260 h in valid ones (RUN(all 352 folders, runtime.total_hours); PROBE(docs/probe/runtime/total_hours_b32d889_20261126T154909Z.txt); P91). This is each run's first to last event, not counting time between runs, and the seven folders without `checks.json` count in the total only. New code: `analysis/runtime.py`, `tests/test_runtime.py`;
+  - the functions behind Tables 6, 8 and 9, and their last column.
+  - The workshop's "about 4.5 hours" per long-window run is confirmed: every complete long-window run of REG-24 and REG-27, burst and control, took 4.49 h by `runtime.run_seconds`.
+- **Workshop:** four repeated sentences were cut from §5 to bring the body back to page 7 ([CORR] above):
+  - the Limits sentences on the 30 trigger runs (as in §1) and "Neither a recorded trace nor a load-testing tool was run" (as in §1 and "Who is exposed");
+  - "Here that one setting changed whether the failure appeared" and "not our open loop" in recommendation 1;
+  - the overlap clause in the Conclusion (as in Limits), with "a 180 s burst" in recommendation 2 shortened.
+
+  The text diff against the 8d2b234 workshop shows only these cuts and the references.
+- **Checks:**
+  - `build.py check`: 0 errors, 32 warnings;
+  - 41/41/8 pages;
+  - 0 overfull boxes, undefined references or errors in both full builds;
+  - the workshop has one overfull vbox (1.5 pt) in the output of its last page, which is mostly empty (not the column balancer: it persists with `balance=false`). It is left and noted;
+  - every table except Table 2 is a float; Table 2 is whole on page 6;
+  - no blank page foot except on the last page;
+  - the anonymous builds have no name, repository, dataset or commit, and an empty Author field;
+  - the preprint cites 602de6f once.

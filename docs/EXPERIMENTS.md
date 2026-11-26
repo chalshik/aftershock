@@ -1,6 +1,6 @@
 # Experiment names and their ids in the log
 
-The text names experiments by what they test. The study's record, an append-only log (`docs/log`), files each under an id; this table maps one to the other. Each entry there holds the pre-specification, its adversarial review and its result.
+The text names experiments by what they test. The study's record, an append-only log (`docs/decisions.md`), files each under an id; this table maps one to the other. Each entry there holds the pre-specification, its adversarial review and its result.
 
 | Name in the text | Claim | Id(s) in the log | Runs |
 |---|---|---|---|

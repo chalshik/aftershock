@@ -1,0 +1,29 @@
+# uv run python -m analysis.reg30 platforms | commit e9bbf23 | 20261123T180835Z
+{
+ "by_seed": {
+  "43": {
+   "run": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+   "control": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+  },
+  "61": {
+   "run": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+   "control": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+  },
+  "68": {
+   "run": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+   "control": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+  },
+  "72": {
+   "run": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+   "control": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+  },
+  "79": {
+   "run": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+   "control": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+  }
+ },
+ "missing": [],
+ "distinct": [
+  "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+ ]
+}

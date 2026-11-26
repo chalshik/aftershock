@@ -1,0 +1,2 @@
+# analysis.runtime.total_hours() over runs/ at study commit b32d889, 20261126T154909Z
+{'folders': 352, 'hours_all': 270.9, 'hours_valid': 259.6, 'hours_invalid': 10.8, 'no_time': [], 'no_checks': ['20261030-114021_first_real', '20261031-025032_tau', '20261104-134159_long_pc_off_r3_s0', '20261105-181511_sweep_l1_pc_off_r2', '20261112-151030_stage2_control_l1pl350cl_r2.0_w3000_s18', '20261113-033842_stage2_control_l1pl350cl_r2.0_w3000_s18', '20261118-105119_confirm_l1pl350cl_r2.0_s68']}

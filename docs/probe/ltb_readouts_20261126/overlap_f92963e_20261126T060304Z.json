@@ -1,0 +1,4054 @@
+{
+ "overlap": [
+  {
+   "cell": "open loop, \u03bb 2.0",
+   "rows": [
+    {
+     "seed": 15,
+     "burst": {
+      "run": "20261115-064753_burst_l1pl350ol_r2.0_w3000_s15",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1023,
+        "held": 418,
+        "held_share": 0.40860215053763443,
+        "held_cached_share": 0.40507627227278553,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 187,
+        "held": 149,
+        "held_share": 0.7967914438502673,
+        "held_cached_share": 0.8935600993693866,
+        "reuse_held": 1.0,
+        "reuse_other": 0.4610927152317881
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 660,
+        "held": 593,
+        "held_share": 0.8984848484848484,
+        "held_cached_share": 0.9755801932194931,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2242960052390308
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 464,
+        "held": 190,
+        "held_share": 0.40948275862068967,
+        "held_cached_share": 0.4116428033157498,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 611,
+        "held": 278,
+        "held_share": 0.45499181669394434,
+        "held_cached_share": 0.4544223505095859,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 446,
+        "held": 163,
+        "held_share": 0.3654708520179372,
+        "held_cached_share": 0.3624390243902439,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 652,
+        "held": 315,
+        "held_share": 0.4831288343558282,
+        "held_cached_share": 0.4856531335696609,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962430366627801
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 611,
+        "held": 261,
+        "held_share": 0.42716857610474634,
+        "held_cached_share": 0.4231997162114225,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 503,
+        "held": 188,
+        "held_share": 0.37375745526838966,
+        "held_cached_share": 0.37241856044240906,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 496,
+        "held": 186,
+        "held_share": 0.375,
+        "held_cached_share": 0.3754795953958842,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 545,
+        "held": 195,
+        "held_share": 0.3577981651376147,
+        "held_cached_share": 0.3584875430585596,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 495,
+        "held": 194,
+        "held_share": 0.39191919191919194,
+        "held_cached_share": 0.38993931932107995,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 59,
+       "t_first": 1205.69830052,
+       "before": 18
+      }
+     }
+    },
+    {
+     "seed": 16,
+     "burst": {
+      "run": "20261115-075808_burst_l1pl350ol_r2.0_w3000_s16",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1035,
+        "held": 425,
+        "held_share": 0.4106280193236715,
+        "held_cached_share": 0.4082532219470215,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 135,
+        "held": 112,
+        "held_share": 0.8296296296296296,
+        "held_cached_share": 0.9267256637168142,
+        "reuse_held": 1.0,
+        "reuse_other": 0.4198782961460446
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 694,
+        "held": 669,
+        "held_share": 0.9639769452449568,
+        "held_cached_share": 0.9906671609793839,
+        "reuse_held": 1.0,
+        "reuse_other": 0.24659284497444633
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 465,
+        "held": 168,
+        "held_share": 0.36129032258064514,
+        "held_cached_share": 0.3602356681941457,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 507,
+        "held": 193,
+        "held_share": 0.3806706114398422,
+        "held_cached_share": 0.378264965316434,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 472,
+        "held": 167,
+        "held_share": 0.3538135593220339,
+        "held_cached_share": 0.3575920103569447,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 484,
+        "held": 175,
+        "held_share": 0.3615702479338843,
+        "held_cached_share": 0.3601653041056509,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962232480067142
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 599,
+        "held": 251,
+        "held_share": 0.41903171953255425,
+        "held_cached_share": 0.41939243826036277,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 520,
+        "held": 206,
+        "held_share": 0.39615384615384613,
+        "held_cached_share": 0.39443889443889446,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 645,
+        "held": 291,
+        "held_share": 0.4511627906976744,
+        "held_cached_share": 0.4522908501148804,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9966797835710772
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 455,
+        "held": 173,
+        "held_share": 0.3802197802197802,
+        "held_cached_share": 0.38173122907699664,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 594,
+        "held": 242,
+        "held_share": 0.4074074074074074,
+        "held_cached_share": 0.4091542580503191,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9978939544103073
+       }
+      ],
+      "in_service_peak": {
+       "value": 62,
+       "t_first": 1249.7689559600003,
+       "before": 18
+      }
+     }
+    },
+    {
+     "seed": 17,
+     "burst": {
+      "run": "20261115-090827_burst_l1pl350ol_r2.0_w3000_s17",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1034,
+        "held": 399,
+        "held_share": 0.3858800773694391,
+        "held_cached_share": 0.3873718702739035,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 172,
+        "held": 126,
+        "held_share": 0.7325581395348837,
+        "held_cached_share": 0.9391787084659973,
+        "reuse_held": 1.0,
+        "reuse_other": 0.18153021442495126
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 696,
+        "held": 659,
+        "held_share": 0.9468390804597702,
+        "held_cached_share": 0.988500695817769,
+        "reuse_held": 1.0,
+        "reuse_other": 0.20513937282229966
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 674,
+        "held": 368,
+        "held_share": 0.5459940652818991,
+        "held_cached_share": 0.5470284237726099,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 488,
+        "held": 186,
+        "held_share": 0.38114754098360654,
+        "held_cached_share": 0.379389854558354,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 494,
+        "held": 183,
+        "held_share": 0.37044534412955465,
+        "held_cached_share": 0.3699559471365639,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 638,
+        "held": 289,
+        "held_share": 0.45297805642633227,
+        "held_cached_share": 0.4518179332968835,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 610,
+        "held": 258,
+        "held_share": 0.42295081967213116,
+        "held_cached_share": 0.42475728155339804,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 479,
+        "held": 183,
+        "held_share": 0.38204592901878914,
+        "held_cached_share": 0.3814297972271147,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9994892002335085
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 582,
+        "held": 225,
+        "held_share": 0.3865979381443299,
+        "held_cached_share": 0.38556285458345774,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 449,
+        "held": 179,
+        "held_share": 0.3986636971046771,
+        "held_cached_share": 0.3930338604831668,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 547,
+        "held": 236,
+        "held_share": 0.43144424131627057,
+        "held_cached_share": 0.4290376502427764,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 64,
+       "t_first": 1269.9016296150003,
+       "before": 18
+      }
+     }
+    },
+    {
+     "seed": 18,
+     "burst": {
+      "run": "20261115-113416_burst_l1pl350ol_r2.0_w3000_s18",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1166,
+        "held": 493,
+        "held_share": 0.4228130360205832,
+        "held_cached_share": 0.4189385745720359,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9989100468038725
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 189,
+        "held": 142,
+        "held_share": 0.7513227513227513,
+        "held_cached_share": 0.9334240590194464,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2137764489420423
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 667,
+        "held": 630,
+        "held_share": 0.9445277361319341,
+        "held_cached_share": 0.9873445769168492,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2097457627118644
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 510,
+        "held": 195,
+        "held_share": 0.38235294117647056,
+        "held_cached_share": 0.3825234441602728,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 347,
+        "held": 120,
+        "held_share": 0.345821325648415,
+        "held_cached_share": 0.34548415382688213,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 483,
+        "held": 196,
+        "held_share": 0.4057971014492754,
+        "held_cached_share": 0.41254632558980386,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 587,
+        "held": 238,
+        "held_share": 0.40545144804088584,
+        "held_cached_share": 0.4062222222222222,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9978837296153368
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 562,
+        "held": 237,
+        "held_share": 0.42170818505338076,
+        "held_cached_share": 0.4182282793867121,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 509,
+        "held": 195,
+        "held_share": 0.3831041257367387,
+        "held_cached_share": 0.3823303457106274,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 540,
+        "held": 238,
+        "held_share": 0.44074074074074077,
+        "held_cached_share": 0.43044534412955465,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 470,
+        "held": 186,
+        "held_share": 0.39574468085106385,
+        "held_cached_share": 0.39919428676066654,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 538,
+        "held": 226,
+        "held_share": 0.4200743494423792,
+        "held_cached_share": 0.4174773022049287,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 56,
+       "t_first": 1260.5841315800026,
+       "before": 18
+      }
+     }
+    },
+    {
+     "seed": 19,
+     "burst": {
+      "run": "20261115-124444_burst_l1pl350ol_r2.0_w3000_s19",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1154,
+        "held": 488,
+        "held_share": 0.42287694974003465,
+        "held_cached_share": 0.42496038632762395,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 165,
+        "held": 120,
+        "held_share": 0.7272727272727273,
+        "held_cached_share": 0.9079634464751958,
+        "reuse_held": 1.0,
+        "reuse_other": 0.26135310472659873
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 584,
+        "held": 516,
+        "held_share": 0.8835616438356164,
+        "held_cached_share": 0.9126661582569915,
+        "reuse_held": 1.0,
+        "reuse_other": 0.7121379093198993
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 460,
+        "held": 167,
+        "held_share": 0.3630434782608696,
+        "held_cached_share": 0.3514307371612659,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 538,
+        "held": 241,
+        "held_share": 0.4479553903345725,
+        "held_cached_share": 0.4491723859507469,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9963487658828684
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 565,
+        "held": 267,
+        "held_share": 0.4725663716814159,
+        "held_cached_share": 0.4752161828289067,
+        "reuse_held": 1.0,
+        "reuse_other": 0.997212441314554
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 529,
+        "held": 212,
+        "held_share": 0.4007561436672968,
+        "held_cached_share": 0.3982570089616049,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 448,
+        "held": 145,
+        "held_share": 0.3236607142857143,
+        "held_cached_share": 0.32212749467157525,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 592,
+        "held": 281,
+        "held_share": 0.47466216216216217,
+        "held_cached_share": 0.47448529411764706,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 477,
+        "held": 191,
+        "held_share": 0.40041928721174,
+        "held_cached_share": 0.40505520576694953,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 609,
+        "held": 285,
+        "held_share": 0.46798029556650245,
+        "held_cached_share": 0.4706850884100508,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 554,
+        "held": 218,
+        "held_share": 0.3935018050541516,
+        "held_cached_share": 0.3923340604549704,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 48,
+       "t_first": 1233.9185331400004,
+       "before": 19
+      }
+     }
+    }
+   ]
+  },
+  {
+   "cell": "open loop, \u03bb 2.5",
+   "rows": [
+    {
+     "seed": 15,
+     "burst": {
+      "run": "20261116-042247_burst_l1pl350ol_r2.5_w3000_s15",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1258,
+        "held": 576,
+        "held_share": 0.4578696343402226,
+        "held_cached_share": 0.4583752995519744,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9949598060482328
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 215,
+        "held": 151,
+        "held_share": 0.7023255813953488,
+        "held_cached_share": 0.856680211420366,
+        "reuse_held": 1.0,
+        "reuse_other": 0.390396138482024
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 669,
+        "held": 602,
+        "held_share": 0.8998505231689088,
+        "held_cached_share": 0.9841666002885237,
+        "reuse_held": 1.0,
+        "reuse_other": 0.14721856484529294
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 730,
+        "held": 497,
+        "held_share": 0.6808219178082192,
+        "held_cached_share": 0.6753425477173458,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9950485971025124
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 770,
+        "held": 430,
+        "held_share": 0.5584415584415584,
+        "held_cached_share": 0.5598512173128944,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 547,
+        "held": 229,
+        "held_share": 0.4186471663619744,
+        "held_cached_share": 0.4232030063164628,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 785,
+        "held": 444,
+        "held_share": 0.5656050955414013,
+        "held_cached_share": 0.5664851009291894,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9899160198498537
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 779,
+        "held": 462,
+        "held_share": 0.5930680359435173,
+        "held_cached_share": 0.5944649034705948,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9900558507015393
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 660,
+        "held": 279,
+        "held_share": 0.42272727272727273,
+        "held_cached_share": 0.422995641262713,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 656,
+        "held": 308,
+        "held_share": 0.4695121951219512,
+        "held_cached_share": 0.46826758147512865,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 678,
+        "held": 292,
+        "held_share": 0.4306784660766962,
+        "held_cached_share": 0.43030653556969345,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9976367319378798
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 654,
+        "held": 313,
+        "held_share": 0.4785932721712538,
+        "held_cached_share": 0.48430104659689355,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962652929813265
+       }
+      ],
+      "in_service_peak": {
+       "value": 76,
+       "t_first": 1249.9296716030003,
+       "before": 21
+      }
+     }
+    },
+    {
+     "seed": 16,
+     "burst": {
+      "run": "20261116-053309_burst_l1pl350ol_r2.5_w3000_s16",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1285,
+        "held": 607,
+        "held_share": 0.4723735408560311,
+        "held_cached_share": 0.4691571075694515,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 178,
+        "held": 134,
+        "held_share": 0.7528089887640449,
+        "held_cached_share": 0.8855302457807046,
+        "reuse_held": 1.0,
+        "reuse_other": 0.39446924603174605
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 658,
+        "held": 611,
+        "held_share": 0.9285714285714286,
+        "held_cached_share": 0.9816830601092896,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2378519527702089
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 777,
+        "held": 553,
+        "held_share": 0.7117117117117117,
+        "held_cached_share": 0.7120897615708275,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 607,
+        "held": 274,
+        "held_share": 0.4514003294892916,
+        "held_cached_share": 0.44682522676951647,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 595,
+        "held": 282,
+        "held_share": 0.47394957983193275,
+        "held_cached_share": 0.46585169460508014,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 667,
+        "held": 277,
+        "held_share": 0.41529235382308843,
+        "held_cached_share": 0.40971000325839035,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 726,
+        "held": 355,
+        "held_share": 0.4889807162534435,
+        "held_cached_share": 0.4884866812604846,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9986634943014921
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 628,
+        "held": 267,
+        "held_share": 0.4251592356687898,
+        "held_cached_share": 0.4242986798679868,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 767,
+        "held": 425,
+        "held_share": 0.5541069100391134,
+        "held_cached_share": 0.559023726872562,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9820677123182862
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 599,
+        "held": 261,
+        "held_share": 0.4357262103505843,
+        "held_cached_share": 0.4338995301770871,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 780,
+        "held": 402,
+        "held_share": 0.5153846153846153,
+        "held_cached_share": 0.5231500634584505,
+        "reuse_held": 1.0,
+        "reuse_other": 0.990056487304915
+       }
+      ],
+      "in_service_peak": {
+       "value": 78,
+       "t_first": 1284.0217647579993,
+       "before": 23
+      }
+     }
+    },
+    {
+     "seed": 17,
+     "burst": {
+      "run": "20261116-064335_burst_l1pl350ol_r2.5_w3000_s17",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1326,
+        "held": 663,
+        "held_share": 0.5,
+        "held_cached_share": 0.5038221958906252,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9897413170507517
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 199,
+        "held": 142,
+        "held_share": 0.7135678391959799,
+        "held_cached_share": 0.9044911881750994,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2647754137115839
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 608,
+        "held": 539,
+        "held_share": 0.8865131578947368,
+        "held_cached_share": 0.9757882107664771,
+        "reuse_held": 1.0,
+        "reuse_other": 0.18505712567648827
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 1091,
+        "held": 993,
+        "held_share": 0.9101741521539871,
+        "held_cached_share": 0.9101270058483621,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9771394439617723
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 641,
+        "held": 293,
+        "held_share": 0.45709828393135726,
+        "held_cached_share": 0.45572793171194365,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 660,
+        "held": 316,
+        "held_share": 0.47878787878787876,
+        "held_cached_share": 0.4764625266251672,
+        "reuse_held": 1.0,
+        "reuse_other": 0.993576084231637
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 758,
+        "held": 388,
+        "held_share": 0.5118733509234829,
+        "held_cached_share": 0.5136042607386824,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9856874706710465
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 776,
+        "held": 447,
+        "held_share": 0.5760309278350515,
+        "held_cached_share": 0.5805190389845875,
+        "reuse_held": 1.0,
+        "reuse_other": 0.980659690025169
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 563,
+        "held": 294,
+        "held_share": 0.522202486678508,
+        "held_cached_share": 0.5299961494031575,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9921963908307593
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 692,
+        "held": 313,
+        "held_share": 0.4523121387283237,
+        "held_cached_share": 0.45258999122036875,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 503,
+        "held": 205,
+        "held_share": 0.40755467196819084,
+        "held_cached_share": 0.4105666289494299,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 733,
+        "held": 334,
+        "held_share": 0.45566166439290584,
+        "held_cached_share": 0.4524811762613387,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 93,
+       "t_first": 1306.8694878130045,
+       "before": 22
+      }
+     }
+    }
+   ]
+  },
+  {
+   "cell": "open loop, \u03bb 2.73",
+   "rows": [
+    {
+     "seed": 15,
+     "burst": {
+      "run": "20261123-234558_burst_l1pl350ol_r2.73_w3000_s15_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1374,
+        "held": 655,
+        "held_share": 0.47671033478893743,
+        "held_cached_share": 0.4785079365079365,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9972075517513507
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 217,
+        "held": 160,
+        "held_share": 0.7373271889400922,
+        "held_cached_share": 0.9182145827557527,
+        "reuse_held": 1.0,
+        "reuse_other": 0.24031498913830557
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 639,
+        "held": 562,
+        "held_share": 0.8794992175273866,
+        "held_cached_share": 0.9743084501705191,
+        "reuse_held": 1.0,
+        "reuse_other": 0.18698290126861555
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 888,
+        "held": 756,
+        "held_share": 0.8513513513513513,
+        "held_cached_share": 0.8524943644026267,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 831,
+        "held": 501,
+        "held_share": 0.6028880866425993,
+        "held_cached_share": 0.6081080195326583,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9922497344662772
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 617,
+        "held": 286,
+        "held_share": 0.46353322528363045,
+        "held_cached_share": 0.46687429218573046,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9977480460988211
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 834,
+        "held": 557,
+        "held_share": 0.6678657074340527,
+        "held_cached_share": 0.6864452040162359,
+        "reuse_held": 1.0,
+        "reuse_other": 0.939209726443769
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 861,
+        "held": 584,
+        "held_share": 0.6782810685249709,
+        "held_cached_share": 0.7012906556530718,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9107508263812372
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 748,
+        "held": 363,
+        "held_share": 0.4852941176470588,
+        "held_cached_share": 0.48082303567265094,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 731,
+        "held": 365,
+        "held_share": 0.4993160054719562,
+        "held_cached_share": 0.49833906750504214,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9968175388967468
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 751,
+        "held": 360,
+        "held_share": 0.4793608521970706,
+        "held_cached_share": 0.48185077139664156,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9951220871892072
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 706,
+        "held": 328,
+        "held_share": 0.46458923512747874,
+        "held_cached_share": 0.46357850889034596,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9986644071691176
+       }
+      ],
+      "in_service_peak": {
+       "value": 86,
+       "t_first": 1309.0999426919734,
+       "before": 29
+      }
+     },
+     "control": {
+      "run": "20261124-005607_stage2_control_l1pl350ol_r2.73_w3000_s15_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1374,
+        "held": 656,
+        "held_share": 0.4774381368267831,
+        "held_cached_share": 0.4791111111111111,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9972043272152668
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 497,
+        "held": 321,
+        "held_share": 0.6458752515090543,
+        "held_cached_share": 0.6456285112359551,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9851146900927281
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 640,
+        "held": 304,
+        "held_share": 0.475,
+        "held_cached_share": 0.47163695299837927,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 607,
+        "held": 276,
+        "held_share": 0.4546952224052718,
+        "held_cached_share": 0.4516916888154587,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 831,
+        "held": 506,
+        "held_share": 0.6089049338146811,
+        "held_cached_share": 0.6141583639223912,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9920453013347714
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 617,
+        "held": 286,
+        "held_share": 0.46353322528363045,
+        "held_cached_share": 0.46687429218573046,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9977480460988211
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 834,
+        "held": 557,
+        "held_share": 0.6678657074340527,
+        "held_cached_share": 0.6867564788976862,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9391913530824659
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 861,
+        "held": 582,
+        "held_share": 0.6759581881533101,
+        "held_cached_share": 0.6992256066081569,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9113092444861567
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 748,
+        "held": 364,
+        "held_share": 0.48663101604278075,
+        "held_cached_share": 0.48251340638843554,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 731,
+        "held": 367,
+        "held_share": 0.5020519835841313,
+        "held_cached_share": 0.5013050183888955,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9967986720417358
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 751,
+        "held": 361,
+        "held_share": 0.4806924101198402,
+        "held_cached_share": 0.48341823776142584,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9951073585327668
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 706,
+        "held": 326,
+        "held_share": 0.46175637393767704,
+        "held_cached_share": 0.46110648276713256,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9986848124428179
+       }
+      ],
+      "in_service_peak": {
+       "value": 39,
+       "t_first": 2614.7369167930447,
+       "before": 29
+      }
+     }
+    },
+    {
+     "seed": 16,
+     "burst": {
+      "run": "20261124-054204_burst_l1pl350ol_r2.73_w3000_s16_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1438,
+        "held": 720,
+        "held_share": 0.5006954102920723,
+        "held_cached_share": 0.5014854786879283,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9976944545564859
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 178,
+        "held": 140,
+        "held_share": 0.7865168539325843,
+        "held_cached_share": 0.9374305281652264,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2507183908045977
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 617,
+        "held": 554,
+        "held_share": 0.8978930307941653,
+        "held_cached_share": 0.9720628941586051,
+        "reuse_held": 1.0,
+        "reuse_other": 0.26354989231873654
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 924,
+        "held": 744,
+        "held_share": 0.8051948051948052,
+        "held_cached_share": 0.8081732811099052,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9938875305623472
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 665,
+        "held": 294,
+        "held_share": 0.4421052631578947,
+        "held_cached_share": 0.4381574648807579,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 659,
+        "held": 290,
+        "held_share": 0.4400606980273141,
+        "held_cached_share": 0.4368164448543945,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9994154097977318
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 695,
+        "held": 313,
+        "held_share": 0.4503597122302158,
+        "held_cached_share": 0.4475318321520417,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 818,
+        "held": 444,
+        "held_share": 0.5427872860635696,
+        "held_cached_share": 0.5406148079475499,
+        "reuse_held": 1.0,
+        "reuse_other": 0.994412681912682
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 693,
+        "held": 363,
+        "held_share": 0.5238095238095238,
+        "held_cached_share": 0.520392843738271,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962318087318087
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 827,
+        "held": 539,
+        "held_share": 0.6517533252720678,
+        "held_cached_share": 0.6615161629190325,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9718616371411118
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 660,
+        "held": 287,
+        "held_share": 0.4348484848484849,
+        "held_cached_share": 0.4354265402843602,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9951270449008005
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 852,
+        "held": 569,
+        "held_share": 0.6678403755868545,
+        "held_cached_share": 0.6724448330847179,
+        "reuse_held": 1.0,
+        "reuse_other": 0.982564419071131
+       }
+      ],
+      "in_service_peak": {
+       "value": 86,
+       "t_first": 1284.0219781869673,
+       "before": 25
+      }
+     },
+     "control": {
+      "run": "20261124-043150_stage2_control_l1pl350ol_r2.73_w3000_s16_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1438,
+        "held": 715,
+        "held_share": 0.4972183588317107,
+        "held_cached_share": 0.49781725580549324,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9977112570017467
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 350,
+        "held": 153,
+        "held_share": 0.43714285714285717,
+        "held_cached_share": 0.43990563695058355,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 694,
+        "held": 347,
+        "held_share": 0.5,
+        "held_cached_share": 0.5016682404784388,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9851897946484132
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 675,
+        "held": 315,
+        "held_share": 0.4666666666666667,
+        "held_cached_share": 0.4678714859437751,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9969660194174758
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 665,
+        "held": 292,
+        "held_share": 0.43909774436090226,
+        "held_cached_share": 0.43462920614178374,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 659,
+        "held": 289,
+        "held_share": 0.4385432473444613,
+        "held_cached_share": 0.43530109368823294,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9994169776119403
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 695,
+        "held": 314,
+        "held_share": 0.45179856115107914,
+        "held_cached_share": 0.4492253653641096,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 818,
+        "held": 440,
+        "held_share": 0.5378973105134475,
+        "held_cached_share": 0.53570237571198,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9944857142857143
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 693,
+        "held": 359,
+        "held_share": 0.5180375180375181,
+        "held_cached_share": 0.514262479669711,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962791891198358
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 827,
+        "held": 530,
+        "held_share": 0.6408706166868199,
+        "held_cached_share": 0.6521363316001543,
+        "reuse_held": 1.0,
+        "reuse_other": 0.972453531598513
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 660,
+        "held": 289,
+        "held_share": 0.43787878787878787,
+        "held_cached_share": 0.4384544497103739,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9951008981686691
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 852,
+        "held": 571,
+        "held_share": 0.67018779342723,
+        "held_cached_share": 0.6751195926135487,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9824233939959558
+       }
+      ],
+      "in_service_peak": {
+       "value": 30,
+       "t_first": 3900.022238331032,
+       "before": 25
+      }
+     }
+    },
+    {
+     "seed": 17,
+     "burst": {
+      "run": "20261124-162922_burst_l1pl350ol_r2.73_w3000_s17_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1442,
+        "held": 765,
+        "held_share": 0.5305131761442441,
+        "held_cached_share": 0.530874541725274,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9881252794991375
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 218,
+        "held": 170,
+        "held_share": 0.7798165137614679,
+        "held_cached_share": 0.9380315917375456,
+        "reuse_held": 1.0,
+        "reuse_other": 0.23654916512059368
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 587,
+        "held": 497,
+        "held_share": 0.8466780238500852,
+        "held_cached_share": 0.9730979269391867,
+        "reuse_held": 1.0,
+        "reuse_other": 0.15334864603481624
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 1208,
+        "held": 1195,
+        "held_share": 0.9892384105960265,
+        "held_cached_share": 0.9915762402147675,
+        "reuse_held": 1.0,
+        "reuse_other": 0.7805183946488294
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 814,
+        "held": 539,
+        "held_share": 0.6621621621621622,
+        "held_cached_share": 0.6634122855117626,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9891133469580254
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 733,
+        "held": 380,
+        "held_share": 0.5184174624829468,
+        "held_cached_share": 0.5254303248016764,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9818530905487427
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 796,
+        "held": 463,
+        "held_share": 0.5816582914572864,
+        "held_cached_share": 0.5829957297711595,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9937377690802348
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 803,
+        "held": 512,
+        "held_share": 0.6376089663760897,
+        "held_cached_share": 0.6394486191547408,
+        "reuse_held": 1.0,
+        "reuse_other": 0.985699865410498
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 643,
+        "held": 351,
+        "held_share": 0.5458786936236392,
+        "held_cached_share": 0.5468267811619482,
+        "reuse_held": 1.0,
+        "reuse_other": 0.997195157956894
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 716,
+        "held": 330,
+        "held_share": 0.46089385474860334,
+        "held_cached_share": 0.45976173109652324,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 579,
+        "held": 238,
+        "held_share": 0.4110535405872193,
+        "held_cached_share": 0.40607381793580394,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 787,
+        "held": 417,
+        "held_share": 0.5298602287166455,
+        "held_cached_share": 0.5377316613028521,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9901354884715949
+       }
+      ],
+      "in_service_peak": {
+       "value": 109,
+       "t_first": 1303.7421416140278,
+       "before": 29
+      }
+     },
+     "control": {
+      "run": "20261124-174018_stage2_control_l1pl350ol_r2.73_w3000_s17_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1443,
+        "held": 763,
+        "held_share": 0.5287595287595288,
+        "held_cached_share": 0.5289213605772146,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9881088643011573
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 462,
+        "held": 235,
+        "held_share": 0.5086580086580087,
+        "held_cached_share": 0.5059726962457338,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 830,
+        "held": 521,
+        "held_share": 0.6277108433734939,
+        "held_cached_share": 0.6329245574886286,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9777844017393744
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 836,
+        "held": 494,
+        "held_share": 0.5909090909090909,
+        "held_cached_share": 0.5948212148365196,
+        "reuse_held": 1.0,
+        "reuse_other": 0.988716164453524
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 698,
+        "held": 345,
+        "held_share": 0.49426934097421205,
+        "held_cached_share": 0.4949308396649133,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9932113522128233
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 733,
+        "held": 380,
+        "held_share": 0.5184174624829468,
+        "held_cached_share": 0.5254106641721235,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9819305091044221
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 796,
+        "held": 461,
+        "held_share": 0.5791457286432161,
+        "held_cached_share": 0.5802584035913719,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9937783538561245
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 802,
+        "held": 512,
+        "held_share": 0.6384039900249376,
+        "held_cached_share": 0.6398423386434554,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9863568215892053
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 644,
+        "held": 352,
+        "held_share": 0.546583850931677,
+        "held_cached_share": 0.5465996649916248,
+        "reuse_held": 1.0,
+        "reuse_other": 0.997200117889773
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 716,
+        "held": 330,
+        "held_share": 0.46089385474860334,
+        "held_cached_share": 0.45976173109652324,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 579,
+        "held": 238,
+        "held_share": 0.4110535405872193,
+        "held_cached_share": 0.40607381793580394,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 787,
+        "held": 416,
+        "held_share": 0.5285895806861499,
+        "held_cached_share": 0.5365664188214405,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9901600474214582
+       }
+      ],
+      "in_service_peak": {
+       "value": 32,
+       "t_first": 2858.5096371470136,
+       "before": 29
+      }
+     }
+    },
+    {
+     "seed": 18,
+     "burst": {
+      "run": "20261125-004713_burst_l1pl350ol_r2.73_w3000_s18_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1436,
+        "held": 724,
+        "held_share": 0.5041782729805014,
+        "held_cached_share": 0.5045723834118183,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9908251306355572
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 222,
+        "held": 147,
+        "held_share": 0.6621621621621622,
+        "held_cached_share": 0.9076424520658926,
+        "reuse_held": 1.0,
+        "reuse_other": 0.19711815561959653
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 598,
+        "held": 532,
+        "held_share": 0.8896321070234113,
+        "held_cached_share": 0.9758192809417754,
+        "reuse_held": 1.0,
+        "reuse_other": 0.20293724966622162
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 961,
+        "held": 844,
+        "held_share": 0.8782518210197711,
+        "held_cached_share": 0.8798157264802855,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 531,
+        "held": 198,
+        "held_share": 0.3728813559322034,
+        "held_cached_share": 0.37248625133382585,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 706,
+        "held": 333,
+        "held_share": 0.471671388101983,
+        "held_cached_share": 0.47384937238493724,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 789,
+        "held": 416,
+        "held_share": 0.5272496831432193,
+        "held_cached_share": 0.5309429982794028,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9883054613495498
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 732,
+        "held": 386,
+        "held_share": 0.5273224043715847,
+        "held_cached_share": 0.5310902389727737,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 753,
+        "held": 402,
+        "held_share": 0.5338645418326693,
+        "held_cached_share": 0.5354421611637036,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9929673041332511
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 733,
+        "held": 405,
+        "held_share": 0.5525238744884038,
+        "held_cached_share": 0.5573546044407405,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 688,
+        "held": 330,
+        "held_share": 0.4796511627906977,
+        "held_cached_share": 0.4835545388837261,
+        "reuse_held": 1.0,
+        "reuse_other": 0.983259738688604
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 781,
+        "held": 414,
+        "held_share": 0.5300896286811779,
+        "held_cached_share": 0.5355971664229638,
+        "reuse_held": 1.0,
+        "reuse_other": 0.964757579332311
+       }
+      ],
+      "in_service_peak": {
+       "value": 86,
+       "t_first": 1313.4930971990107,
+       "before": 27
+      }
+     },
+     "control": {
+      "run": "20261124-233658_stage2_control_l1pl350ol_r2.73_w3000_s18_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1436,
+        "held": 721,
+        "held_share": 0.5020891364902507,
+        "held_cached_share": 0.5024153121677047,
+        "reuse_held": 1.0,
+        "reuse_other": 0.990864541109565
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 464,
+        "held": 236,
+        "held_share": 0.5086206896551724,
+        "held_cached_share": 0.5154677950164551,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9883007288070579
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 670,
+        "held": 320,
+        "held_share": 0.47761194029850745,
+        "held_cached_share": 0.4761049520792855,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9913185862580326
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 647,
+        "held": 285,
+        "held_share": 0.44049459041731065,
+        "held_cached_share": 0.43959798994974875,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 531,
+        "held": 197,
+        "held_share": 0.3709981167608286,
+        "held_cached_share": 0.3704342116063367,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 706,
+        "held": 334,
+        "held_share": 0.4730878186968839,
+        "held_cached_share": 0.4750184592665518,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 789,
+        "held": 415,
+        "held_share": 0.5259822560202788,
+        "held_cached_share": 0.5293334073375145,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9883449883449883
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 732,
+        "held": 388,
+        "held_share": 0.5300546448087432,
+        "held_cached_share": 0.5335869694447747,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 753,
+        "held": 401,
+        "held_share": 0.5325365205843293,
+        "held_cached_share": 0.5343377058169906,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9930145248645987
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 732,
+        "held": 404,
+        "held_share": 0.5519125683060109,
+        "held_cached_share": 0.5568533969010727,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 689,
+        "held": 333,
+        "held_share": 0.4833091436865022,
+        "held_cached_share": 0.48724295506473725,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9830859089802871
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 781,
+        "held": 416,
+        "held_share": 0.5326504481434059,
+        "held_cached_share": 0.5380918918535238,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9645885212854263
+       }
+      ],
+      "in_service_peak": {
+       "value": 34,
+       "t_first": 4048.1258066219743,
+       "before": 27
+      }
+     }
+    },
+    {
+     "seed": 19,
+     "burst": {
+      "run": "20261125-042316_burst_l1pl350ol_r2.73_w3000_s19_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1555,
+        "held": 977,
+        "held_share": 0.6282958199356913,
+        "held_cached_share": 0.6349610847428833,
+        "reuse_held": 1.0,
+        "reuse_other": 0.96875
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 194,
+        "held": 142,
+        "held_share": 0.7319587628865979,
+        "held_cached_share": 0.9430141741394272,
+        "reuse_held": 1.0,
+        "reuse_other": 0.15964343598055106
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 700,
+        "held": 664,
+        "held_share": 0.9485714285714286,
+        "held_cached_share": 0.9945212627184973,
+        "reuse_held": 1.0,
+        "reuse_other": 0.10194174757281553
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 787,
+        "held": 524,
+        "held_share": 0.6658195679796697,
+        "held_cached_share": 0.666592859119845,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 750,
+        "held": 414,
+        "held_share": 0.552,
+        "held_cached_share": 0.558041958041958,
+        "reuse_held": 1.0,
+        "reuse_other": 0.988787483702738
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 735,
+        "held": 364,
+        "held_share": 0.49523809523809526,
+        "held_cached_share": 0.4950144551300962,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 699,
+        "held": 325,
+        "held_share": 0.46494992846924177,
+        "held_cached_share": 0.46827167621038834,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9950654052791403
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 696,
+        "held": 330,
+        "held_share": 0.47413793103448276,
+        "held_cached_share": 0.47578822685971667,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9979527652504154
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 731,
+        "held": 331,
+        "held_share": 0.4528043775649795,
+        "held_cached_share": 0.4490860053940665,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9952360329146817
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 690,
+        "held": 328,
+        "held_share": 0.4753623188405797,
+        "held_cached_share": 0.47442372748013534,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9974617773530817
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 780,
+        "held": 408,
+        "held_share": 0.5230769230769231,
+        "held_cached_share": 0.5205896165249634,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9925267007197586
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 695,
+        "held": 303,
+        "held_share": 0.43597122302158275,
+        "held_cached_share": 0.4361469835922391,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 77,
+       "t_first": 1271.5960032519652,
+       "before": 34
+      }
+     },
+     "control": {
+      "run": "20261125-053334_stage2_control_l1pl350ol_r2.73_w3000_s19_trh",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1555,
+        "held": 978,
+        "held_share": 0.6289389067524116,
+        "held_cached_share": 0.635614576549537,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9686864885208882
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 349,
+        "held": 154,
+        "held_share": 0.44126074498567336,
+        "held_cached_share": 0.4339033828485832,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 670,
+        "held": 285,
+        "held_share": 0.4253731343283582,
+        "held_cached_share": 0.4267003825455489,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9969556883526891
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 662,
+        "held": 284,
+        "held_share": 0.42900302114803623,
+        "held_cached_share": 0.43058668424522084,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 750,
+        "held": 412,
+        "held_share": 0.5493333333333333,
+        "held_cached_share": 0.5552447552447553,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9888572168955688
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 735,
+        "held": 364,
+        "held_share": 0.49523809523809526,
+        "held_cached_share": 0.4950144551300962,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 699,
+        "held": 328,
+        "held_share": 0.46924177396280403,
+        "held_cached_share": 0.4723284080448113,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9950276568200541
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 696,
+        "held": 328,
+        "held_share": 0.47126436781609193,
+        "held_cached_share": 0.4726711656250487,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9979648419065597
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 731,
+        "held": 333,
+        "held_share": 0.45554035567715456,
+        "held_cached_share": 0.45172310458495657,
+        "reuse_held": 1.0,
+        "reuse_other": 0.995213228894691
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 690,
+        "held": 327,
+        "held_share": 0.47391304347826085,
+        "held_cached_share": 0.4728540071906789,
+        "reuse_held": 1.0,
+        "reuse_other": 0.997454448017149
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 780,
+        "held": 406,
+        "held_share": 0.5205128205128206,
+        "held_cached_share": 0.5180102194590276,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9925663972286374
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 695,
+        "held": 302,
+        "held_share": 0.43453237410071943,
+        "held_cached_share": 0.43446253665231765,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 34,
+       "t_first": 534.0368842129828,
+       "before": 34
+      }
+     }
+    }
+   ]
+  },
+  {
+   "cell": "open loop, later stack",
+   "rows": [
+    {
+     "seed": 15,
+     "burst": {
+      "run": "20261123-212537_burst_l1pl350ol_r2.0_w3000_s15_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1023,
+        "held": 417,
+        "held_share": 0.40762463343108507,
+        "held_cached_share": 0.4040934922873136,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 187,
+        "held": 149,
+        "held_share": 0.7967914438502673,
+        "held_cached_share": 0.8935600993693866,
+        "reuse_held": 1.0,
+        "reuse_other": 0.4610927152317881
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 660,
+        "held": 591,
+        "held_share": 0.8954545454545455,
+        "held_cached_share": 0.9720152579230686,
+        "reuse_held": 1.0,
+        "reuse_other": 0.24889029803424223
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 464,
+        "held": 190,
+        "held_share": 0.40948275862068967,
+        "held_cached_share": 0.4116428033157498,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 611,
+        "held": 280,
+        "held_share": 0.4582651391162029,
+        "held_cached_share": 0.4581284299052099,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 446,
+        "held": 164,
+        "held_share": 0.36771300448430494,
+        "held_cached_share": 0.3650731707317073,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 651,
+        "held": 312,
+        "held_share": 0.4792626728110599,
+        "held_cached_share": 0.4815112540192926,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962672158578968
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 612,
+        "held": 262,
+        "held_share": 0.42810457516339867,
+        "held_cached_share": 0.42413939651508714,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 503,
+        "held": 187,
+        "held_share": 0.3717693836978131,
+        "held_cached_share": 0.37077680808779057,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 496,
+        "held": 186,
+        "held_share": 0.375,
+        "held_cached_share": 0.3754795953958842,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 545,
+        "held": 195,
+        "held_share": 0.3577981651376147,
+        "held_cached_share": 0.3581671072658816,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 495,
+        "held": 191,
+        "held_share": 0.38585858585858585,
+        "held_cached_share": 0.3840471374549292,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 59,
+       "t_first": 1205.6982158569735,
+       "before": 18
+      }
+     },
+     "control": {
+      "run": "20261123-223549_stage2_control_l1pl350ol_r2.0_w3000_s15_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1023,
+        "held": 416,
+        "held_share": 0.4066471163245357,
+        "held_cached_share": 0.4033670896893561,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 377,
+        "held": 158,
+        "held_share": 0.41909814323607425,
+        "held_cached_share": 0.42093749550249704,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9949307616221563
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 470,
+        "held": 183,
+        "held_share": 0.3893617021276596,
+        "held_cached_share": 0.39060920702012314,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9956462993544513
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 464,
+        "held": 190,
+        "held_share": 0.40948275862068967,
+        "held_cached_share": 0.4116428033157498,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 611,
+        "held": 281,
+        "held_share": 0.45990180032733224,
+        "held_cached_share": 0.45991019884541373,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 446,
+        "held": 164,
+        "held_share": 0.36771300448430494,
+        "held_cached_share": 0.3650731707317073,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 652,
+        "held": 313,
+        "held_share": 0.48006134969325154,
+        "held_cached_share": 0.4823088756604909,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962672158578968
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 611,
+        "held": 258,
+        "held_share": 0.42225859247135844,
+        "held_cached_share": 0.41745299751684994,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 503,
+        "held": 188,
+        "held_share": 0.37375745526838966,
+        "held_cached_share": 0.37328264062905037,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 496,
+        "held": 186,
+        "held_share": 0.375,
+        "held_cached_share": 0.3754795953958842,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 545,
+        "held": 194,
+        "held_share": 0.3559633027522936,
+        "held_cached_share": 0.3566450372506609,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 495,
+        "held": 192,
+        "held_share": 0.3878787878787879,
+        "held_cached_share": 0.3858939407264093,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 23,
+       "t_first": 2295.0515535530285,
+       "before": 18
+      }
+     }
+    },
+    {
+     "seed": 16,
+     "burst": {
+      "run": "20261124-102819_burst_l1pl350ol_r2.0_w3000_s16_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1035,
+        "held": 424,
+        "held_share": 0.4096618357487923,
+        "held_cached_share": 0.40737164686621047,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 136,
+        "held": 113,
+        "held_share": 0.8308823529411765,
+        "held_cached_share": 0.9273174157303371,
+        "reuse_held": 1.0,
+        "reuse_other": 0.4198782961460446
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 693,
+        "held": 668,
+        "held_share": 0.963924963924964,
+        "held_cached_share": 0.9906533004019565,
+        "reuse_held": 1.0,
+        "reuse_other": 0.24659284497444633
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 465,
+        "held": 168,
+        "held_share": 0.36129032258064514,
+        "held_cached_share": 0.3602356681941457,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 507,
+        "held": 193,
+        "held_share": 0.3806706114398422,
+        "held_cached_share": 0.378264965316434,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 472,
+        "held": 167,
+        "held_share": 0.3538135593220339,
+        "held_cached_share": 0.3575920103569447,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 484,
+        "held": 173,
+        "held_share": 0.3574380165289256,
+        "held_cached_share": 0.35531398796154884,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962515618492295
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 599,
+        "held": 250,
+        "held_share": 0.41736227045075125,
+        "held_cached_share": 0.41757121002404024,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 520,
+        "held": 205,
+        "held_share": 0.3942307692307692,
+        "held_cached_share": 0.39285714285714285,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 645,
+        "held": 289,
+        "held_share": 0.448062015503876,
+        "held_cached_share": 0.4491823219353967,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9966984592809978
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 455,
+        "held": 174,
+        "held_share": 0.3824175824175824,
+        "held_cached_share": 0.38393113342898133,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 594,
+        "held": 242,
+        "held_share": 0.4074074074074074,
+        "held_cached_share": 0.4091542580503191,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9978939544103073
+       }
+      ],
+      "in_service_peak": {
+       "value": 62,
+       "t_first": 1249.7689305259846,
+       "before": 18
+      }
+     },
+     "control": {
+      "run": "20261124-091756_stage2_control_l1pl350ol_r2.0_w3000_s16_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1035,
+        "held": 425,
+        "held_share": 0.4106280193236715,
+        "held_cached_share": 0.4083371814785273,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 259,
+        "held": 112,
+        "held_share": 0.43243243243243246,
+        "held_cached_share": 0.4399254363667175,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 570,
+        "held": 239,
+        "held_share": 0.4192982456140351,
+        "held_cached_share": 0.41581826470141314,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 465,
+        "held": 168,
+        "held_share": 0.36129032258064514,
+        "held_cached_share": 0.3602356681941457,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 507,
+        "held": 193,
+        "held_share": 0.3806706114398422,
+        "held_cached_share": 0.378264965316434,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 472,
+        "held": 167,
+        "held_share": 0.3538135593220339,
+        "held_cached_share": 0.3575920103569447,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 484,
+        "held": 174,
+        "held_share": 0.359504132231405,
+        "held_cached_share": 0.3573802892821849,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9962395543175487
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 599,
+        "held": 251,
+        "held_share": 0.41903171953255425,
+        "held_cached_share": 0.41939243826036277,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 520,
+        "held": 206,
+        "held_share": 0.39615384615384613,
+        "held_cached_share": 0.39443889443889446,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 645,
+        "held": 289,
+        "held_share": 0.448062015503876,
+        "held_cached_share": 0.4491823219353967,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9966984592809978
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 455,
+        "held": 173,
+        "held_share": 0.3802197802197802,
+        "held_cached_share": 0.38173122907699664,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 594,
+        "held": 242,
+        "held_share": 0.4074074074074074,
+        "held_cached_share": 0.4091542580503191,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9978939544103073
+       }
+      ],
+      "in_service_peak": {
+       "value": 20,
+       "t_first": 1164.902907554002,
+       "before": 18
+      }
+     }
+    },
+    {
+     "seed": 17,
+     "burst": {
+      "run": "20261124-140419_burst_l1pl350ol_r2.0_w3000_s17_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1034,
+        "held": 399,
+        "held_share": 0.3858800773694391,
+        "held_cached_share": 0.3873718702739035,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 172,
+        "held": 125,
+        "held_share": 0.7267441860465116,
+        "held_cached_share": 0.9317059231742663,
+        "reuse_held": 1.0,
+        "reuse_other": 0.19935653002859866
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 695,
+        "held": 658,
+        "held_share": 0.9467625899280575,
+        "held_cached_share": 0.9885604406348792,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2038327526132404
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 675,
+        "held": 369,
+        "held_share": 0.5466666666666666,
+        "held_cached_share": 0.5471381557720849,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 488,
+        "held": 186,
+        "held_share": 0.38114754098360654,
+        "held_cached_share": 0.379389854558354,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 494,
+        "held": 183,
+        "held_share": 0.37044534412955465,
+        "held_cached_share": 0.3699559471365639,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 638,
+        "held": 291,
+        "held_share": 0.4561128526645768,
+        "held_cached_share": 0.45537178786221977,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 610,
+        "held": 258,
+        "held_share": 0.42295081967213116,
+        "held_cached_share": 0.42475728155339804,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 479,
+        "held": 183,
+        "held_share": 0.38204592901878914,
+        "held_cached_share": 0.3814297972271147,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9994892002335085
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 582,
+        "held": 225,
+        "held_share": 0.3865979381443299,
+        "held_cached_share": 0.38556285458345774,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 449,
+        "held": 179,
+        "held_share": 0.3986636971046771,
+        "held_cached_share": 0.3930338604831668,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 547,
+        "held": 238,
+        "held_share": 0.4351005484460695,
+        "held_cached_share": 0.433176788983523,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 64,
+       "t_first": 1269.9019902019645,
+       "before": 18
+      }
+     },
+     "control": {
+      "run": "20261124-151610_stage2_control_l1pl350ol_r2.0_w3000_s17_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1034,
+        "held": 399,
+        "held_share": 0.3858800773694391,
+        "held_cached_share": 0.3873718702739035,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 318,
+        "held": 124,
+        "held_share": 0.389937106918239,
+        "held_cached_share": 0.39025725232621783,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 618,
+        "held": 276,
+        "held_share": 0.44660194174757284,
+        "held_cached_share": 0.4464965458903144,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9989821882951654
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 606,
+        "held": 234,
+        "held_share": 0.38613861386138615,
+        "held_cached_share": 0.3830795748348176,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 488,
+        "held": 186,
+        "held_share": 0.38114754098360654,
+        "held_cached_share": 0.379389854558354,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 494,
+        "held": 183,
+        "held_share": 0.37044534412955465,
+        "held_cached_share": 0.37030837004405287,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 638,
+        "held": 291,
+        "held_share": 0.4561128526645768,
+        "held_cached_share": 0.455098414434117,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 610,
+        "held": 258,
+        "held_share": 0.42295081967213116,
+        "held_cached_share": 0.42475728155339804,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 479,
+        "held": 182,
+        "held_share": 0.37995824634655534,
+        "held_cached_share": 0.3797136792665854,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9994906127201281
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 582,
+        "held": 225,
+        "held_share": 0.3865979381443299,
+        "held_cached_share": 0.38556285458345774,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 449,
+        "held": 179,
+        "held_share": 0.3986636971046771,
+        "held_cached_share": 0.3930338604831668,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 547,
+        "held": 238,
+        "held_share": 0.4351005484460695,
+        "held_cached_share": 0.4323808007641487,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 21,
+       "t_first": 2872.7686430179747,
+       "before": 18
+      }
+     }
+    },
+    {
+     "seed": 18,
+     "burst": {
+      "run": "20261124-200114_burst_l1pl350ol_r2.0_w3000_s18_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1166,
+        "held": 493,
+        "held_share": 0.4228130360205832,
+        "held_cached_share": 0.4187893932047887,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9989103262611371
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 189,
+        "held": 142,
+        "held_share": 0.7513227513227513,
+        "held_cached_share": 0.9334240590194464,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2137764489420423
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 667,
+        "held": 630,
+        "held_share": 0.9445277361319341,
+        "held_cached_share": 0.9873445769168492,
+        "reuse_held": 1.0,
+        "reuse_other": 0.2097457627118644
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 510,
+        "held": 194,
+        "held_share": 0.3803921568627451,
+        "held_cached_share": 0.3817561807331628,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 347,
+        "held": 121,
+        "held_share": 0.34870317002881845,
+        "held_cached_share": 0.34761367906801954,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 483,
+        "held": 196,
+        "held_share": 0.4057971014492754,
+        "held_cached_share": 0.412184760010847,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 587,
+        "held": 235,
+        "held_share": 0.40034071550255534,
+        "held_cached_share": 0.40066666666666667,
+        "reuse_held": 1.0,
+        "reuse_other": 0.997903305377405
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 562,
+        "held": 236,
+        "held_share": 0.4199288256227758,
+        "held_cached_share": 0.4162923958494657,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 509,
+        "held": 197,
+        "held_share": 0.38703339882121807,
+        "held_cached_share": 0.3867690994451558,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 540,
+        "held": 235,
+        "held_share": 0.4351851851851852,
+        "held_cached_share": 0.42550607287449393,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 469,
+        "held": 185,
+        "held_share": 0.39445628997867804,
+        "held_cached_share": 0.39825767996331957,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 539,
+        "held": 227,
+        "held_share": 0.42115027829313545,
+        "held_cached_share": 0.4182789605763782,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 56,
+       "t_first": 1260.5840577480267,
+       "before": 18
+      }
+     },
+     "control": {
+      "run": "20261124-185100_stage2_control_l1pl350ol_r2.0_w3000_s18_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1166,
+        "held": 491,
+        "held_share": 0.42109777015437394,
+        "held_cached_share": 0.4169992167978219,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9989136686050227
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 342,
+        "held": 142,
+        "held_share": 0.4152046783625731,
+        "held_cached_share": 0.4157160963244613,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 514,
+        "held": 194,
+        "held_share": 0.377431906614786,
+        "held_cached_share": 0.3743867365927931,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 510,
+        "held": 191,
+        "held_share": 0.37450980392156863,
+        "held_cached_share": 0.37587382779198636,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 347,
+        "held": 121,
+        "held_share": 0.34870317002881845,
+        "held_cached_share": 0.34761367906801954,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 483,
+        "held": 197,
+        "held_share": 0.4078674948240166,
+        "held_cached_share": 0.41426376208984905,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 587,
+        "held": 236,
+        "held_share": 0.4020442930153322,
+        "held_cached_share": 0.4020740740740741,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9978983805167512
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 562,
+        "held": 236,
+        "held_share": 0.4199288256227758,
+        "held_cached_share": 0.41691187858138457,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 509,
+        "held": 197,
+        "held_share": 0.38703339882121807,
+        "held_cached_share": 0.38659837814767395,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 540,
+        "held": 235,
+        "held_share": 0.4351851851851852,
+        "held_cached_share": 0.42550607287449393,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 469,
+        "held": 185,
+        "held_share": 0.39445628997867804,
+        "held_cached_share": 0.39825767996331957,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 539,
+        "held": 227,
+        "held_share": 0.42115027829313545,
+        "held_cached_share": 0.4182789605763782,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 21,
+       "t_first": 2378.8595306600328,
+       "before": 18
+      }
+     }
+    },
+    {
+     "seed": 19,
+     "burst": {
+      "run": "20261125-064355_burst_l1pl350ol_r2.0_w3000_s19_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1154,
+        "held": 489,
+        "held_share": 0.4237435008665511,
+        "held_cached_share": 0.42575265977514526,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 165,
+        "held": 121,
+        "held_share": 0.7333333333333333,
+        "held_cached_share": 0.9161227154046997,
+        "reuse_held": 1.0,
+        "reuse_other": 0.24383301707779886
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 584,
+        "held": 516,
+        "held_share": 0.8835616438356164,
+        "held_cached_share": 0.9126661582569915,
+        "reuse_held": 1.0,
+        "reuse_other": 0.7121379093198993
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 460,
+        "held": 166,
+        "held_share": 0.36086956521739133,
+        "held_cached_share": 0.3494409702482471,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 538,
+        "held": 241,
+        "held_share": 0.4479553903345725,
+        "held_cached_share": 0.4491723859507469,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9963487658828684
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 565,
+        "held": 268,
+        "held_share": 0.4743362831858407,
+        "held_cached_share": 0.4771463866584311,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9972021793550288
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 529,
+        "held": 212,
+        "held_share": 0.4007561436672968,
+        "held_cached_share": 0.3982570089616049,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 448,
+        "held": 145,
+        "held_share": 0.3236607142857143,
+        "held_cached_share": 0.32212749467157525,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 592,
+        "held": 285,
+        "held_share": 0.4814189189189189,
+        "held_cached_share": 0.48198529411764707,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 477,
+        "held": 192,
+        "held_share": 0.4025157232704403,
+        "held_cached_share": 0.4067889405967698,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 609,
+        "held": 286,
+        "held_share": 0.4696223316912972,
+        "held_cached_share": 0.4720452430381559,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 554,
+        "held": 218,
+        "held_share": 0.3935018050541516,
+        "held_cached_share": 0.3923340604549704,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 48,
+       "t_first": 1233.917774543981,
+       "before": 19
+      }
+     },
+     "control": {
+      "run": "20261125-075414_stage2_control_l1pl350ol_r2.0_w3000_s19_t1o",
+      "spans": [
+       {
+        "span": "base",
+        "a": 300.0,
+        "b": 900.0,
+        "turns": 1154,
+        "held": 486,
+        "held_share": 0.42114384748700173,
+        "held_cached_share": 0.4229985663623331,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "burst",
+        "a": 900.0,
+        "b": 1080.0,
+        "turns": 266,
+        "held": 90,
+        "held_share": 0.3383458646616541,
+        "held_cached_share": 0.33236245954692556,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+0",
+        "a": 1080.0,
+        "b": 1380.0,
+        "turns": 483,
+        "held": 186,
+        "held_share": 0.38509316770186336,
+        "held_cached_share": 0.387841616307387,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+300",
+        "a": 1380.0,
+        "b": 1680.0,
+        "turns": 460,
+        "held": 166,
+        "held_share": 0.36086956521739133,
+        "held_cached_share": 0.3494409702482471,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+600",
+        "a": 1680.0,
+        "b": 1980.0,
+        "turns": 538,
+        "held": 240,
+        "held_share": 0.44609665427509293,
+        "held_cached_share": 0.446992329430763,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9963631073610707
+       },
+       {
+        "span": "+900",
+        "a": 1980.0,
+        "b": 2280.0,
+        "turns": 565,
+        "held": 264,
+        "held_share": 0.4672566371681416,
+        "held_cached_share": 0.4692711550339716,
+        "reuse_held": 1.0,
+        "reuse_other": 0.9972435804439286
+       },
+       {
+        "span": "+1200",
+        "a": 2280.0,
+        "b": 2580.0,
+        "turns": 529,
+        "held": 210,
+        "held_share": 0.39697542533081287,
+        "held_cached_share": 0.3949683466250103,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1500",
+        "a": 2580.0,
+        "b": 2880.0,
+        "turns": 448,
+        "held": 145,
+        "held_share": 0.3236607142857143,
+        "held_cached_share": 0.32212749467157525,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+1800",
+        "a": 2880.0,
+        "b": 3180.0,
+        "turns": 592,
+        "held": 281,
+        "held_share": 0.47466216216216217,
+        "held_cached_share": 0.47448529411764706,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2100",
+        "a": 3180.0,
+        "b": 3480.0,
+        "turns": 477,
+        "held": 191,
+        "held_share": 0.40041928721174,
+        "held_cached_share": 0.4054202025732275,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2400",
+        "a": 3480.0,
+        "b": 3780.0,
+        "turns": 609,
+        "held": 284,
+        "held_share": 0.4663382594417077,
+        "held_cached_share": 0.46903858543918675,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       },
+       {
+        "span": "+2700",
+        "a": 3780.0,
+        "b": 4080.0,
+        "turns": 554,
+        "held": 218,
+        "held_share": 0.3935018050541516,
+        "held_cached_share": 0.3923340604549704,
+        "reuse_held": 1.0,
+        "reuse_other": 1.0
+       }
+      ],
+      "in_service_peak": {
+       "value": 21,
+       "t_first": 1805.6871191110113,
+       "before": 19
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

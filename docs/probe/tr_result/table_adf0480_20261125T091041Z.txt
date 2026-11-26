@@ -1,0 +1,1555 @@
+{
+ "o": {
+  "outcome": {
+   "decision": "replicates",
+   "n": 5,
+   "counts": {
+    "recovered_open": 5
+   },
+   "cells": {
+    "recovered_open": {
+     "k": 5,
+     "n": 5,
+     "upper": 1.0
+    },
+    "partial_open": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "stuck_open": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "pending_control": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "cold_control": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "lost_open": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "fail": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    }
+   },
+   "k_overload": 0,
+   "decision_at_colleague_k": "replicates"
+  },
+  "o": {
+   "15": {
+    "seed": 15,
+    "invalid_attempts": 0,
+    "control_invalid_attempts": 0,
+    "run": "20261123-212537_burst_l1pl350ol_r2.0_w3000_s15_t1o",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 1.0,
+     "end": 1.0
+    },
+    "base": {
+     "hit": 0.8347852985695533,
+     "q": 0.0016666666666666668,
+     "kv": 0.13173206401766005,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.835508240413676,
+     "q": 0.0016666666666666668,
+     "kv": 0.13882477924944814,
+     "n": 5.198333333333333
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.7305967575025871,
+     "overlap_base": 0.4040934922873136,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.8485874984021475,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 238,
+      "backlog_s": 274.0000329290051
+     },
+     "turn0_end": 0.12922297297297297,
+     "in_service_base": 9.333333333333334,
+     "in_service_end": 9.5
+    },
+    "control": null,
+    "label": "recovered_open"
+   },
+   "16": {
+    "seed": 16,
+    "invalid_attempts": 0,
+    "control_invalid_attempts": 0,
+    "run": "20261124-102819_burst_l1pl350ol_r2.0_w3000_s16_t1o",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 1.0,
+     "end": 0.999294752126115
+    },
+    "base": {
+     "hit": 0.8390630503698485,
+     "q": 0.0016666666666666668,
+     "kv": 0.1305278697571744,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.8362579032998563,
+     "q": 0.005,
+     "kv": 0.1374564017660044,
+     "n": 5.345
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.7331620813796923,
+     "overlap_base": 0.40737164686621047,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.9404617662897146,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 152,
+      "backlog_s": 273.00005849596346
+     },
+     "turn0_end": 0.1275,
+     "in_service_base": 8.533333333333333,
+     "in_service_end": 9.633333333333333
+    },
+    "control": null,
+    "label": "recovered_open"
+   },
+   "17": {
+    "seed": 17,
+    "invalid_attempts": 0,
+    "control_invalid_attempts": 0,
+    "run": "20261124-140419_burst_l1pl350ol_r2.0_w3000_s17_t1o",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 1.0,
+     "end": 1.0
+    },
+    "base": {
+     "hit": 0.8380751165538831,
+     "q": 0.0033333333333333335,
+     "kv": 0.13392853200883,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.8368490369080762,
+     "q": 0.0033333333333333335,
+     "kv": 0.12440618101545255,
+     "n": 4.865
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.7667363847139128,
+     "overlap_base": 0.3873718702739035,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.9129965731691839,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 182,
+      "backlog_s": 338.00000294903293
+     },
+     "turn0_end": 0.12743362831858407,
+     "in_service_base": 9.216666666666667,
+     "in_service_end": 8.583333333333334
+    },
+    "control": null,
+    "label": "recovered_open"
+   },
+   "18": {
+    "seed": 18,
+    "invalid_attempts": 0,
+    "control_invalid_attempts": 0,
+    "run": "20261124-200114_burst_l1pl350ol_r2.0_w3000_s18_t1o",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 0.9993663809168841,
+     "end": 1.0
+    },
+    "base": {
+     "hit": 0.8392734122253017,
+     "q": 0.0033333333333333335,
+     "kv": 0.15786451434878587,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.8405239735071965,
+     "q": 0.0,
+     "kv": 0.13328642384105963,
+     "n": 5.458333333333333
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.7182464331544978,
+     "overlap_base": 0.4187893932047887,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.9140500184343124,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 199,
+      "backlog_s": 272.0000327450107
+     },
+     "turn0_end": 0.12337098175499565,
+     "in_service_base": 10.583333333333334,
+     "in_service_end": 9.116666666666667
+    },
+    "control": null,
+    "label": "recovered_open"
+   },
+   "19": {
+    "seed": 19,
+    "invalid_attempts": 0,
+    "control_invalid_attempts": 0,
+    "run": "20261125-064355_burst_l1pl350ol_r2.0_w3000_s19_t1o",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 1.0,
+     "end": 1.0
+    },
+    "base": {
+     "hit": 0.8370741289656451,
+     "q": 0.005,
+     "kv": 0.15591418322295805,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.8411195402837489,
+     "q": 0.0,
+     "kv": 0.15418791390728478,
+     "n": 6.138333333333334
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.6597490732516766,
+     "overlap_base": 0.42575265977514526,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.9459279630943932,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 133,
+      "backlog_s": 223.00001733598765
+     },
+     "turn0_end": 0.12150943396226416,
+     "in_service_base": 10.7,
+     "in_service_end": 10.5
+    },
+    "control": null,
+    "label": "recovered_open"
+   }
+  },
+  "twins": {
+   "15": {
+    "arm_a": "20261115-064753_burst_l1pl350ol_r2.0_w3000_s15",
+    "o": "20261123-212537_burst_l1pl350ol_r2.0_w3000_s15_t1o",
+    "reuse_end": {
+     "arm_a": 1.0,
+     "o": 1.0
+    },
+    "q_end": {
+     "arm_a": 0.0016666666666666668,
+     "o": 0.0016666666666666668
+    },
+    "label": {
+     "arm_a": "recovered_open",
+     "o": "recovered_open"
+    }
+   },
+   "16": {
+    "arm_a": "20261115-075808_burst_l1pl350ol_r2.0_w3000_s16",
+    "o": "20261124-102819_burst_l1pl350ol_r2.0_w3000_s16_t1o",
+    "reuse_end": {
+     "arm_a": 0.999294752126115,
+     "o": 0.999294752126115
+    },
+    "q_end": {
+     "arm_a": 0.0016666666666666668,
+     "o": 0.005
+    },
+    "label": {
+     "arm_a": "recovered_open",
+     "o": "recovered_open"
+    }
+   },
+   "17": {
+    "arm_a": "20261115-090827_burst_l1pl350ol_r2.0_w3000_s17",
+    "o": "20261124-140419_burst_l1pl350ol_r2.0_w3000_s17_t1o",
+    "reuse_end": {
+     "arm_a": 1.0,
+     "o": 1.0
+    },
+    "q_end": {
+     "arm_a": 0.0033333333333333335,
+     "o": 0.0033333333333333335
+    },
+    "label": {
+     "arm_a": "recovered_open",
+     "o": "recovered_open"
+    }
+   },
+   "18": {
+    "arm_a": "20261115-113416_burst_l1pl350ol_r2.0_w3000_s18",
+    "o": "20261124-200114_burst_l1pl350ol_r2.0_w3000_s18_t1o",
+    "reuse_end": {
+     "arm_a": 1.0,
+     "o": 1.0
+    },
+    "q_end": {
+     "arm_a": 0.0,
+     "o": 0.0
+    },
+    "label": {
+     "arm_a": "recovered_open",
+     "o": "recovered_open"
+    }
+   },
+   "19": {
+    "arm_a": "20261115-124444_burst_l1pl350ol_r2.0_w3000_s19",
+    "o": "20261125-064355_burst_l1pl350ol_r2.0_w3000_s19_t1o",
+    "reuse_end": {
+     "arm_a": 1.0,
+     "o": 1.0
+    },
+    "q_end": {
+     "arm_a": 0.0,
+     "o": 0.0
+    },
+    "label": {
+     "arm_a": "recovered_open",
+     "o": "recovered_open"
+    }
+   }
+  },
+  "u": {
+   "reading": {
+    "label": "same_stack",
+    "n": 5,
+    "cells": {
+     "k_o_cold": {
+      "k": 0,
+      "n": 5,
+      "upper": 0.450719728346941
+     },
+     "k_o_recovered": {
+      "k": 5,
+      "n": 5,
+      "upper": 1.0
+     },
+     "k_u_cold": {
+      "k": 5,
+      "n": 5,
+      "upper": 1.0
+     },
+     "k_same_stack": {
+      "k": 5,
+      "n": 5,
+      "upper": 1.0
+     }
+    },
+    "out_of_n": {}
+   },
+   "pairs": [
+    {
+     "seed": 15,
+     "o": "recovered_open",
+     "u_cold": true,
+     "counted": true,
+     "out": []
+    },
+    {
+     "seed": 16,
+     "o": "recovered_open",
+     "u_cold": true,
+     "counted": true,
+     "out": []
+    },
+    {
+     "seed": 17,
+     "o": "recovered_open",
+     "u_cold": true,
+     "counted": true,
+     "out": []
+    },
+    {
+     "seed": 18,
+     "o": "recovered_open",
+     "u_cold": true,
+     "counted": true,
+     "out": []
+    },
+    {
+     "seed": 19,
+     "o": "recovered_open",
+     "u_cold": true,
+     "counted": true,
+     "out": []
+    }
+   ],
+   "u_end": {
+    "k": 5,
+    "n": 5,
+    "upper": 1.0,
+    "lower": 0.5492802716530589,
+    "seeds": {
+     "15": {
+      "run": "20261123-121156_burst_l1pl350cl_r2.0_w3000_s15_t1u",
+      "cold_backlogged": true,
+      "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+     },
+     "16": {
+      "run": "20261123-132721_burst_l1pl350cl_r2.0_w3000_s16_t1u",
+      "cold_backlogged": true,
+      "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+     },
+     "17": {
+      "run": "20261123-155257_burst_l1pl350cl_r2.0_w3000_s17_t1u",
+      "cold_backlogged": true,
+      "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+     },
+     "18": {
+      "run": "20261123-170809_burst_l1pl350cl_r2.0_w3000_s18_t1u",
+      "cold_backlogged": true,
+      "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+     },
+     "19": {
+      "run": "20261123-193333_burst_l1pl350cl_r2.0_w3000_s19_t1u",
+      "cold_backlogged": true,
+      "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+     }
+    },
+    "none": [],
+    "excluded": {},
+    "platforms": [
+     "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+    ],
+    "reference": null,
+    "platforms_match": null,
+    "blocks_appendix_f_rewrite": true
+   },
+   "reg20_style": {
+    "outcome": "supports",
+    "test": "mcnemar",
+    "n": 5,
+    "dropped": [],
+    "k_closed": 5,
+    "k_open": 0,
+    "k_stuck_open": 0,
+    "p": 0.03125,
+    "p_other_test": 0.003968253968253968,
+    "partial_open": 0,
+    "mechanism": true
+   },
+   "platforms": {
+    "u": {
+     "15": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "16": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "17": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "18": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "19": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+    },
+    "o": {
+     "15": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "16": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "17": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "18": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "19": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+    },
+    "arm_a": {
+     "15": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "16": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "17": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "18": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+     "19": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39"
+    },
+    "one_stack": true
+   }
+  },
+  "consequence": "appendix_f_same_stack"
+ },
+ "h": {
+  "outcome": {
+   "decision": "headroom_excluded",
+   "n": 5,
+   "counts": {
+    "recovered_open": 5
+   },
+   "cells": {
+    "recovered_open": {
+     "k": 5,
+     "n": 5,
+     "upper": 1.0
+    },
+    "partial_open": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "stuck_open": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "lost_open": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    }
+   },
+   "k_unstable": 0
+  },
+  "rows": {
+   "15": {
+    "seed": 15,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261123-234558_burst_l1pl350ol_r2.73_w3000_s15_trh",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 0.998541811957142,
+     "end": 0.9983462744512468
+    },
+    "base": {
+     "hit": 0.8359274675662565,
+     "q": 0.05333333333333334,
+     "kv": 0.23574944812362028,
+     "pf": 0.9815404201145767
+    },
+    "end": {
+     "hit": 0.8353155976690867,
+     "q": 0.006666666666666667,
+     "kv": 0.23919950331125828,
+     "n": 9.816666666666666
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.900330347311092,
+     "overlap_base": 0.4785079365079365,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.6943810906075057,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 340,
+      "backlog_s": 518.9999911389896
+     },
+     "turn0_end": 0.12771084337349398,
+     "in_service_base": 13.083333333333334,
+     "in_service_end": 13.833333333333334
+    },
+    "control": {
+     "run": "20261124-005607_stage2_control_l1pl350ol_r2.73_w3000_s15_trh",
+     "cold_backlogged": false,
+     "recovered": true
+    },
+    "label": "recovered_open"
+   },
+   "16": {
+    "seed": 16,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261124-054204_burst_l1pl350ol_r2.73_w3000_s16_trh",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 0.9988493217054264,
+     "end": 0.9955444406117052
+    },
+    "base": {
+     "hit": 0.8375278105644274,
+     "q": 0.0033333333333333335,
+     "kv": 0.2335157284768212,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.8365527621949054,
+     "q": 0.15833333333333333,
+     "kv": 0.2889550220750552,
+     "n": 14.345
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.8709044371707256,
+     "overlap_base": 0.5014854786879283,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.8083394127302571,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 215,
+      "backlog_s": 418.0000059409649
+     },
+     "turn0_end": 0.12296983758700696,
+     "in_service_base": 12.716666666666667,
+     "in_service_end": 14.016666666666667
+    },
+    "control": {
+     "run": "20261124-043150_stage2_control_l1pl350ol_r2.73_w3000_s16_trh",
+     "cold_backlogged": false,
+     "recovered": true
+    },
+    "label": "recovered_open"
+   },
+   "17": {
+    "seed": 17,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261124-162922_burst_l1pl350ol_r2.73_w3000_s17_trh",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 0.9943939256846422,
+     "end": 0.9973573611818645
+    },
+    "base": {
+     "hit": 0.8337955776739848,
+     "q": 0.065,
+     "kv": 0.27772213024282566,
+     "pf": 0.9775485436893204
+    },
+    "end": {
+     "hit": 0.8344906557175806,
+     "q": 0.0033333333333333335,
+     "kv": 0.21903945916114792,
+     "n": 9.4
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.9860606444261568,
+     "overlap_base": 0.530874541725274,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.23257287705956908,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 303,
+      "backlog_s": 669.0000182780204
+     },
+     "turn0_end": 0.12745098039215685,
+     "in_service_base": 14.3,
+     "in_service_end": 12.566666666666666
+    },
+    "control": {
+     "run": "20261124-174018_stage2_control_l1pl350ol_r2.73_w3000_s17_trh",
+     "cold_backlogged": false,
+     "recovered": true
+    },
+    "label": "recovered_open"
+   },
+   "18": {
+    "seed": 18,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261125-004713_burst_l1pl350ol_r2.73_w3000_s18_trh",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 0.9954333756728966,
+     "end": 0.9870615657836318
+    },
+    "base": {
+     "hit": 0.8360027166177223,
+     "q": 0.016666666666666666,
+     "kv": 0.2504770971302428,
+     "pf": 0.9963369963369964
+    },
+    "end": {
+     "hit": 0.82894554338809,
+     "q": 0.61,
+     "kv": 0.29427262693156736,
+     "n": 14.133333333333333
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.914585313859361,
+     "overlap_base": 0.5045723834118183,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.7129117576340467,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 296,
+      "backlog_s": 467.9999971190118
+     },
+     "turn0_end": 0.12303980699638119,
+     "in_service_base": 13.833333333333334,
+     "in_service_end": 15.283333333333333
+    },
+    "control": {
+     "run": "20261124-233658_stage2_control_l1pl350ol_r2.73_w3000_s18_trh",
+     "cold_backlogged": false,
+     "recovered": true
+    },
+    "label": "recovered_open"
+   },
+   "19": {
+    "seed": 19,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261125-042316_burst_l1pl350ol_r2.73_w3000_s19_trh",
+    "cold_backlogged": false,
+    "recovered": true,
+    "parts": {
+     "reuse_cold": false,
+     "backlogged": false,
+     "kv_full": false
+    },
+    "reuse": {
+     "base": 0.9883615985223743,
+     "end": 0.9981025436967607
+    },
+    "base": {
+     "hit": 0.8274946839818453,
+     "q": 1.045,
+     "kv": 0.37985430463576153,
+     "pf": 0.8445566778900112
+    },
+    "end": {
+     "hit": 0.8375490963410094,
+     "q": 0.008333333333333333,
+     "kv": 0.25209381898454747,
+     "n": 10.576666666666666
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": 0.817139264005749,
+     "overlap_base": 0.6349610847428833,
+     "reuse_held": 1.0,
+     "reuse_idle": 0.891923470132905,
+     "shown": true
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 197,
+      "backlog_s": 372.0000085310312
+     },
+     "turn0_end": 0.12455516014234876,
+     "in_service_base": 16.2,
+     "in_service_end": 14.216666666666667
+    },
+    "control": {
+     "run": "20261125-053334_stage2_control_l1pl350ol_r2.73_w3000_s19_trh",
+     "cold_backlogged": false,
+     "recovered": true
+    },
+    "label": "recovered_open"
+   }
+  },
+  "drain_margin": {
+   "outstanding": 383.4,
+   "headroom": 0.27,
+   "drain_s": 1419.9999999999998,
+   "gap_s": 2400
+  },
+  "consequence": "s44_headroom_excluded"
+ },
+ "d": {
+  "outcome": {
+   "decision": "default_sees",
+   "n": 5,
+   "k_sees": 5,
+   "counts": {
+    "stuck_default": 5
+   },
+   "cells": {
+    "recovered_default": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "partial_default": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "stuck_default": {
+     "k": 5,
+     "n": 5,
+     "upper": 1.0
+    },
+    "pending_control": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "cold_control": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "lost_default": {
+     "k": 0,
+     "n": 5,
+     "upper": 0.450719728346941
+    },
+    "sees": {
+     "k": 5,
+     "n": 5,
+     "upper": 1.0
+    }
+   },
+   "k_overload": 0,
+   "k_release_fault": 0
+  },
+  "rows": {
+   "15": {
+    "seed": 15,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261124-020618_burst_l1pl350dr_r2.0_w3000_s15",
+    "cold_backlogged": true,
+    "recovered": false,
+    "parts": {
+     "reuse_cold": true,
+     "backlogged": true,
+     "kv_full": true
+    },
+    "reuse": {
+     "base": 1.0,
+     "end": 0.0
+    },
+    "base": {
+     "hit": 0.8346310266848672,
+     "q": 0.0,
+     "kv": 0.1547516556291391,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.0,
+     "q": 246.47833333333332,
+     "kv": 0.9491407284768211,
+     "n": 29.803333333333335
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": NaN,
+     "overlap_base": 0.0,
+     "reuse_held": NaN,
+     "reuse_idle": 0.0,
+     "shown": false
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 62,
+      "backlog_s": 2998.999976588995
+     },
+     "turn0_end": 0.13904761904761906,
+     "in_service_base": 9.6,
+     "in_service_end": 276.95
+    },
+    "control": {
+     "run": "20261124-032132_stage2_control_l1pl350dr_r2.0_w3000_s15",
+     "cold_backlogged": false,
+     "recovered": true,
+     "parts": {
+      "reuse_cold": false,
+      "backlogged": false,
+      "kv_full": false
+     },
+     "reuse": {
+      "base": 1.0,
+      "end": 1.0
+     },
+     "base": {
+      "hit": 0.8346313030830542,
+      "q": 0.0,
+      "kv": 0.15453173289183225,
+      "pf": 1.0
+     },
+     "end": {
+      "hit": 0.8352792787113874,
+      "q": 0.0,
+      "kv": 0.1581134105960265,
+      "n": 4.885
+     },
+     "windows": {
+      "base": [
+       300.0,
+       900.0
+      ],
+      "end": [
+       3480.0,
+       4080.0
+      ]
+     }
+    },
+    "label": "stuck_default",
+    "release": {
+     "later_sent": 6648,
+     "lateness_mean_s": 304.9378207616988,
+     "lateness_q_s": {
+      "0.5": 268.3613933777797,
+      "0.9": 716.2690569522025,
+      "0.99": 1019.7312013785277
+     },
+     "share_at_prev_end": 0.8762033694344163,
+     "mismatch": 0,
+     "before_prev_end": 0
+    },
+    "release_fault": false,
+    "completion_end": {
+     "rate": 1.75,
+     "lam": 2.0
+    }
+   },
+   "16": {
+    "seed": 16,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261124-080235_burst_l1pl350dr_r2.0_w3000_s16",
+    "cold_backlogged": true,
+    "recovered": false,
+    "parts": {
+     "reuse_cold": true,
+     "backlogged": true,
+     "kv_full": true
+    },
+    "reuse": {
+     "base": 1.0,
+     "end": 0.0
+    },
+    "base": {
+     "hit": 0.8390730447026142,
+     "q": 0.0016666666666666668,
+     "kv": 0.15861423841059602,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.0,
+     "q": 213.26666666666668,
+     "kv": 0.9490860927152318,
+     "n": 30.226666666666667
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": NaN,
+     "overlap_base": 0.0,
+     "reuse_held": NaN,
+     "reuse_idle": 0.0,
+     "shown": false
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 42,
+      "backlog_s": 2999.0000328449532
+     },
+     "turn0_end": 0.14919735599622286,
+     "in_service_base": 8.816666666666666,
+     "in_service_end": 244.26666666666668
+    },
+    "control": {
+     "run": "20261124-065218_stage2_control_l1pl350dr_r2.0_w3000_s16",
+     "cold_backlogged": false,
+     "recovered": true,
+     "parts": {
+      "reuse_cold": false,
+      "backlogged": false,
+      "kv_full": false
+     },
+     "reuse": {
+      "base": 1.0,
+      "end": 0.9992962702322308
+     },
+     "base": {
+      "hit": 0.8390736377595375,
+      "q": 0.0016666666666666668,
+      "kv": 0.15915231788079473,
+      "pf": 1.0
+     },
+     "end": {
+      "hit": 0.8364612614924354,
+      "q": 0.0,
+      "kv": 0.1646153421633554,
+      "n": 5.078333333333333
+     },
+     "windows": {
+      "base": [
+       300.0,
+       900.0
+      ],
+      "end": [
+       3480.0,
+       4080.0
+      ]
+     }
+    },
+    "label": "stuck_default",
+    "release": {
+     "later_sent": 6632,
+     "lateness_mean_s": 258.8465952574003,
+     "lateness_q_s": {
+      "0.5": 228.30524139450426,
+      "0.9": 572.7882584484578,
+      "0.99": 869.0534278367946
+     },
+     "share_at_prev_end": 0.880729794933655,
+     "mismatch": 0,
+     "before_prev_end": 0
+    },
+    "release_fault": false,
+    "completion_end": {
+     "rate": 1.765,
+     "lam": 2.0
+    }
+   },
+   "17": {
+    "seed": 17,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261124-113834_burst_l1pl350dr_r2.0_w3000_s17",
+    "cold_backlogged": true,
+    "recovered": false,
+    "parts": {
+     "reuse_cold": true,
+     "backlogged": true,
+     "kv_full": true
+    },
+    "reuse": {
+     "base": 1.0,
+     "end": 0.0
+    },
+    "base": {
+     "hit": 0.8380436071817172,
+     "q": 0.0,
+     "kv": 0.1557960816777042,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.0,
+     "q": 283.72833333333335,
+     "kv": 0.9484798565121412,
+     "n": 29.81
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": NaN,
+     "overlap_base": 0.0,
+     "reuse_held": NaN,
+     "reuse_idle": 0.0,
+     "shown": false
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 50,
+      "backlog_s": 2999.000018391991
+     },
+     "turn0_end": 0.13957934990439771,
+     "in_service_base": 9.516666666666667,
+     "in_service_end": 314.35
+    },
+    "control": {
+     "run": "20261124-125356_stage2_control_l1pl350dr_r2.0_w3000_s17",
+     "cold_backlogged": false,
+     "recovered": true,
+     "parts": {
+      "reuse_cold": false,
+      "backlogged": false,
+      "kv_full": false
+     },
+     "reuse": {
+      "base": 1.0,
+      "end": 1.0
+     },
+     "base": {
+      "hit": 0.8380411819350255,
+      "q": 0.0,
+      "kv": 0.15670033112582782,
+      "pf": 1.0
+     },
+     "end": {
+      "hit": 0.8366408261227661,
+      "q": 0.0,
+      "kv": 0.14581429359823397,
+      "n": 4.503333333333333
+     },
+     "windows": {
+      "base": [
+       300.0,
+       900.0
+      ],
+      "end": [
+       3480.0,
+       4080.0
+      ]
+     }
+    },
+    "label": "stuck_default",
+    "release": {
+     "later_sent": 6650,
+     "lateness_mean_s": 347.57886248554854,
+     "lateness_q_s": {
+      "0.5": 297.76482247898934,
+      "0.9": 803.7859061990597,
+      "0.99": 1122.7825291035251
+     },
+     "share_at_prev_end": 0.8711278195488722,
+     "mismatch": 0,
+     "before_prev_end": 0
+    },
+    "release_fault": false,
+    "completion_end": {
+     "rate": 1.7433333333333334,
+     "lam": 2.0
+    }
+   },
+   "18": {
+    "seed": 18,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261124-222141_burst_l1pl350dr_r2.0_w3000_s18",
+    "cold_backlogged": true,
+    "recovered": false,
+    "parts": {
+     "reuse_cold": true,
+     "backlogged": true,
+     "kv_full": true
+    },
+    "reuse": {
+     "base": 0.9993693192357633,
+     "end": 0.0
+    },
+    "base": {
+     "hit": 0.8395989630495991,
+     "q": 0.0033333333333333335,
+     "kv": 0.1879630242825607,
+     "pf": 1.0
+    },
+    "end": {
+     "hit": 0.0,
+     "q": 180.10666666666665,
+     "kv": 0.9494619205298013,
+     "n": 29.758333333333333
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": NaN,
+     "overlap_base": 0.0,
+     "reuse_held": NaN,
+     "reuse_idle": 0.0,
+     "shown": false
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 51,
+      "backlog_s": 2999.000016062986
+     },
+     "turn0_end": 0.13301435406698564,
+     "in_service_base": 10.866666666666667,
+     "in_service_end": 210.68333333333334
+    },
+    "control": {
+     "run": "20261124-211127_stage2_control_l1pl350dr_r2.0_w3000_s18",
+     "cold_backlogged": false,
+     "recovered": true,
+     "parts": {
+      "reuse_cold": false,
+      "backlogged": false,
+      "kv_full": false
+     },
+     "reuse": {
+      "base": 0.9993693192357633,
+      "end": 1.0
+     },
+     "base": {
+      "hit": 0.8395910088626478,
+      "q": 0.0033333333333333335,
+      "kv": 0.18728256070640176,
+      "pf": 1.0
+     },
+     "end": {
+      "hit": 0.8406238370878354,
+      "q": 0.0,
+      "kv": 0.15606953642384108,
+      "n": 4.79
+     },
+     "windows": {
+      "base": [
+       300.0,
+       900.0
+      ],
+      "end": [
+       3480.0,
+       4080.0
+      ]
+     }
+    },
+    "label": "stuck_default",
+    "release": {
+     "later_sent": 6688,
+     "lateness_mean_s": 245.6534147609658,
+     "lateness_q_s": {
+      "0.5": 219.88706885469878,
+      "0.9": 550.5465085979332,
+      "0.99": 782.9138921481459
+     },
+     "share_at_prev_end": 0.8766447368421053,
+     "mismatch": 0,
+     "before_prev_end": 0
+    },
+    "release_fault": false,
+    "completion_end": {
+     "rate": 1.7416666666666667,
+     "lam": 2.0
+    }
+   },
+   "19": {
+    "seed": 19,
+    "invalid_attempts": {
+     "burst": 0,
+     "control": 0
+    },
+    "run": "20261125-015729_burst_l1pl350dr_r2.0_w3000_s19",
+    "cold_backlogged": true,
+    "recovered": false,
+    "parts": {
+     "reuse_cold": true,
+     "backlogged": true,
+     "kv_full": true
+    },
+    "reuse": {
+     "base": 0.9989088126369889,
+     "end": 0.0
+    },
+    "base": {
+     "hit": 0.8359522041679448,
+     "q": 0.0016666666666666668,
+     "kv": 0.18362003311258276,
+     "pf": 0.9977341389728097
+    },
+    "end": {
+     "hit": 0.0,
+     "q": 192.06166666666667,
+     "kv": 0.9491699779249446,
+     "n": 30.001666666666665
+    },
+    "windows": {
+     "base": [
+      300.0,
+      900.0
+     ],
+     "end": [
+      3480.0,
+      4080.0
+     ]
+    },
+    "mechanism": {
+     "overlap": NaN,
+     "overlap_base": 0.0,
+     "reuse_held": NaN,
+     "reuse_idle": 0.0,
+     "shown": false
+    },
+    "readouts": {
+     "shock": {
+      "outstanding": 45,
+      "backlog_s": 2999.000021178974
+     },
+     "turn0_end": 0.14339622641509434,
+     "in_service_base": 11.1,
+     "in_service_end": 222.91666666666666
+    },
+    "control": {
+     "run": "20261125-031253_stage2_control_l1pl350dr_r2.0_w3000_s19",
+     "cold_backlogged": false,
+     "recovered": true,
+     "parts": {
+      "reuse_cold": false,
+      "backlogged": false,
+      "kv_full": false
+     },
+     "reuse": {
+      "base": 0.9989040888821706,
+      "end": 1.0
+     },
+     "base": {
+      "hit": 0.8359485789603699,
+      "q": 0.0016666666666666668,
+      "kv": 0.18318405077262692,
+      "pf": 1.0
+     },
+     "end": {
+      "hit": 0.8409453821629138,
+      "q": 0.0016666666666666668,
+      "kv": 0.18420115894039737,
+      "n": 5.673333333333333
+     },
+     "windows": {
+      "base": [
+       300.0,
+       900.0
+      ],
+      "end": [
+       3480.0,
+       4080.0
+      ]
+     }
+    },
+    "label": "stuck_default",
+    "release": {
+     "later_sent": 6635,
+     "lateness_mean_s": 240.70611101844113,
+     "lateness_q_s": {
+      "0.5": 209.8339136958257,
+      "0.9": 549.0650418734681,
+      "0.99": 787.6079419279829
+     },
+     "share_at_prev_end": 0.8777694046721929,
+     "mismatch": 0,
+     "before_prev_end": 0
+    },
+    "release_fault": false,
+    "completion_end": {
+     "rate": 1.7666666666666666,
+     "lam": 2.0
+    }
+   }
+  },
+  "paired_u": {
+   "pairs": {
+    "15": {
+     "u_cold": true,
+     "d_cold": true
+    },
+    "16": {
+     "u_cold": true,
+     "d_cold": true
+    },
+    "17": {
+     "u_cold": true,
+     "d_cold": true
+    },
+    "18": {
+     "u_cold": true,
+     "d_cold": true
+    },
+    "19": {
+     "u_cold": true,
+     "d_cold": true
+    }
+   },
+   "b": 0,
+   "c": 0,
+   "p_one_sided": 1.0
+  },
+  "release_faults": []
+ },
+ "joint_summary": "lead_holds"
+}
