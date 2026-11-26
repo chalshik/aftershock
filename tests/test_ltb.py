@@ -130,3 +130,39 @@ def test_paper_table_formats_ranges_and_inf():
     rows = ltb.paper_table(summ)
     assert len(rows) == 2 + len(ltb.PAPER_ROWS)
     assert rows[2] == "| Closed loop | 5 | 0.10–0.11 / 0.40–0.50 | 0.10–0.11 / 0.30 / 0.40–0.50 | 1.9–2.2 |"
+
+
+def test_reply_profile_durations_overlap_and_stay(monkeypatch):
+    # Open loop (no t_released). Session 0: turn 1 released at 2.5, before turn 0 ends at 3.0 (overlap); session 1:
+    # turn 1 released at 8.0, after turn 0 ended at 6.0. A burst request (2944 tokens) is excluded.
+    rows = [(0, 0, 1.0, None, 1.0, 1.1, 3.0, "ok", 2176), (0, 1, 2.5, None, 2.5, 2.6, 4.0, "ok", 2432),
+            (1, 0, 5.0, None, 5.0, 5.1, 6.0, "ok", 2176), (1, 1, 8.0, None, 8.0, 8.1, 9.0, "ok", 2432),
+            (99, 0, 2.0, None, 2.0, 2.1, 30.0, "ok", 2944)]
+    r = _run(rows)
+    r["cfg"]["workload"]["sessions"] = {"turns": 2, "turn_gap_s": {"dist": "exponential", "mean": 5.0}}
+    monkeypatch.setitem(ltb.REPLY, "stay_margin_s", 5.0)
+    p = ltb.reply_profile(r, 0.0, 20.0)
+    assert p["n"] == 4 and p["mean"] == pytest.approx(1.375) and p["p50"] == 1.0 and p["p90"] == 2.0
+    assert p["followed"] == 2 and p["release_overlap"] == 0.5
+    assert p["implied_overlap"] == pytest.approx(np.mean([1 - math.exp(-2 / 5), 1 - math.exp(-1 / 5)]))
+    assert p["stay"]["n"] == 2 and p["stay"]["mean"] == pytest.approx(3.5)
+    # the margin drops a session whose first turn is released too close to the window's end
+    assert ltb.reply_profile(r, 0.0, 9.0)["stay"]["n"] == 1
+
+
+def test_reply_profile_closed_loop_uses_release_and_skips_non_exponential_gaps():
+    rows = [(0, 0, 1.0, 1.0, 1.0, 1.1, 3.0, "ok", 2176), (0, 1, 2.5, 7.0, 7.0, 7.1, 9.0, "ok", 2432)]
+    r = _run(rows)
+    r["cfg"]["workload"]["sessions"] = {"turns": 2, "turn_gap_s": {"dist": "fixed", "mean": 4.0}}
+    p = ltb.reply_profile(r, 0.0, 200.0)
+    assert p["mean"] == pytest.approx(2.0) and p["release_overlap"] == 0.0 and math.isnan(p["implied_overlap"])
+
+
+def test_reply_summary_ranges_over_seeds():
+    w = lambda m, ov: {"mean": m, "p50": m, "p90": m, "release_overlap": ov, "implied_overlap": ov,
+                       "stay": {"mean": 30 + m}}
+    res = [{"cell": "c", "rows": [{"seed": 1, "burst": {"base": w(2.0, 0.4), "end": w(2.5, 0.3)}},
+                                  {"seed": 2, "burst": {"base": w(3.0, 0.5), "end": w(2.6, NAN)}}]}]
+    s = ltb.reply_summary(res)["c"]["burst"]
+    assert s["n"] == 2 and s["base"]["mean"] == [2.0, 3.0] and s["end"]["release_overlap"] == [0.3, 0.3]
+    assert s["base"]["stay_mean"] == [32.0, 33.0]

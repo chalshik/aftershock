@@ -37,7 +37,7 @@ Figure 3's accounting (`fig3_accounting`): the turns of `rewrite_figs.reuse_by_x
 bucket, `held` and `neg_A` included, and for `neg_A` (a >= 0 but a negative allocation count A, counter timing) the
 idle-age quantiles and the pooled reuse.
 
-Usage: uv run --extra analysis python -m analysis.ltb   (prints JSON); `... ltb paper <summary JSON>` prints the papers'
+Usage: uv run --extra analysis python -m analysis.ltb   (prints JSON; `... ltb reply` the reply-duration readout); `... ltb paper <summary JSON>` prints the papers'
 latency table (`paper_table`).
 """
 from __future__ import annotations
@@ -267,6 +267,99 @@ def overlap_table() -> list[dict]:
     return out
 
 
+# ---------------------------------------------------------------- full-paper review (author 2026-11-26, point 1)
+# How long does a warm reply take, and is "about 36 s (seven 5 s think gaps and about 1 s of service)" right?
+# Defined in decisions.md 2026-11-26 [DECISION] (author) "A post-hoc reply-duration readout ..." before computed.
+# Post hoc; nothing judged. `stay_margin_s`: a session counts toward the stay only if its first turn was released at
+# least this long before the window's end, so that sessions cut by the window's end or by the schedule's end
+# (duration_s drops planned turns) do not shorten the mean.
+REPLY = {"stay_margin_s": 120.0,
+         "cells": ("closed loop, λ 2.0 (main runs)", "open loop, λ 2.0", "open loop, later stack")}
+
+
+def reply_profile(run: dict, a: float, b: float) -> dict:
+    """Session requests (burst excluded) that finished ok and were released in [a, b) (release_time):
+    reply duration D = t_end - release time (send lag, queue wait, prefill and decode of the 128 tokens): n, mean,
+    p10, p50, p90. `release_overlap`: share of those that are not a session's last turn whose successor was released
+    before they ended (t_release[k+1] < t_end[k]), measured. `implied_overlap`: mean of 1 - exp(-D / g) over the same
+    turns, with g the configured mean think gap (exponential gaps only, else NaN): the share expected under open
+    release if the gap is independent of D. `stay`: sessions with every turn ok, all `turns` present, and the first
+    turn released in [a, b - stay_margin_s): mean and p50 of the last turn's t_end minus the first turn's release."""
+    q = run["requests"]
+    s = q[~is_burst_request(run)].sort_values(["session_id", "turn"]).copy()
+    s["rel"] = release_time(s)
+    ok = s[(s.status == "ok") & (s.rel >= a) & (s.rel < b)]
+    d = (ok.t_end.astype(float) - ok.rel).to_numpy(float)
+    out = {"n": int(len(d))}
+    if len(d):
+        out.update({"mean": float(d.mean()), "p10": nearest_rank(d, 10), "p50": nearest_rank(d, 50),
+                    "p90": nearest_rank(d, 90)})
+    sess = run["cfg"]["workload"]["sessions"]
+    turns, gap = int(sess["turns"]), sess["turn_gap_s"]
+    g = s.groupby("session_id")
+    s["next_rel"] = g.rel.shift(-1)
+    s["next_turn"] = g.turn.shift(-1)
+    f = s[(s.status == "ok") & (s.rel >= a) & (s.rel < b) & (s.next_turn == s.turn + 1)]
+    fd = (f.t_end.astype(float) - f.rel).to_numpy(float)
+    out["followed"] = int(len(f))
+    out["release_overlap"] = float((f.next_rel < f.t_end).mean()) if len(f) else math.nan
+    out["implied_overlap"] = (float(np.mean(1.0 - np.exp(-fd / float(gap["mean"]))))
+                              if len(f) and gap.get("dist") == "exponential" else math.nan)
+    first = s[s.turn == 0].set_index("session_id")
+    keep = first[(first.rel >= a) & (first.rel < b - REPLY["stay_margin_s"])].index
+    full = s[s.session_id.isin(keep)].groupby("session_id").agg(
+        n=("turn", "size"), all_ok=("status", lambda x: bool((x == "ok").all())), start=("rel", "min"),
+        end=("t_end", "max"))
+    full = full[(full.n == turns) & full.all_ok]
+    st = (full.end.astype(float) - full.start).to_numpy(float)
+    out["stay"] = {"n": int(len(st)), "mean": float(st.mean()) if len(st) else math.nan,
+                   "p50": nearest_rank(st, 50)}
+    return out
+
+
+def reply_table() -> list[dict]:
+    """reply_profile in `base` and `end` (k1.windows of the burst run) for the burst runs and controls of REPLY's
+    cells of uniform.CELLS; a control is read at its burst partner's windows."""
+    out = []
+    for name, bp, cp, seeds in uniform.CELLS:
+        if name not in REPLY["cells"]:
+            continue
+        rows = []
+        for sd in seeds:
+            b, _ = k1._runs(bp.format(s=sd))
+            if b is None:
+                continue
+            win = k1.windows(b["cfg"])
+            row = {"seed": sd, "burst": {"run": b["dir"].name, **{w: reply_profile(b, *win[w]) for w in win}}}
+            if cp:
+                c, _ = k1._runs(cp.format(s=sd))
+                if c is not None:
+                    row["control"] = {"run": c["dir"].name, **{w: reply_profile(c, *win[w]) for w in win}}
+            rows.append(row)
+        out.append({"cell": name, "rows": rows})
+    return out
+
+
+def reply_summary(res: list[dict]) -> dict:
+    """Ranges (min, max over a cell's seeds) of reply_table's output (the saved probe JSON), per cell, role and
+    window. Presentation of the same numbers; nothing new is computed."""
+    out = {}
+    for c in res:
+        roles = {}
+        for who in ("burst", "control"):
+            rs = [r[who] for r in c["rows"] if r.get(who)]
+            if not rs:
+                continue
+            roles[who] = {"n": len(rs), **{w: {
+                "mean": _rng([r[w].get("mean") for r in rs]), "p50": _rng([r[w].get("p50") for r in rs]),
+                "p90": _rng([r[w].get("p90") for r in rs]),
+                "release_overlap": _rng([r[w]["release_overlap"] for r in rs]),
+                "implied_overlap": _rng([r[w]["implied_overlap"] for r in rs]),
+                "stay_mean": _rng([r[w]["stay"]["mean"] for r in rs])} for w in ("base", "end")}}
+        out[c["cell"]] = roles
+    return out
+
+
 def _rng(vals: list) -> list | None:
     v = [x for x in vals if x is not None and not (isinstance(x, float) and math.isnan(x))]
     return [min(v), max(v)] if v else None
@@ -363,6 +456,9 @@ def main(argv: list[str]) -> int:
     if what == "paper":   # python -m analysis.ltb paper <saved summary JSON>
         print("\n".join(paper_table(json.loads(open(argv[2]).read()))))
         return 0
+    if what == "reply_summary":   # python -m analysis.ltb reply_summary <saved reply JSON>
+        print(json.dumps(reply_summary(json.loads(open(argv[2]).read())["reply"]), indent=1, default=str))
+        return 0
     if what == "summary":   # python -m analysis.ltb summary <saved table JSON>
         print(json.dumps(summary(json.loads(open(argv[2]).read())), indent=1, default=str))
         return 0
@@ -371,6 +467,8 @@ def main(argv: list[str]) -> int:
         res["cells"] = table()
     if what == "overlap":
         res["overlap"] = overlap_table()
+    if what == "reply":
+        res["reply"] = reply_table()
     if what in ("all", "fig3"):
         res["fig3"] = fig3_accounting()
     print(json.dumps(res, indent=1, default=str))

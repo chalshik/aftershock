@@ -1,6 +1,6 @@
 # Registrations and results
 
-Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 117 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
+Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in the working repository), in log order. The log also holds 122 corrections (`[CORR]`), not listed here. `analysis/withheld.py` reads this file in place of the log: a run stays sealed until its `[RESULT]` heading is here.
 
 ## 2026-11-04 · [RESULT] Sweep schedules share one rising-load pattern (audit, descriptive)
 ## 2026-11-04 · [REG] REG-1: post-trigger completion margin (tests assumption A of M2)
@@ -108,3 +108,4 @@ Every `[REG]` and `[RESULT]` heading of the study's log (`docs/decisions.md` in 
 ## 2026-11-25 · [RESULT] PW (REG-19's whole-window rule on the ten post-rule seeds)
 ## 2026-11-26 · [RESULT] The post-hoc one-criterion readout (`uniform.table2_readout`): every cell keeps its registered direction; the cap-40 seed 15 reads cold, not rewarming
 ## 2026-11-26 · [RESULT] Post-hoc load-test readouts (`ltb.table`, `ltb.overlap_table`, `ltb.fig3_accounting`): latency and goodput follow the registered states; send lag is under 0.4 s everywhere; four in ten open-loop follow-up turns overlap their predecessor in the healthy state too
+## 2026-11-26 · [RESULT] The reply-duration readout (`ltb.reply_table`): a warm reply takes 2.4–2.9 s on average, not about 1 s; an open-loop session stays 37–39 s; the overlap follows from the reply time

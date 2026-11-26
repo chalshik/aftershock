@@ -1,8 +1,8 @@
 # Pre-specified probabilities of the outcomes
 
-The probability each pre-specification gave the outcome that occurred, for the cells of the paper's Table 3:
+The probability each pre-specification gave the outcome that occurred, for the cells of the paper's Tables 3, 5 and 6:
 
-| Cell of Table 3 | λ | Pre-specified probability of the outcome that occurred |
+| Cell of Tables 3, 5 and 6 | λ | Pre-specified probability of the outcome that occurred |
 |---|---|---|
 | Burst, 3000 s window (the replication) | 2.0 | ≈ 0.033 |
 | Burst, 4500 s window, drop to λ = 1 and return | 2.0 | ≈ 0.26 (seed 43: ≈ 0.62, given a warm control) |
@@ -15,7 +15,7 @@ The probability each pre-specification gave the outcome that occurred, for the c
 | Session cap at each seed's control peak (25–29) | 2.0 | ≈ 0.76 |
 | Session cap of 40 | 2.0 | ≈ 0.49 |
 
-The probability is not evidence. Of three outcomes not in Table 3: the aging reading ≈ 0.35, on a premise, narrow waits, that the queue-time readout did not bear out; the re-warming reading's prediction ≈ 0.6, which held in none; the band test ≈ 0.29, behind `mixed` ≈ 0.55.
+The probability is not evidence. Of three outcomes not in Tables 3, 5 and 6: the aging reading ≈ 0.35, on a premise, narrow waits, that the queue-time readout did not bear out; the re-warming reading's prediction ≈ 0.6, which held in none; the band test ≈ 0.29, behind `mixed` ≈ 0.55.
 
 The second table sets each pre-specified outcome beside what the text reports, for the main tests. Labels are the pre-specifications' own, in quotes.
 
